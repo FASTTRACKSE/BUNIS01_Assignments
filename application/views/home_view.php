@@ -76,13 +76,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/1200x350a.jpg" alt="First slide">
+                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350a.jpg" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/1200x350b.jpg" alt="Second slide">
+                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350b.jpg" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/1200x350c.jpg" alt="Third slide">
+                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350c.jpg" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -104,7 +104,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newsa"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car.jpg" alt=""></a>
+                <a href="newsa"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newsa">News A</a>
@@ -116,7 +116,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newsb"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car2.jpg" alt=""></a>
+                <a href="newsb"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car2.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newsb">News B</a>
@@ -128,7 +128,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newsc"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car3.jpg" alt=""></a>
+                <a href="newsc"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car3.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newsc">News C</a>
@@ -140,7 +140,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newsd"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car3.jpg" alt=""></a>
+                <a href="newsd"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car3.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newsd">News D</a>
@@ -152,7 +152,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newse"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car2.jpg" alt=""></a>
+                <a href="newse"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car2.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newse">News E</a>
@@ -164,7 +164,7 @@
 
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="newsf"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/700x400car.jpg" alt=""></a>
+                <a href="newsf"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car.jpg" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="newsf">News F</a>
@@ -186,23 +186,23 @@
 
           <div class="row">
             <div class="col-md-2 col-sm-6 mb-4">
-              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/400x300a.jpg" alt="">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300a.jpg" alt="">
             </div>
 
             <div class="col-md-2 col-sm-6 mb-4">
-              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/400x300b.png" alt="">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300b.png" alt="">
             </div>
 
             <div class="col-md-2 col-sm-6 mb-4">
-              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/400x300c.jpg" alt="">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300c.jpg" alt="">
             </div>
 
             <div class="col-md-2 col-sm-6 mb-4">
-              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/400x300d.jpg" alt="">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300d.jpg" alt="">
             </div>
 
             <div class="col-md-2 col-sm-6 mb-4">
-              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/400x300e.jpg" alt="">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300e.jpg" alt="">
             </div>
 
           </div>
@@ -220,7 +220,7 @@
             </div>
             <div class="col-lg-2 col-sm-6 text-center mb-4">
               <div class="logo">
-                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo (base_url()); ?>assets/image/100x100b.png" alt="">
+                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo (base_url()); ?>assets/image/homepage/100x100b.png" alt="">
               </div>
               <!-- <h3>John Smith
                 <small>Job Title</small>
@@ -228,7 +228,7 @@
             </div>
             <div class="col-lg-2 col-sm-6 text-center mb-4">
               <div class="logo">
-                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo (base_url()); ?>assets/image/100x100c.png" alt="">
+                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo (base_url()); ?>assets/image/homepage/100x100c.png" alt="">
               </div>
               <!-- <h3>John Smith
                 <small>Job Title</small>
