@@ -16,7 +16,6 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo(base_url()); ?>assets/newspart/css/one-page-wonder.min.css" rel="stylesheet">
-
     
-
+    
 </head>
