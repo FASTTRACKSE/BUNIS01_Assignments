@@ -33,7 +33,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getProductDesc($id);
 		
-		$this->load->view('Product_Description',$data);
+		$this->load->view('product/Product_Description',$data);
 	}
 
 	public function carparts()
