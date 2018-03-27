@@ -58,7 +58,7 @@
           
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100" >
-                <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['InsuranceImage'] ;?>"></a>
+                <a href="#"><img class="card-img-top" src="<?php echo  base_url('assets/image/product/').$row['InsuranceImage'] ;?>"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?php echo  $row['InsuranceName']  ;?></a>

@@ -55,10 +55,6 @@ body {
     left: 400px;
   }
 
-  .card-img-top
-  {
-      height : 400px;
-      width:400px;
-      object-fit: cover;
-  }
-}
+
+  
+
