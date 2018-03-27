@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="<?php echo(base_url()); ?>index.php/newscontroller/"><img class="logoHeader" src="<?php echo(base_url()); ?>assets/img/logo.png"></a>
+    <a class="navbar-brand" href="<?php echo(base_url()); ?>index.php/Homepage/"><img class="logoHeader" src="<?php echo(base_url()); ?>assets/newspart/img/logo.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -43,11 +43,11 @@
             <a class="nav-link" href="#">Products</a>
             
             <div class="dropdown-content">
-                <a href="#">Insurance</a>
-                <a href="#">Car Parts</a>
-                <a href="#">Oils and Fluids</a>
-                <a href="#">Accessory</a>
-                <a href="#">Used Cars (Buy and Sell)</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/index">Insurance</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/carparts">Car Parts</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/oilandfluid">Oils and Fluids</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/accessory">Accessory</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/usedcar">Used Cars (Buy and Sell)</a>
             </div>
           </div>
 
