@@ -20,27 +20,27 @@ class Homepage extends CI_Controller{
 	}
 
 	public function newsa(){
-		$this->load->view("news_a");
+		$this->load->view("newsview/news_a");
 	}
 
 	public function newsb(){
-		$this->load->view("news_b");
+		$this->load->view("newsview/news_b");
 	}
 
 	public function newsc(){
-		$this->load->view("news_c");
+		$this->load->view("newsview/news_c");
 	}
 
 	public function newsd(){
-		$this->load->view("news_d");
+		$this->load->view("newsview/news_d");
 	}
 
 	public function newse(){
-		$this->load->view("news_e");
+		$this->load->view("newsview/news_e");
 	}
 
 	public function newsf(){
-		$this->load->view("news_f");
+		$this->load->view("newsview/news_f");
 	}
 
 	// public function servicea(){
