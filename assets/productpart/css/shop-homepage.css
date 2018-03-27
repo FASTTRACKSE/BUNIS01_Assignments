@@ -55,6 +55,14 @@ body {
     left: 400px;
   }
 
+  .card-img-top
+  {
+      max-height : 300px;
+      max-width: : 300px;
+      object-fit: cover;
+  }
 
-  
-
+  .marginTop{
+    margin-top: 70px;
+  }
+}

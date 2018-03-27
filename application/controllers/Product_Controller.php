@@ -14,12 +14,16 @@ public function index()
 
 	{
 
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Promoting Program',
+		);
+
 		$load_product=$this->Product_Model->getProduct();
-		$data['InsuranceID'] = $load_product;
+		$dataPage['InsuranceID'] = $load_product;
 		
-		$this->load->view('templates/head');
+		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('product/Product_list', $data);
+		$this->load->view('Product_list', $dataPage);
 		$this->load->view('templates/footer');
 
 	}
@@ -29,7 +33,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getProductDesc($id);
 		
-		$this->load->view('product/Product_Description',$data);
+		$this->load->view('Product_Description',$data);
 	}
 
 	public function carparts()
@@ -40,7 +44,7 @@ public function index()
 		$load_product=$this->Product_Model->getCarParts();
 		$data['CarPartsID'] = $load_product;
 		
-		$this->load->view('product/carparts_list', $data);
+		$this->load->view('carparts_list', $data);
 
 	}
 
@@ -49,7 +53,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getCarPartsDesc($id);
 		
-		$this->load->view('product/carparts_Description',$data);
+		$this->load->view('carparts_Description',$data);
 	}
 
 	public function accessory()
@@ -60,7 +64,7 @@ public function index()
 		$load_product=$this->Product_Model->getAcc();
 		$data['AccessoryID'] = $load_product;
 		
-		$this->load->view('product/acc_list', $data);
+		$this->load->view('acc_list', $data);
 
 	}
 
@@ -69,7 +73,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getAccDesc($id);
 		
-		$this->load->view('product/acc_Description',$data);
+		$this->load->view('acc_Description',$data);
 	}
 
 	public function oilandfluid()
@@ -80,7 +84,7 @@ public function index()
 		$load_product=$this->Product_Model->getOilandFluid();
 		$data['OilandFluidID'] = $load_product;
 		
-		$this->load->view('product/oil_fluid_list', $data);
+		$this->load->view('oil_fluid_list', $data);
 
 	}
 
@@ -89,7 +93,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getOilandFluidDesc($id);
 		
-		$this->load->view('product/oil_fluid_Description',$data);
+		$this->load->view('oil_fluid_Description',$data);
 	}
 	public function usedcars()
 
@@ -99,7 +103,7 @@ public function index()
 		$load_product=$this->Product_Model->getUsedCars();
 		$data['UsedCarsID'] = $load_product;
 		
-		$this->load->view('product/usedcars_list', $data);
+		$this->load->view('usedcars_list', $data);
 
 	}
 
@@ -108,7 +112,7 @@ public function index()
 		
 		$data['item']=$this->Product_Model->getUsedCarsDesc($id);
 		
-		$this->load->view('product/usedcars_Description',$data);
+		$this->load->view('usedcars_Description',$data);
 	}
 
 	public function update()
