@@ -8,7 +8,15 @@ class Homepage extends CI_Controller{
 	}
 
 	public function index(){
+
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Promoting Program',
+		 );
+		
+		$this->load->view('templates/head', $data); 
+		$this->load->view('templates/navbar');
 		$this->load->view("home_view");
+		$this->load->view('templates/footer');
 	}
 
 	public function newsa(){
