@@ -17,7 +17,10 @@ public function index()
 		$load_product=$this->Product_Model->getProduct();
 		$data['InsuranceID'] = $load_product;
 		
+		$this->load->view('templates/head');
+		$this->load->view('templates/navbar');
 		$this->load->view('Product_list', $data);
+		$this->load->view('templates/footer');
 
 	}
 
