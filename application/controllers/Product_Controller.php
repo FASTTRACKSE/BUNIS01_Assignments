@@ -23,7 +23,7 @@ public function index()
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('Product_list', $dataPage);
+		$this->load->view('product/Product_list', $dataPage);
 		$this->load->view('templates/footer');
 
 	}
