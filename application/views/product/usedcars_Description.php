@@ -21,8 +21,8 @@
          
           
             <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top marginTop" height="400" width="400" src="<?php echo  base_url('assets/image/product/').$item['UsedCarsImage'] ;?>"></a>
+              <div class="card h-100" >
+                <a href="#"><img class="card-img-top marginTop"  src="<?php echo  base_url('assets/image/product/').$item['UsedCarsImage'] ;?>"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="#"><?php echo  $item['UsedCarsName']  ;?></a>
@@ -30,7 +30,7 @@
                   <h5><?php echo  $item['UsedCarsPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['UsedCarsDesc'] ;?></p> 
 
-             <a href="update/<?php echo $item['UsedCarsID'] ?>">Update</a>
+             <a href="<?php echo  base_url('Product_Controller/update/').$item['UsedCarsID'] ?>">Update</a>
      
                 </div>
  

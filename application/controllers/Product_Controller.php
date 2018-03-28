@@ -15,7 +15,7 @@ public function index()
 	{
 
 		$data = array(
-				'headTitle' => 'Garage HC Auto | Promoting Program',
+				'headTitle' => 'Garage HC Auto | Insurance',
 		);
 
 		$load_product=$this->Product_Model->getProduct();
@@ -30,10 +30,16 @@ public function index()
 
 	public function load_desc($id)
 	{
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Insurance',
+		);
 		
-		$data['item']=$this->Product_Model->getProductDesc($id);
+		$dataPage['item']=$this->Product_Model->getProductDesc($id);
 		
-		$this->load->view('product/Product_Description',$data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/Product_Description', $dataPage);
+		$this->load->view('templates/footer');
 	}
 
 	public function carparts()
@@ -200,7 +206,7 @@ public function index()
 		
 	}
 
-	public function update()
+	public function update($id)
 	{
 		// $arData = array(
 		//   'UsedCarsName' =>	$this->input->post('name'),
@@ -208,8 +214,8 @@ public function index()
 		// );
 		// $result= $this->Product_Model->update($arData);
 		
-		
-			 $this->load->view('updatepage');		
+			$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
+			 $this->load->view('product/updatepage',$dataPage);		
 		
 	}
 
