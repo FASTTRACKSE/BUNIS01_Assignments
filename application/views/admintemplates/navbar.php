@@ -14,7 +14,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Company Introduction</span>
+            <span class="nav-link-text">Company Profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">

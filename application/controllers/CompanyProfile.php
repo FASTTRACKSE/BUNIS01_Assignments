@@ -23,7 +23,6 @@ class CompanyProfile extends CI_Controller {
 		$data['technicalsupport'] = $this->CompanyProfile_model->getTechnicalSupport();
 
 		$this->load->view('templates/head', $data); 
-
 		$this->load->view('templates/navbar');
 
 		$this->load->view('company_profile', $data);	
