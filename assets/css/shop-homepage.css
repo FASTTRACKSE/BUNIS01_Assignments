@@ -14,8 +14,12 @@ body {
   }
 }
 
+.caro-margin{
+	margin-top: 40px;
+}
+
 .homepage-service{
-	max-width: 120%;
+	max-width: 100%;
   	height: auto;
   	position: relative;
 	margin: auto;
@@ -46,3 +50,5 @@ body {
 .sponsor{
 	text-align: center;
 }
+
+

@@ -14,19 +14,32 @@ public function index()
 
 	{
 
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Insurance',
+		);
+
 		$load_product=$this->Product_Model->getProduct();
-		$data['InsuranceID'] = $load_product;
+		$dataPage['InsuranceID'] = $load_product;
 		
-		$this->load->view('Product_list', $data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/Product_list', $dataPage);
+		$this->load->view('templates/footer');
 
 	}
 
 	public function load_desc($id)
 	{
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Insurance',
+		);
 		
-		$data['item']=$this->Product_Model->getProductDesc($id);
+		$dataPage['item']=$this->Product_Model->getProductDesc($id);
 		
-		$this->load->view('Product_Description',$data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/Product_Description', $dataPage);
+		$this->load->view('templates/footer');
 	}
 
 	public function carparts()
@@ -34,19 +47,41 @@ public function index()
 
 	{
 
+
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Promoting Program',
+		);
+
 		$load_product=$this->Product_Model->getCarParts();
-		$data['CarPartsID'] = $load_product;
+		$dataPage['CarPartsID'] = $load_product;
 		
-		$this->load->view('carparts_list', $data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/carparts_list', $dataPage);
+		$this->load->view('templates/footer');
+
+	
+		
+		
 
 	}
 
 	public function load_carparts_desc($id)
 	{
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Car Parts',
+		);
+
+		$dataPage['item']=$this->Product_Model->getCarPartsDesc($id);
+
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/carparts_Description',$dataPage);
+		$this->load->view('templates/footer');
+
+
+
 		
-		$data['item']=$this->Product_Model->getCarPartsDesc($id);
-		
-		$this->load->view('carparts_Description',$data);
 	}
 
 	public function accessory()
@@ -54,61 +89,124 @@ public function index()
 
 	{
 
+				$data = array(
+				'headTitle' => 'Garage HC Auto | Accessory',
+		);
+
 		$load_product=$this->Product_Model->getAcc();
-		$data['AccessoryID'] = $load_product;
+		$dataPage['AccessoryID'] = $load_product;
 		
-		$this->load->view('acc_list', $data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/acc_list', $dataPage);
+		$this->load->view('templates/footer');
+
 
 	}
 
 	public function load_accessory_desc($id)
 	{
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Accessory',
+		);
+
+		$dataPage['item']=$this->Product_Model->getAccDesc($id);
+
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/acc_Description',$dataPage);
+		$this->load->view('templates/footer');
+
 		
-		$data['item']=$this->Product_Model->getAccDesc($id);
 		
-		$this->load->view('acc_Description',$data);
+		
 	}
 
 	public function oilandfluid()
 
 
-	{
+	
+		{	
+
+				$data = array(
+				'headTitle' => 'Garage HC Auto | Oil and Fluid',
+		);
 
 		$load_product=$this->Product_Model->getOilandFluid();
-		$data['OilandFluidID'] = $load_product;
+		$dataPage['OilandFluidID'] = $load_product;
 		
-		$this->load->view('oil_fluid_list', $data);
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/oil_fluid_list', $dataPage);
+		$this->load->view('templates/footer');
+
+		
 
 	}
 
 	public function load_oil_fluid_desc($id)
 	{
 		
-		$data['item']=$this->Product_Model->getOilandFluidDesc($id);
+				
+
+				$data = array(
+				'headTitle' => 'Garage HC Auto | Oil and Fluid',
+		);
+
+		$dataPage['item']=$this->Product_Model->getOilandFluidDesc($id);
 		
-		$this->load->view('oil_fluid_Description',$data);
+		
+
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/oil_fluid_Description', $dataPage);
+		$this->load->view('templates/footer');
+
 	}
 	public function usedcars()
 
 
 	{
 
-		$load_product=$this->Product_Model->getUsedCars();
-		$data['UsedCarsID'] = $load_product;
 		
-		$this->load->view('usedcars_list', $data);
+		
+		
+			
+
+				$data = array(
+				'headTitle' => 'Garage HC Auto | Used Cars',
+		);
+
+		$load_product=$this->Product_Model->getUsedCars();
+		$dataPage['UsedCarsID'] = $load_product;
+		
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/usedcars_list', $dataPage);
+		$this->load->view('templates/footer');
 
 	}
 
 	public function load_usedcars_desc($id)
 	{
+			$data = array(
+				'headTitle' => 'Garage HC Auto | Used Cars',
+		);
+
+		$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
 		
-		$data['item']=$this->Product_Model->getUsedCarsDesc($id);
 		
-		$this->load->view('usedcars_Description',$data);
+
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/usedcars_Description', $dataPage);
+		$this->load->view('templates/footer');
+		
+		
+		
 	}
 
-	public function update()
+	public function update($id)
 	{
 		// $arData = array(
 		//   'UsedCarsName' =>	$this->input->post('name'),
@@ -116,8 +214,8 @@ public function index()
 		// );
 		// $result= $this->Product_Model->update($arData);
 		
-		
-			 $this->load->view('updatepage');		
+			$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
+			 $this->load->view('product/updatepage',$dataPage);		
 		
 	}
 

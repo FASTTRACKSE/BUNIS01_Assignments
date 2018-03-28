@@ -7,7 +7,7 @@
 			$this->load->helper('url');
 		}
 
-		public function viewAdminPage(){
+		public function index(){
 			$this->load->view('admintemplates/head');
 			$this->load->view('admintemplates/navbar');
 
