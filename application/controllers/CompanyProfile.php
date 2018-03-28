@@ -18,7 +18,9 @@ class CompanyProfile extends CI_Controller {
 		$data['customercare'] = $this->CompanyProfile_model->getCustomerCare();
 		$data['technicalsupport'] = $this->CompanyProfile_model->getTechnicalSupport();
 
+		$this->load->view('templates/head');
 
+		$this->load->view('templates/navbar');
 
 		$this->load->view('company_profile', $data);		
 	}
