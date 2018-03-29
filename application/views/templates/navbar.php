@@ -26,7 +26,7 @@
         <li class="nav-item">
           
           <div class="dropdown">
-            <a class="nav-link" href="#">News & Events</a>
+            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/newscontroller/viewNews">News & Events</a>
             
             <div class="dropdown-content">
                 <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewPromoProg">Promotion Program</a>
@@ -58,7 +58,7 @@
             <a class="nav-link" href="#">Services</a>
             
             <div class="dropdown-content">
-                <a href="#">Engine</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/view">Engine</a>
                 <a href="#">Electrical</a>
                 <a href="#">Body</a>
                 <a href="#">Car Rescue</a>

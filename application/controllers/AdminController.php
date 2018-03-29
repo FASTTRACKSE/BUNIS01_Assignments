@@ -5,10 +5,28 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url');
+			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->library('pagination');
 			$this->load->model('Product_Model');
 			$this->load->helper("url");
+		}
+
+		public function companyProfile()
+		{
+			$data = array(
+				'headerTitle' => 'Company Profile'
+		 	);
+
+			$data['partners'] = $this->CompanyProfile_model->getPartners();
+			$data['staffs'] = $this->CompanyProfile_model->getStaffs();
+			$data['datas'] = $this->CompanyProfile_model->getDatas();
+			$data['about'] = $this->CompanyProfile_model->getAbout();
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/companyProfile');
+			$this->load->view('admintemplates/footer');
 		}
 
 		public function news(){
@@ -60,6 +78,7 @@
 		{
 
 
+<<<<<<< HEAD
 			$arData = array(
 			   'InsuranceName' =>	$this->input->post('name'),
 			   'InsurancePrice'=> $this->input->post('price'),
@@ -94,6 +113,10 @@
 	{
 			$dataPage['item']=$this->Product_Model->getProductDesc($id);
 			$this->load->view('product/deletepage_insurance',$dataPage);
+=======
+		
+
+>>>>>>> eff064a348df228449e530c19271c52babe62b5c
 	}
 		public function do_delete_insurance($id)
 	{

@@ -81,16 +81,18 @@
       <!-- vision -->
       <section id="vision">
         <div class="container">
-          <?php foreach ($vision as $v) {?>
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase"><?php echo $v['type'];?></h2>
-              <h3 class="section-subheading text-muted"></h3>
-            </div>
-          </div>
-          <div class="row text-center">
-            <?php echo $v['description'];?>
-          </div>
+          <?php foreach ($datas as $d) {?>
+            <?php if ($d['id'] == 1): ?>
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="section-heading text-uppercase"><?php echo $d['type'];?></h2>
+                  <h3 class="section-subheading text-muted"></h3>
+                </div>
+              </div>
+              <div class="row text-center">
+                <?php echo $d['description'];?>
+              </div>
+            <?php endif ?>
           <?php }  ?>
         </div>
       </section>
@@ -98,16 +100,18 @@
     <!-- Mission -->
       <section id="mission">
         <div class="container">
-          <?php foreach ($mission as $m) {?>
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase"><?php echo $m['type'];?></h2>
-              <h3 class="section-subheading text-muted"></h3>
-            </div>
-          </div>
-         <div class="row text-center">
-            <?php echo $m['description'];?>
-          </div>
+          <?php foreach ($datas as $d) {?>
+            <?php if ($d['id'] == 2): ?>
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="section-heading text-uppercase"><?php echo $d['type'];?></h2>
+                  <h3 class="section-subheading text-muted"></h3>
+                </div>
+              </div>
+              <div class="row text-center">
+                <?php echo $d['description'];?>
+              </div>
+            <?php endif ?>
           <?php }  ?>
         </div>
       </section>
@@ -118,68 +122,47 @@
           <div class="row">
             <div class="col-lg-12 text-center">
               <h2 class="section-heading text-uppercase">About</h2>
-              <h3 class="section-subheading text-muted">/*Want to include this section? or delete it?*/</h3>
             </div>
           </div>
+          <?php foreach ($about as $a) {?>
           <div class="row">
             <div class="col-lg-12">
               <ul class="timeline">
+                <!-- odd id -->
+                <?php if ($a['id']%2 > 0): ?>
                 <li>
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/1.jpg'; ?>" alt="">
+                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
-                      <h4>2009-2011</h4>
-                      <h4 class="subheading">Our Humble Beginnings</h4>
+                      <h4><?php echo $a['date'] ?></h4>
+                      <h4 class="subheading"><?php echo $a['title'] ?></h4>
                     </div>
                     <div class="timeline-body">
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                      <p class="text-muted"><?php echo $a['description'] ?></p>
                     </div>
                   </div>
                 </li>
+                <?php endif ?>
+                <!-- even id -->
+                <?php if ($a['id']%2 == 0): ?>
                 <li class="timeline-inverted">
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/2.jpg'; ?>" alt="">
+                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
-                      <h4>March 2011</h4>
-                      <h4 class="subheading">An Agency is Born</h4>
+                      <h4><?php echo $a['date'] ?></h4>
+                      <h4 class="subheading"><?php echo $a['title'] ?></h4>
                     </div>
                     <div class="timeline-body">
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                      <p class="text-muted"><?php echo $a['description'] ?></p>
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/3.jpg'; ?>" alt="">
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>December 2012</h4>
-                      <h4 class="subheading">Transition to Full Service</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-inverted">
-                  <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/4.jpg'; ?>" alt="">
-                  </div>
-                  <div class="timeline-panel">
-                    <div class="timeline-heading">
-                      <h4>July 2014</h4>
-                      <h4 class="subheading">Phase Two Expansion</h4>
-                    </div>
-                    <div class="timeline-body">
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                    </div>
-                  </div>
-                </li>
+                <?php endif ?>
+        <?php }  ?>
                 <li class="timeline-inverted">
                   <div class="timeline-image">
                     <h4>Be Part
@@ -303,16 +286,20 @@
 
           <div class="row">
             <div class="div2">
-              <?php foreach ($customercare as $cc) {?>
-              <h4 class="service-heading" ><?php echo $cc['type'];?></h4>
-                <p class="text-muted"><?php echo $cc['description'];?></p>
-              <?php } ?>
+              <?php foreach ($datas as $d) {?>
+                <?php if ($d['id'] == 3): ?>
+                  <h4 class="service-heading" ><?php echo $d['type'];?></h4>
+                  <p class="text-muted"><?php echo $d['description'];?></p>
+                <?php endif ?>
+              <?php }  ?>
             </div>
             <div class="div2">
-              <?php foreach ($technicalsupport as $ts) {?>
-              <h4 class="service-heading" ><?php echo $ts['type'];?></h4>
-                <p class="text-muted"><?php echo $ts['description'];?></p>
-              <?php } ?>
+              <?php foreach ($datas as $d) {?>
+                <?php if ($d['id'] == 4): ?>
+                  <h4 class="service-heading" ><?php echo $d['type'];?></h4>
+                  <p class="text-muted"><?php echo $d['description'];?></p>
+                <?php endif ?>
+              <?php }  ?>
             </div>
           </div>
         </div>
