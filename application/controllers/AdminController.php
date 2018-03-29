@@ -18,17 +18,17 @@
 
 			$this->pagination->initialize($config);
 
-			$data = array(
+			$dataView = array(
 				'headerTitle' => 'News',
 			);
 
 			$dataPage['news_list'] = $this->newsModel->getList($config['per_page'], $this->uri->segment(3));
 
-			
+			$data = array_merge($dataView, $dataPage);
 
 			$this->load->view('admintemplates/head', $data);
 			$this->load->view('admintemplates/navbar');
-			$this->load->view('adminpages/body', $dataPage);
+			$this->load->view('adminpages/news');
 			$this->load->view('admintemplates/footer');
 		}		
 

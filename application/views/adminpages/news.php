@@ -1,3 +1,6 @@
+<html lang="vi">
+
+
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <div class="content-wrapper">
     <div class="container-fluid">
@@ -25,7 +28,7 @@
                 <td><?php echo ($news['id']);?></td>
                 <td><?php echo ($news['title']);?></td>
                 <td><?php echo ($news['type']);?></td>
-                <td><?php echo ($news['newsDescription']);?></td>
+                <td><?php echo substr($news['newsDescription'], 0, 150); ?></td>
                 <td> <a href="#">Details</a> <a href="#">Update</a> <a href="#">Delete</a> </td>
               </tr>
             <?php endforeach; ?>
@@ -41,3 +44,5 @@
     <!-- /.container-fluid-->
     
 </body>
+
+</html>
