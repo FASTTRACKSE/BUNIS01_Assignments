@@ -100,9 +100,43 @@ class Product_Model extends CI_Model
 		return $data;
 	}
 
-	public function update($id)
+	public function update_usedcars($id, $arData)
 	{
-		$result= $this->db->update("project",$data);
+		$this->db->where('UsedCarsID', $id);
+		$this->db->update("usedcars", $arData);
+	}
+
+
+		public function update_insurance($id, $arData)
+	{
+		$this->db->where('InsuranceID', $id);
+		$this->db->update("insurance", $arData);
+	}
+
+	
+		public function update_carparts($id,$arData)
+	{
+			$this->db->where('CarPartsID', $id);
+		$this->db->update("carparts", $arData);
+	}
+
+	
+		public function update_oil_fluid($id,$arData)
+	{
+		$this->db->where('OilandFluidID', $id);
+		$this->db->update("oilandfluid", $arData);
+	}
+
+		public function update_acc($id,$arData)
+	{
+		$this->db->where('AccessoryID', $id);
+		$this->db->update("accessory", $arData);
+	}
+
+	public function insert_insurance($data)
+	{
+
+		$result = $this->db->insert("insurance",$data);
 		return $result;
 	}
 }

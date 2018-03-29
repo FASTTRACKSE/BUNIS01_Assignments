@@ -30,7 +30,7 @@
                   <h5><?php echo  $item['UsedCarsPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['UsedCarsDesc'] ;?></p> 
 
-             <a href="<?php echo  base_url('Product_Controller/update/').$item['UsedCarsID'] ?>">Update</a>
+             <a href="<?php echo  base_url('Product_Controller/update_usedcars/').$item['UsedCarsID'] ?>">Update</a>
      
                 </div>
  

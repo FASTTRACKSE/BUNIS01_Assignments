@@ -34,7 +34,8 @@
                   <h5><?php echo  $item['InsurancePrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['InsuranceDesc'] ;?></p> 
 
-             
+                  <a href="<?php echo  base_url('Product_Controller/update_insurance/').$item['InsuranceID'] ?>">Update</a>
+                  <a href="<?php echo  base_url('Product_Controller/insert_insurance/').$item['InsuranceID'] ?>">Insert</a>
      
                 </div>
  
