@@ -18,38 +18,46 @@ class CompanyProfile_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	
-	public function getVision()
+	public function getDatas()
 	{
 		$this->db->from("datas");
-		$this->db->where("id=1");
 		$query = $this->db->get();
 
 		return $query->result_array();
 	}
-	public function getMission()
-	{
-		$this->db->from("datas");
-		$this->db->where("id=2");
-		$query = $this->db->get();
 
+	public function getAbout()
+	{
+		$this->db->from("datas_about");
+		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function getCustomerCare()
-	{
-		$this->db->from("datas");
-		$this->db->where("id=3");
-		$query = $this->db->get();
 
-		return $query->result_array();
-	}
-	public function getTechnicalSupport()
+	public function updateVision()
 	{
-		$this->db->from("datas");
-		$this->db->where("id=4");
-		$query = $this->db->get();
 
-		return $query->result_array();
 	}
+
+	public function updateMission()
+	{
+		
+	}
+
+
+	public function updateCustomerCare()
+	{
+		
+	}
+
+	public function updateTechnicalSupport()
+	{
+		
+	}
+
+
+
+
+
+
 
 }
