@@ -8,7 +8,7 @@
     <div class="container bodyCustom">
 
       <h1 class="my-4">NEWS
-        <small>| <?php echo($headerTitle); ?></small>
+        <small><?php echo($headerTitle); ?></small>
       </h1>
 
       <!-- Page Heading -->
@@ -21,10 +21,10 @@
 	            <a href="#"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['id']); ?>.jpg" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
-	                <a href="#"><?php echo($news['id']); ?><?php echo($news['title']) ?></a>
+	                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>"><?php echo($news['id']); ?><?php echo($news['title']) ?></a>
 	              </h4>
-	              <p class="card-text"><?php echo substr($news['newsDescription'], 0, 200); ?> . . .</p>
-                <a href="#">Read More . . .</a>
+	              <p class="card-text"><?php echo substr($news['newsDescription'], 0, 150); ?> . . .</p>
+                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>">Read More . . .</a>
 	            </div>
 	          </div>
 	        </div> 
@@ -50,7 +50,7 @@
              
                   
                   <li class="page-item">
-                    <a class="page-link" href="<?php echo(base_url()); ?>index.php/NewsController/viewPromoProg/<?php if($i<1){echo('');}else{echo($i+1);} ?>"><?php echo($i+1); ?></a>
+                    <a class="page-link" href="<?php echo(base_url()); ?>index.php/NewsController/<?php echo($type);?>/<?php if($i<1){echo('');}else{echo($i+1);} ?>"><?php echo($i+1); ?></a>
                   </li>
                   
               
