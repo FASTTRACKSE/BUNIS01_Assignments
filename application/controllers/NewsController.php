@@ -10,6 +10,30 @@
 			$this->load->model('newsModel');
 		}
 
+		public function viewNews(){
+			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
+			$config['total_rows'] = $this->db->get('news')->num_rows();
+			$config['per_page'] = 6;
+			$config['num_links'] = 5;
+			$config['use_page_numbers'] = TRUE;
+
+			$this->pagination->initialize($config);
+
+			$data = array(
+				'headTitle' => 'Garage HC Auto | Promoting Program',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '',
+				'type' => 'viewNews',
+			);
+
+			$dataPage['newsList'] = $this->newsModel->getList($config['per_page'], $this->uri->segment(3));
+
+			$this->load->view('templates/head', $data);
+			$this->load->view('templates/navbar');
+			$this->load->view('pages/news', $dataPage, $data);
+			$this->load->view('templates/footer');
+		}
+
 		public function viewPromoProg(){
 			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'promoprog'))->num_rows();
@@ -22,14 +46,15 @@
 			$data = array(
 				'headTitle' => 'Garage HC Auto | Promoting Program',
 				'total_rows' => $config['total_rows'],
-				'headerTitle' => 'Promoting Program',
+				'headerTitle' => '| Promotion Program',
+				'type' => 'viewPromoProg',
 			);
 
 			$dataPage['newsList'] = $this->newsModel->getListPromoProg($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
-			$this->load->view('pages/promotingprogram', $dataPage, $data);
+			$this->load->view('pages/news', $dataPage, $data);
 			$this->load->view('templates/footer');
 		}
 
@@ -45,14 +70,15 @@
 			$data = array(
 				'headTitle' => 'Garage HC Auto | Technical Consulting',
 				'total_rows' => $config['total_rows'],
-				'headerTitle' => 'Technical Consulting',
+				'headerTitle' => '| Technical Consulting',
+				'type' => 'viewTechCons',
 			);
 
 			$dataPage['newsList'] = $this->newsModel->getListTechCons($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
-			$this->load->view('pages/promotingprogram', $dataPage, $data);
+			$this->load->view('pages/news', $dataPage, $data);
 			$this->load->view('templates/footer');
 		}
 
@@ -68,26 +94,34 @@
 			$data = array(
 				'headTitle' => 'Garage HC Auto | Automotive News',
 				'total_rows' => $config['total_rows'],
-				'headerTitle' => 'Automotive News',
+				'headerTitle' => '| Automotive News',
+				'type' => 'viewAutoNews'
 			);
 
 			$dataPage['newsList'] = $this->newsModel->getListAutoNews($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
-			$this->load->view('pages/promotingprogram', $dataPage, $data);
+			$this->load->view('pages/news', $dataPage, $data);
 			$this->load->view('templates/footer');
 		}
 
 		public function viewNewsDetail($id){
+
 			$dataPage['news'] = $this->newsModel->getNewsById($id);
 
-
-			$data = array(
-				'headTitle' => 'Garage HC Auto | Automotive News',
-				'total_rows' => $config['total_rows'],
-				'headerTitle' => 'Automotive News',
+			$dataHead = array(
+				'headTitle' => 'Garage HC Auto',
+				'headerTitle' => '| Automotive News',
+				'type' => 'viewAutoNews'
 			);
+
+			$data = array_merge($dataPage, $dataHead);
+
+			$this->load->view('templates/head', $data);
+			$this->load->view('templates/navbar');
+			$this->load->view('pages/newsdetail');
+			$this->load->view('templates/footer');
 		}
 	}
 

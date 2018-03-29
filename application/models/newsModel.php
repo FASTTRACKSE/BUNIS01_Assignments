@@ -40,7 +40,10 @@
 		}
 
 		function getNewsById($id){
-			
+			$this->db->where("id", $id);
+			$query=$this->db->get('news');
+			$data=$query->row_array(); //to print 1 row
+			return $data;
 		}
 
 	}
