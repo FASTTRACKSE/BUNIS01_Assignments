@@ -30,8 +30,7 @@
                   <h5><?php echo  $item['OilandFluidPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['OilandFluidDesc'] ;?></p> 
 
-                  <a href="<?php echo  base_url('Product_Controller/update_oil_fluid/').$item['OilandFluidID'] ?>">Update</a>
-     
+              
                 </div>
  
               </div>

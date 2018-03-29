@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<form action="<?php echo base_url("AdminController/do_insert_insurance/"); ?>" method="POST">
+<form action="<?php echo base_url("AdminController/do_insert_oil_fluid/"); ?>" method="POST">
 Name: <input type="text" name="name" value='' ><br>
 Price: <input type="text" name="price"  value=''><br>
 Description: <input type="text" name="desc"  value=''><br>

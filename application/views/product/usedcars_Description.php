@@ -30,7 +30,7 @@
                   <h5><?php echo  $item['UsedCarsPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['UsedCarsDesc'] ;?></p> 
 
-             <a href="<?php echo  base_url('Product_Controller/update_usedcars/').$item['UsedCarsID'] ?>">Update</a>
+           
      
                 </div>
  
@@ -38,13 +38,7 @@
 
             
     
-<!-- <img src="<?php echo  base_url('uploads/').$item['InsuranceImage'] ;?>">
 
-	<div class= "descimg" ><?php echo 'Product Name :' ?><?php echo $item['InsuranceName'] . "<br>";?></div>
-	<div><?php echo 'Product Price : ' ?><?php echo $item['InsurancePrice']. "<br>";?></div>
-	<div><?php echo 'Product Description :' ?><?php echo $item['InsuranceDesc']. "<br>";?></div>
- -->
-<!-- <input type ="submit" name="home" value="Home"/> -->
 </form>
 
  </div>
