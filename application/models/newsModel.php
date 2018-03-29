@@ -46,6 +46,10 @@
 			return $data;
 		}
 
+		function insertNews($data){
+			$this->db->insert('news', $data);
+		}
+
 	}
 	
 
