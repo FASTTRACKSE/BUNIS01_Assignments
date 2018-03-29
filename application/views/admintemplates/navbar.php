@@ -14,7 +14,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Company Introduction</span>
+            <span class="nav-link-text">Company Profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -73,13 +73,7 @@
           </a>
         </li>
       </ul>
-      <ul class="navbar-nav sidenav-toggler">
-        <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
+      
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">

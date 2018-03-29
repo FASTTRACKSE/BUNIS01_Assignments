@@ -11,13 +11,13 @@
         <li class="nav-item">
 
           <div class="dropdown">
-            <a class="nav-link" href="#">Company Introduction</a>
+            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/CompanyProfile">Company Profile</a>
             
             <div class="dropdown-content">
-                <a href="#">Vision</a>
-                <a href="#">Mission</a>
-                <a href="#">Organization Chart</a>
-                <a href="#">Contacts</a>
+                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#vision">Vision</a>
+                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#mission">Mission</a>
+                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#team">Organization Chart</a>
+                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#contact">Contacts</a>
             </div>
           </div>
 
@@ -47,7 +47,7 @@
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/carparts">Car Parts</a>
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/oilandfluid">Oils and Fluids</a>
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/accessory">Accessory</a>
-                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/usedcar">Used Cars (Buy and Sell)</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/usedcars">Used Cars (Buy and Sell)</a>
             </div>
           </div>
 
