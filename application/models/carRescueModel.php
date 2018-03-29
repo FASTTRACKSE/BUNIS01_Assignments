@@ -1,8 +1,12 @@
 <?php
-class servicesModel extends CI_Model{
 
-
-	 public function delete_Data_by_ID($deleteID){
+class carRescueModel extends CI_Model{
+	function get_CarRescue(){
+		$query = $this->db->get('carrescue');
+		$data = $query->result_array();
+		return $data;
+	}
+	function delete_Data_by_ID($deleteID){
     	$this->db->where("ID",$deleteID);
     	$this->db->delete("users");
     }
@@ -31,4 +35,5 @@ class servicesModel extends CI_Model{
 		$query=$this->db->insert('users',$savePic);
 	}
 }
+
 ?>
