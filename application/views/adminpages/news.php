@@ -29,7 +29,7 @@
                 <td><?php echo ($news['title']);?></td>
                 <td><?php echo ($news['type']);?></td>
                 <td><?php echo substr($news['newsDescription'], 0, 150); ?></td>
-                <td> <a href="#">Update</a> <a href="#">Delete</a> </td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateNews/<?php echo ($news['id']);?>">Update</a> <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteNewsConfirm/<?php echo ($news['id']);?>">Delete</a> </td>
               </tr>
             <?php endforeach; ?>
           </table>

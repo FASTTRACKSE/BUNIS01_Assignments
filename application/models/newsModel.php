@@ -50,6 +50,18 @@
 			$this->db->insert('news', $data);
 		}
 
+		function deleteNewsConfirm($id){
+			$this->db->where("id", $id);
+			$query=$this->db->get('news');
+			$data=$query->row_array(); //to print 1 row
+			return $data;
+		}
+
+		function deleteNews($id){
+			$this->db->where("id", $id);
+			$this->db->delete('news');
+		}
+
 	}
 	
 

@@ -87,7 +87,7 @@
 				$data = array(
 					'title' => $this->input->post('title'),
 					'type' => $this->input->post('type'),
-					'postDate' => date($this->input->post('postDate')),
+					'postDate' => $this->input->post('postDate'),
 					'newsDescription' => $this->input->post('newsDesc'),
 					'imageNews' => $upload_data['file_name'],
 				);
@@ -97,6 +97,45 @@
 				redirect('AdminController/news');
 			}
 		}
+
+		public function deleteNewsConfirm($id){
+			$dataView = array(
+				'headerTitle' => 'News',
+			);
+
+			$dataPage['news'] = $this->newsModel->deleteNewsConfirm($id);
+
+			$data = array_merge($dataView, $dataPage);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/deleteNews');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function deleteNews($id){
+
+			$this->newsModel->deleteNews($id);
+
+			redirect('AdminController/news');
+		}
+
+		public function updateNews($id){
+
+			$dataView = array(
+				'headerTitle' => 'News',
+			);
+
+			$dataPage['news'] = $this->newsModel->getNewsById($id);
+
+			$data = array_merge($dataView, $dataPage);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/updateNews');
+			$this->load->view('admintemplates/footer');
+		}
+
 
 	//endnews----------------------------------------------------------------------------------
 

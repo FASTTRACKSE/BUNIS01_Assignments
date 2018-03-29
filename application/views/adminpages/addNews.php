@@ -36,7 +36,7 @@
 			<tr>
 				<td>Post Date</td>
 				<td> : </td>
-				<td><input style="height: 30px; width: 200px" type="date" name="postDate" disabled value="<?php echo date("Y-m-d");?>"></td>
+				<td><input style="height: 30px; width: 200px" type="date" name="postDate" readonly value="<?php echo date("Y-m-d");?>"></td>
 			</tr>
 			<tr>
 				<td>News Picture</td>
