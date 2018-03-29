@@ -23,7 +23,8 @@
 	              <h4 class="card-title">
 	                <a href="#"><?php echo($news['id']); ?><?php echo($news['title']) ?></a>
 	              </h4>
-	              <p class="card-text"><?php echo($news['newsDescription']) ?></p>
+	              <p class="card-text"><?php echo substr($news['newsDescription'], 0, 200); ?> . . .</p>
+                <a href="#">Read More . . .</a>
 	            </div>
 	          </div>
 	        </div> 
