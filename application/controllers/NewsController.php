@@ -20,7 +20,7 @@
 			$this->pagination->initialize($config);
 
 			$data = array(
-				'headTitle' => 'Garage HC Auto | Promoting Program',
+				'headTitle' => 'Garage HC Auto | News',
 				'total_rows' => $config['total_rows'],
 				'headerTitle' => '',
 				'type' => 'viewNews',
@@ -44,7 +44,7 @@
 			$this->pagination->initialize($config);
 
 			$data = array(
-				'headTitle' => 'Garage HC Auto | Promoting Program',
+				'headTitle' => 'Garage HC Auto | Promotion Program',
 				'total_rows' => $config['total_rows'],
 				'headerTitle' => '| Promotion Program',
 				'type' => 'viewPromoProg',
@@ -112,7 +112,6 @@
 
 			$dataHead = array(
 				'headTitle' => 'Garage HC Auto',
-				'headerTitle' => '| Automotive News',
 				'type' => 'viewAutoNews'
 			);
 
