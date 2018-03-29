@@ -23,7 +23,7 @@
 				'headTitle' => 'Garage HC Auto | Promoting Program',
 				'total_rows' => $config['total_rows'],
 				'headerTitle' => '',
-				'type' => 'viewNews'
+				'type' => 'viewNews',
 			);
 
 			$dataPage['newsList'] = $this->newsModel->getList($config['per_page'], $this->uri->segment(3));
