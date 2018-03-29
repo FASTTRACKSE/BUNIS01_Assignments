@@ -2,9 +2,6 @@
 <html lang="en">
   
   <head>
-    
-    <link href="<?php echo (base_url()); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="<?php echo (base_url()); ?>assets/css/shop-homepage.css" rel="stylesheet">
 
