@@ -216,7 +216,7 @@ public function index()
 		
 	}
 
-	public function update($id)
+	public function update_usedcars($id)
 	{
 		// $arData = array(
 		//   'UsedCarsName' =>	$this->input->post('name'),
@@ -225,9 +225,129 @@ public function index()
 		// $result= $this->Product_Model->update($arData);
 		
 			$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
-			 $this->load->view('product/updatepage',$dataPage);		
+			 $this->load->view('product/updatepage_usedcars',$dataPage);		
 		
 	}
+	public function do_update_usedcars($id){
+			$arData = array(
+		  'UsedCarsName' =>	$this->input->post('name'),
+		   'UsedCarsPrice'=> $this->input->post('price'),
+		   'UsedCarsDesc'=> $this->input->post('desc')
+		);
+		$result= $this->Product_Model->update_usedcars($id,$arData);
+		
+			 redirect('/Product_Controller/usedcars');		
+		
+	}
+	public function update_insurance($id)
+	{
+		// $arData = array(
+		//   'UsedCarsName' =>	$this->input->post('name'),
+		//    'UsedCarsPrice'=> $this->input->post('price')
+		// );
+		// $result= $this->Product_Model->update($arData);
+		
+			$dataPage['item']=$this->Product_Model->getProductDesc($id);
+			 $this->load->view('product/updatepage_insurance',$dataPage);		
+		
+	}
+	public function do_update_insurance($id){
+			$arData = array(
+		  'InsuranceName' =>	$this->input->post('name'),
+		   'InsurancePrice'=> $this->input->post('price'),
+		   'InsuranceDesc'=> $this->input->post('desc')
+		);
+
+		$this->Product_Model->update_insurance($id, $arData);
+
+			redirect('/Product_Controller/index');
+	}
+	public function update_acc($id)
+	{
+		// $arData = array(
+		//   'UsedCarsName' =>	$this->input->post('name'),
+		//    'UsedCarsPrice'=> $this->input->post('price')
+		// );
+		// $result= $this->Product_Model->update($arData);
+		
+			$dataPage['item']=$this->Product_Model->getAccDesc($id);
+			 $this->load->view('product/updatepage_accessory',$dataPage);		
+		
+	}
+	public function do_update_acc($id){
+			$arData = array(
+		  'AccessoryName' =>	$this->input->post('name'),
+		   'AccessoryPrice'=> $this->input->post('price'),
+		   'AccessoryDesc'=> $this->input->post('desc')
+		);
+		$result= $this->Product_Model->update_acc($id,$arData);
+		
+			redirect('/Product_Controller/accessory');		
+		
+	}
+		public function update_oil_fluid($id)
+	{
+		// $arData = array(
+		//   'UsedCarsName' =>	$this->input->post('name'),
+		//    'UsedCarsPrice'=> $this->input->post('price')
+		// );
+		// $result= $this->Product_Model->update($arData);
+		
+			$dataPage['item']=$this->Product_Model->getOilandFluidDesc($id);
+			 $this->load->view('product/updatepage_oil_fluid',$dataPage);		
+		
+	}
+	public function do_update_oil_fluid($id){
+			$arData = array(
+		  'OilandFluidName' =>	$this->input->post('name'),
+		   'OilandFluidPrice'=> $this->input->post('price'),
+		   'OilandFluidDesc'=> $this->input->post('desc')
+		);
+		$result= $this->Product_Model->update_oil_fluid($id,$arData);
+		
+			redirect('/Product_Controller/oilandfluid');		
+		
+	}
+
+		public function update_carparts($id)
+	{
+		// $arData = array(
+		//   'UsedCarsName' =>	$this->input->post('name'),
+		//    'UsedCarsPrice'=> $this->input->post('price')
+		// );
+		// $result= $this->Product_Model->update($arData);
+		
+			$dataPage['item']=$this->Product_Model->getCarPartsDesc($id);
+			 $this->load->view('product/updatepage_carparts',$dataPage);		
+		
+	}
+	public function do_update_carparts($id){
+			$arData = array(
+		  'CarPartsName' =>	$this->input->post('name'),
+		   'CarPartsPrice'=> $this->input->post('price'),
+		   'CarPartsDesc'=> $this->input->post('desc')
+		);
+		$result= $this->Product_Model->update_carparts($id,$arData);
+		redirect('/Product_Controller/carparts');		
+		
+	}
+	public function insert_insurance()
+	{
+		
+        $this->load->view('product/insertpage_insurance');		
+
+	}
+	public function do_insert_insurance(){
+		$arData = array(
+		  'InsuranceName' =>$this->input->post('name'),
+		   'InsurancePrice'=> $this->input->post('price'),
+		   'InsuranceDesc'=> $this->input->post('desc')
+		);
+			$result= $this->Product_Model->insert_insurance($arData);
+			redirect('/Product_Controller/index');
+		
+	}
+
 
 
 }
