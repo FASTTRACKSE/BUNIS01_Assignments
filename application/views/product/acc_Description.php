@@ -30,7 +30,7 @@
                   <p class="card-text"><?php echo   $item['AccessoryDesc'] ;?></p> 
 
              
-     
+              <a href="<?php echo  base_url('Product_Controller/update_acc/').$item['AccessoryID'] ?>">Update</a>
                 </div>
  
               </div>

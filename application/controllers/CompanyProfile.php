@@ -11,6 +11,10 @@ class CompanyProfile extends CI_Controller {
 
 	public function index()
 	{
+		$data = array(
+				'headTitle' => 'Garage HC Auto | Company Profile'
+		 );
+
 		$data['partners'] = $this->CompanyProfile_model->getPartners();
 		$data['staffs'] = $this->CompanyProfile_model->getStaffs();
 		$data['vision'] = $this->CompanyProfile_model->getVision();
@@ -18,8 +22,9 @@ class CompanyProfile extends CI_Controller {
 		$data['customercare'] = $this->CompanyProfile_model->getCustomerCare();
 		$data['technicalsupport'] = $this->CompanyProfile_model->getTechnicalSupport();
 
+		$this->load->view('templates/head', $data); 
+		$this->load->view('templates/navbar');
 
-
-		$this->load->view('company_profile', $data);		
+		$this->load->view('company_profile', $data);	
 	}
 }

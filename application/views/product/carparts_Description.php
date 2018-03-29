@@ -28,7 +28,7 @@
                   <h5><?php echo  $item['CarPartsPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['CarPartsDesc'] ;?></p> 
 
-             
+               <a href="<?php echo  base_url('Product_Controller/update_carparts/').$item['CarPartsID'] ?>">Update</a>
      
                 </div>
  
