@@ -47,7 +47,7 @@
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/carparts">Car Parts</a>
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/oilandfluid">Oils and Fluids</a>
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/accessory">Accessory</a>
-                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/usedcar">Used Cars (Buy and Sell)</a>
+                <a href="<?php echo(base_url()); ?>index.php/Product_Controller/usedcars">Used Cars (Buy and Sell)</a>
             </div>
           </div>
 

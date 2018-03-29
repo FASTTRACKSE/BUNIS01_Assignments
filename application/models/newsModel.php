@@ -2,6 +2,16 @@
 	
 	class newsModel extends CI_Model{
 
+
+		function getList($perPage, $uri){
+			if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('news')->limit($perPage, $uri*5-5);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
+		}
+
 		function getListPromoProg($perPage, $uri){
 			if($uri == null || $uri==''){
 				$uri = 1;

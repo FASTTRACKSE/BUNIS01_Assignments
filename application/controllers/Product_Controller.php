@@ -60,9 +60,6 @@ public function index()
 		$this->load->view('product/carparts_list', $dataPage);
 		$this->load->view('templates/footer');
 
-	
-		
-		
 
 	}
 
@@ -79,9 +76,6 @@ public function index()
 		$this->load->view('product/carparts_Description',$dataPage);
 		$this->load->view('templates/footer');
 
-
-
-		
 	}
 
 	public function accessory()
@@ -96,10 +90,14 @@ public function index()
 		$load_product=$this->Product_Model->getAcc();
 		$dataPage['AccessoryID'] = $load_product;
 		
+
+		$this->load->view('product/acc_list', $data);
+
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('product/acc_list', $dataPage);
 		$this->load->view('templates/footer');
+
 
 
 	}
@@ -120,6 +118,7 @@ public function index()
 		
 		
 		
+
 	}
 
 	public function oilandfluid()
@@ -142,6 +141,7 @@ public function index()
 
 		
 
+
 	}
 
 	public function load_oil_fluid_desc($id)
@@ -154,6 +154,7 @@ public function index()
 		);
 
 		$dataPage['item']=$this->Product_Model->getOilandFluidDesc($id);
+
 		
 		
 
@@ -161,6 +162,7 @@ public function index()
 		$this->load->view('templates/navbar');
 		$this->load->view('product/oil_fluid_Description', $dataPage);
 		$this->load->view('templates/footer');
+
 
 	}
 	public function usedcars()
@@ -180,10 +182,7 @@ public function index()
 		$load_product=$this->Product_Model->getUsedCars();
 		$dataPage['UsedCarsID'] = $load_product;
 		
-		$this->load->view('templates/head', $data);
-		$this->load->view('templates/navbar');
-		$this->load->view('product/usedcars_list', $dataPage);
-		$this->load->view('templates/footer');
+
 
 	}
 
@@ -194,6 +193,7 @@ public function index()
 		);
 
 		$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
+
 		
 		
 
@@ -202,6 +202,16 @@ public function index()
 		$this->load->view('product/usedcars_Description', $dataPage);
 		$this->load->view('templates/footer');
 		
+		
+		
+
+		
+		
+
+		$this->load->view('templates/head', $data);
+		$this->load->view('templates/navbar');
+		$this->load->view('product/usedcars_Description', $dataPage);
+		$this->load->view('templates/footer');
 		
 		
 	}
