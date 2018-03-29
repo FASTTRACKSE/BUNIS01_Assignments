@@ -17,10 +17,8 @@ class CompanyProfile extends CI_Controller {
 
 		$data['partners'] = $this->CompanyProfile_model->getPartners();
 		$data['staffs'] = $this->CompanyProfile_model->getStaffs();
-		$data['vision'] = $this->CompanyProfile_model->getVision();
-		$data['mission'] = $this->CompanyProfile_model->getMission();
-		$data['customercare'] = $this->CompanyProfile_model->getCustomerCare();
-		$data['technicalsupport'] = $this->CompanyProfile_model->getTechnicalSupport();
+		$data['datas'] = $this->CompanyProfile_model->getDatas();
+		$data['about'] = $this->CompanyProfile_model->getAbout();
 
 		$this->load->view('templates/head', $data); 
 		$this->load->view('templates/navbar');

@@ -62,79 +62,20 @@
 
           <h3>Today's News</h3>
 
-          <div class="row">
-
+            <div class="row">
+            <?php foreach ($id as $row)  { ?>
             <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newsa"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car.jpg" alt=""></a>
+              <div class="card h-100" >
+                <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/newspart/img/news/').$row['imageNews'] ;?>"></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="newsa">News A</a>
+                    <a href="#"><?php echo $row['title'];?></a>
                   </h4>
-                  <p class="card-text">Summary and Description.</p>
+                  <p class="card-text"><?php echo $row['newsDescription'];?></p>
                 </div>
               </div>
             </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newsb"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car2.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="newsb">News B</a>
-                  </h4>
-                  <p class="card-text">Summary and Description.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newsc"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car3.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="newsc">News C</a>
-                  </h4>
-                  <p class="card-text">Summary and Description.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newsd"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car3.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="newsd">News D</a>
-                  </h4>
-                  <p class="card-text">Summary and Description.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newse"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car2.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="newse">News E</a>
-                  </h4>
-                  <p class="card-text">Summary and Description.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="newsf"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/700x400car.jpg" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="newsf">News F</a>
-                  </h4>
-                  <p class="card-text">Summary and Description.</p>
-                </div>
-              </div>
-            </div>
+            <?php  }?>
 
           </div>
           <!-- /.row -->
@@ -209,12 +150,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+    
 
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo (base_url()); ?>assets/vendor/jquery/jquery.min.js"></script>

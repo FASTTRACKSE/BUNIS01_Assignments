@@ -12,7 +12,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/companyprofile">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Company Profile</span>
           </a>

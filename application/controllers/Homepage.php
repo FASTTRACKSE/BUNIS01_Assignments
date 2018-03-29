@@ -5,43 +5,50 @@ if(!defined('BASEPATH'))
 class Homepage extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
+		$this->load->model('Homepage_Model');
+		$this->load->helper("url");
 	}
 
 	public function index(){
 
-		$data = array(
+		$dataHead = array(
 				'headTitle' => 'Garage HC Auto | Promoting Program',
 		 );
+
+		$load_news=$this->Homepage_Model->getNews();
+		$dataPage['id'] = $load_news;
+
+		$data = array_merge($dataHead, $dataPage);
 		
-		$this->load->view('templates/head', $data); 
+		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view("home_view");
 		$this->load->view('templates/footer');
 	}
 
-	public function newsa(){
-		$this->load->view("newsview/news_a");
-	}
+	// public function newsa(){
+	// 	$this->load->view("newsview/news_a");
+	// }
 
-	public function newsb(){
-		$this->load->view("newsview/news_b");
-	}
+	// public function newsb(){
+	// 	$this->load->view("newsview/news_b");
+	// }
 
-	public function newsc(){
-		$this->load->view("newsview/news_c");
-	}
+	// public function newsc(){
+	// 	$this->load->view("newsview/news_c");
+	// }
 
-	public function newsd(){
-		$this->load->view("newsview/news_d");
-	}
+	// public function newsd(){
+	// 	$this->load->view("newsview/news_d");
+	// }
 
-	public function newse(){
-		$this->load->view("newsview/news_e");
-	}
+	// public function newse(){
+	// 	$this->load->view("newsview/news_e");
+	// }
 
-	public function newsf(){
-		$this->load->view("newsview/news_f");
-	}
+	// public function newsf(){
+	// 	$this->load->view("newsview/news_f");
+	// }
 
 	// public function servicea(){
 	// 	$this->load->view("service_a");
