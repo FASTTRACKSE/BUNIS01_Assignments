@@ -13,3 +13,8 @@
 .div2 h4{
 	color: white;
 }
+
+.fa{
+	position: relative;
+	top: 9px;
+}

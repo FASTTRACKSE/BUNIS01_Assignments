@@ -11,7 +11,7 @@
     <title>Company Profile</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url().'/assets/company_profile/vendor/bootstrap/css/bootstrap.min.css'; ?>" rel="stylesheet">
+    
     <link href="<?php echo base_url().'/assets/company_profile/vendor/bootstrap/css/custom.css'; ?>" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
