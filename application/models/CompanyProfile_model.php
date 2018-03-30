@@ -113,10 +113,26 @@ class CompanyProfile_model extends CI_Model {
 		$this->db->update('partners', $data);
 	}
 
+// delete---------------------------------------------------------------------------------------
+	public function deleteAbout($id)
+	{
+		$this->db->where("id", $id);
+		$this->db->delete("datas_about");
+		
+	}
 
+	public function deleteStaff($id)
+	{
+		$this->db->where("id", $id);
+		$this->db->delete("staffs");
+		
+	}
 
-
-
-
+	public function deletePartner($id)
+	{
+		$this->db->where("id", $id);
+		$this->db->delete("partners");
+		
+	}
 
 }

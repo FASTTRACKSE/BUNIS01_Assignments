@@ -6,10 +6,7 @@
 			parent::__construct();
 			$this->load->helper('url');
 			$this->load->library('pagination');
-<<<<<<< HEAD
-=======
 			$this->load->model('Homepage_Model');
->>>>>>> 7c54b69c44599a3aaefa69634f17605498cc7824
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->model('Product_Model');
@@ -23,11 +20,7 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 7c54b69c44599a3aaefa69634f17605498cc7824
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -172,11 +165,6 @@
 
 		}
 
-
-
-
-
-
 		// About--------------------------------------------------------------------------
 		public function addAbout()
 		{
@@ -275,6 +263,25 @@
 
 		}
 
+		public function deleteAbout($id){
+			$data = array(
+				'headerTitle' => 'Delete About'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deleteAbout');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deleteAbout($id){
+			$this->CompanyProfile_model->deleteAbout($id);
+
+			redirect('AdminController/index');
+		}
+
 
 
 		// Staff--------------------------------------------------------------------------
@@ -340,12 +347,10 @@
 				$config['upload_path'] = './assets/company_profile/img/staffs/';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$config['max_size'] = 500;
-
 	 
 				$this->load->library('upload', $config);
 				$this->upload->overwrite = true;
 				$this->upload->do_upload('img_file');
-
 
 				$upload_data = $this->upload->data();
 
@@ -384,9 +389,26 @@
 
 		}
 
+		public function deleteStaff($id){
+			$data = array(
+				'headerTitle' => 'Delete Staff'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deleteStaff');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deleteStaff($id){
+			$this->CompanyProfile_model->deleteStaff($id);
+
+			redirect('AdminController/index');
+		}
 
 
-				
 		// Partner------------------------------------------------------------------------
 		public function addPartner()
 		{
@@ -479,6 +501,25 @@
 				redirect('AdminController/index');	
 			}
 
+		}
+
+		public function deletePartner($id){
+			$data = array(
+				'headerTitle' => 'Delete Partner'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deletePartner');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deletePartner($id){
+			$this->CompanyProfile_model->deletePartner($id);
+
+			redirect('AdminController/index');
 		}
 
 
