@@ -19,9 +19,7 @@
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
-		}
 
-<<<<<<< HEAD
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -43,8 +41,6 @@
 
 	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
 
-=======
->>>>>>> 3197e1797d82d9d5a64818151d4813adfce270b9
 		public function companyProfile()
 		{
 			$data = array(
