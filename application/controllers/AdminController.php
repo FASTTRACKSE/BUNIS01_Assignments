@@ -19,7 +19,11 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> fd2d778ff9dc9a69daa30d53aa95d912ec5ea631
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -101,7 +105,7 @@
 		// Staff--------------------------------------------------------------------------
 		public function addStaff()
 		{
-			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['upload_path'] = './assets/company_profile/img/staffs';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = 500;
 
@@ -144,7 +148,41 @@
 
 				
 		// Partner------------------------------------------------------------------------
+		public function addPartner()
+		{
+			$config['upload_path'] = './assets/company_profile/img/partners';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 200;
 
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
+				$data = array(
+					'headerTitle' => 'Add Partner'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addPartner',$error);
+				$this->load->view('admintemplates/footer');
+			}
+			else {
+
+				$upload_data = $this->upload->data();
+
+				$data = array(	
+					'name' => $this->input->post('partnerName'),	
+					'link' => $this->input->post('partnerLink'),
+					'img' => $upload_data['file_name']
+				);
+				$this->CompanyProfile_model->addPartner($data);
+				
+				redirect('AdminController/CompanyProfile');
+			}		
+
+		}
 
 
 

@@ -90,7 +90,7 @@
                 <td><?php echo ($s['id']);?></td>
                 <td><?php echo ($s['name']);?></td>
                 <td><?php echo ($s['job']);?></td>
-                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/team/'.$s['img']; ?>" alt=""></td>
+                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/staffs/'.$s['img']; ?>" alt=""></td>
                 <td><?php echo ($s['twitter']); ?></td>
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
@@ -104,9 +104,9 @@
         <!-- Update Partners -->
         <div>
           <h3>Partners</h3>
-          <form>
-            <input type="submit" name="addNews" value="Add">
-          </form>
+          <a href="<?php echo(base_url()); ?>index.php/AdminController/addPartner">
+             <input type="button" value="Add Partner">
+          </a>
           <table class="col-12" border="2" style="text-align: center;"> 
             <th>ID</th>
             <th>Name</th>
@@ -118,7 +118,7 @@
                 <td><?php echo ($p['id']);?></td>
                 <td><?php echo ($p['name']);?></td>
                 <td><?php echo ($p['link']);?></td>
-                <td> <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" alt=""></td>
+                <td> <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" style="width: 150px; height: 50px;"></td>
                 <td> <a href="#">Update</a></td>
                 <td> <a href="#">Delete</a></td>
               </tr>
