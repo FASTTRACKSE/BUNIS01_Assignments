@@ -41,7 +41,7 @@
 
 	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
 
-		public function companyProfile()
+		public function index()
 		{
 			$data = array(
 				'headerTitle' => 'Company Profile'
