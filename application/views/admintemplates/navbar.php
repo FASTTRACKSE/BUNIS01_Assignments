@@ -7,13 +7,13 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/homepage">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Homepage</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/companyProfile">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-book"></i>
             <span class="nav-link-text">Company Profile</span>
           </a>
         </li>
