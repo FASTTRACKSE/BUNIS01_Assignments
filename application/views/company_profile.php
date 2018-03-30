@@ -71,7 +71,7 @@
       <a href="#vision">Vision</a>
       <a href="#mission">Mission</a>
       <a href="#about">About</a>
-      <a href="#team">Team</a>
+      <a href="#staff">Staff</a>
       <a href="#contact">Contact</a>
     </div>
 
@@ -176,12 +176,12 @@
         </div>
       </section>
 
-      <!-- Team -->
-      <section class="bg-light" id="team">
+      <!-- staff -->
+      <section class="bg-light" id="staff">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+              <h2 class="section-heading text-uppercase">Our Amazing Staff</h2>
               <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
           </div>
@@ -189,7 +189,7 @@
             <?php foreach ($staffs as $s) {?>  
             <div class="col-sm-4">
               <div class="team-member">
-                <img class="mx-auto rounded-circle" src="<?php echo base_url().'/assets/company_profile/img/team/'.$s['img']; ?>" alt="">
+                <img class="mx-auto rounded-circle" src="<?php echo base_url().'/assets/company_profile/img/staffs/'.$s['img']; ?>" alt="">
                 <h4><?php echo $s['name'] ?></h4>
                 <p class="text-muted"><?php echo $s['job'] ?></p>
                 <ul class="list-inline social-buttons">
@@ -231,7 +231,7 @@
           <?php foreach ($partners as $p) {?>  
             <div class="col-md-2 col-sm-4">
               <a href= "<?php echo "http://".$p['link']; ?>"  >
-                <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" alt="">
+                <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" style="width: 150px; height: 50px;">
               </a>
             </div>
           <?php } ?>

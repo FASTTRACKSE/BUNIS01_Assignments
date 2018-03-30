@@ -20,7 +20,7 @@
 				);
 				
 				$this->session->set_userdata($session_data);
-				redirect(base_url().'index.php/AdminController/news');
+				redirect(base_url().'index.php/AdminController/');
 			}
 			else{
 				redirect(base_url().'index.php/LoginController/login');

@@ -45,6 +45,11 @@ class CompanyProfile_model extends CI_Model {
 		$this->db->insert("staffs", $data);	
 	}
 
+	public function addPartner($data)
+	{
+		$this->db->insert("partners", $data);	
+	}
+
 
 // update---------------------------------------------------------------------------------------
 	public function updateVision()

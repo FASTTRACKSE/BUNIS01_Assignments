@@ -10,12 +10,13 @@ class Homepage_Model extends CI_Model
 		return $data;
 	}
 
-	// public function getNews(){
-	// 	$query = $this->db->get("news");
-	// 	$result=$query->result();
-	// 	$data=array_slice($result,-3,3,true);
-	// 	return $data;
-	// }
+	public function getImage(){
+		$this->db->order_by("id");
+		$query = $this->db->get("homeslider");
+		$data = $query->result_array();
+
+		return $data;
+	}
 }
 
 ?>

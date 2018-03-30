@@ -310,10 +310,11 @@ mark {
       <div class="services-item slide">
           <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
               <div class="project-hover">
-              <h2><?php echo $data['bodyName']; ?></h2>
+              <h2><?php echo $data['name']; ?></h2>
               <hr />
-              <p><?php echo $data['bodyDesc']; ?></p>
-            <a href="<?php echo base_url() ?>index.php/bodyController/showBodyDetail/<?php echo($data['ID']); ?>">Show me more</a>
+              <p><?php echo $data['description']; ?></p>
+              <p><?php echo $data['tag']; ?></p>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showDetail/<?php echo($data['ID']); ?>">Show me more</a>
           </div>
         </div>
       </div>
