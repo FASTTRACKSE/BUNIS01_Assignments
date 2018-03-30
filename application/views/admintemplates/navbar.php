@@ -7,7 +7,7 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/homepage">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-fw fa-desktop"></i>
             <span class="nav-link-text">Homepage</span>
           </a>
         </li>
