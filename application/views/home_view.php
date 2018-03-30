@@ -71,7 +71,8 @@
                   <h4 class="card-title">
                     <a href="#"><?php echo $row['title'];?></a>
                   </h4>
-                  <p class="card-text"><?php echo $row['newsDescription'];?></p>
+                  <p class="card-text"><?php echo substr($row['newsDescription'], 0, 150); ?> . . .</p>
+                  <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($row['id']); ?>">Read More . . .</a>
                 </div>
               </div>
             </div>
@@ -106,6 +107,10 @@
 
             <div class="col-md-2 col-sm-6 mb-4">
               <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300e.jpg" alt="">
+            </div>
+
+            <div class="col-md-2 col-sm-6 mb-4">
+              <img class="homepage-service" src="<?php echo (base_url()); ?>assets/image/homepage/400x300f.jpg" alt="">
             </div>
 
           </div>
