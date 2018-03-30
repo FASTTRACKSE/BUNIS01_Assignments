@@ -25,49 +25,5 @@ class Homepage extends CI_Controller{
 		$this->load->view("home_view");
 		$this->load->view('templates/footer');
 	}
-
-	// public function newsa(){
-	// 	$this->load->view("newsview/news_a");
-	// }
-
-	// public function newsb(){
-	// 	$this->load->view("newsview/news_b");
-	// }
-
-	// public function newsc(){
-	// 	$this->load->view("newsview/news_c");
-	// }
-
-	// public function newsd(){
-	// 	$this->load->view("newsview/news_d");
-	// }
-
-	// public function newse(){
-	// 	$this->load->view("newsview/news_e");
-	// }
-
-	// public function newsf(){
-	// 	$this->load->view("newsview/news_f");
-	// }
-
-	// public function servicea(){
-	// 	$this->load->view("service_a");
-	// }
-
-	// public function serviceb(){
-	// 	$this->load->view("service_b");
-	// }
-
-	// public function servicec(){
-	// 	$this->load->view("service_c");
-	// }
-
-	// public function serviced(){
-	// 	$this->load->view("service_d");
-	// }
-
-	// public function servicee(){
-	// 	$this->load->view("service_e");
-	// }
 }
 ?>

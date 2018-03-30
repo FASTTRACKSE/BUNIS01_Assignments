@@ -13,12 +13,12 @@
           <div class="dropdown">
             <a class="nav-link" href="<?php echo(base_url()); ?>index.php/CompanyProfile">Company Profile</a>
             
-            <div class="dropdown-content">
+            <!-- <div class="dropdown-content">
                 <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#vision">Vision</a>
                 <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#mission">Mission</a>
                 <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#team">Organization Chart</a>
                 <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#contact">Contacts</a>
-            </div>
+            </div> -->
           </div>
 
         </li>
@@ -55,14 +55,14 @@
         <li class="nav-item">
          
           <div class="dropdown">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/view">Services</a>
             
             <div class="dropdown-content">
-                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/view">Engine</a>
-                <a href="#">Electrical</a>
-                <a href="#">Body</a>
-                <a href="#">Car Rescue</a>
-                <a href="#">Door to Door Delivery</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showEngine">Engine</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showElectrical">Electrical</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showBody">Body</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showCarRescue">Car Rescue</a>
+                <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showD2D">Door to Door Delivery</a>
             </div>
           </div>
 
