@@ -13,11 +13,7 @@
         </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
       </ol>
-  <head>
-
-    
-
-  </head>
+      
 <style >
 table, th, td {
     border: 1px solid black;
