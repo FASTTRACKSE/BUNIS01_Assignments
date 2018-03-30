@@ -5,7 +5,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url');
-			$this->load->library('pagination'); 
+			$this->load->library('pagination');
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->model('Product_Model');
@@ -19,11 +19,7 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 46ef810581a371e5b92e45098dc3052d810c0008
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -75,8 +71,19 @@
 			$this->load->view('admintemplates/navbar');
 			$this->load->view('adminpages/crud_CompanyProfile/updateData');
 			$this->load->view('admintemplates/footer');
-
 			
+			if ($this->input->post('update'))
+			{
+				$data = array(
+				'type' => $this->input->post('dataType'),
+		        'description'  => $this->input->post('dataDescription')
+				);
+
+				$this->CompanyProfile_model->updateData($id, $data);
+
+				redirect('AdminController/index');						
+			}
+
 		}
 
 
@@ -87,7 +94,7 @@
 		// About--------------------------------------------------------------------------
 		public function addAbout()
 		{
-			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['upload_path'] = './assets/company_profile/img/about/';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = 200;
 
@@ -123,11 +130,71 @@
 
 		}
 
+		public function updateAbout($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update About'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateAbout');
+			$this->load->view('admintemplates/footer');
+
+		}
+
+		public function do_updateAbout($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/about/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 200;
+
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+				$upload_data = $this->upload->data();
+
+				$aboutDate = $this->input->post('updateDate');
+				$aboutTitle = $this->input->post('updateTitle');
+				$aboutDesc = $this->input->post('updateDesc');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'date' => $aboutDate,
+					'title' => $aboutTitle,
+					'description' => $aboutDesc
+					);
+				}
+				else
+				{
+					$data = array(	
+					'date' => $aboutDate,
+					'title' => $aboutTitle,
+					'description' => $aboutDesc,
+					'img' => $image
+					);
+				}
+				
+				$this->CompanyProfile_model->updateAbout($id,$data);
+				
+				redirect('AdminController/index');	
+			}
+
+		}
+
+
 
 		// Staff--------------------------------------------------------------------------
 		public function addStaff()
 		{
-			$config['upload_path'] = './assets/company_profile/img/staffs';
+			$config['upload_path'] = './assets/company_profile/img/staffs/';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = 500;
 
@@ -165,6 +232,71 @@
 		}
 
 
+		public function updateStaff($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Staff'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateStaff');
+			$this->load->view('admintemplates/footer');
+
+		}
+
+		public function do_updateStaff($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/staffs/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 500;
+
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+
+				$upload_data = $this->upload->data();
+
+				$name = $this->input->post('updateName');
+				$job = $this->input->post('updateJob');
+				$twitter = $this->input->post('updateTwitter');
+				$facebook = $this->input->post('updateFB');
+				$linkedin = $this->input->post('updateLinkedin');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'name' => $name,	
+					'job' => $job,
+					'twitter' => $twitter,
+					'facebook' => $facebook,
+					'linkedin' => $linkedin
+					);
+				}
+				else
+				{
+					$data = array(	
+					'name' => $name,	
+					'job' => $job,
+					'img' => $image,
+					'twitter' => $twitter,
+					'facebook' => $facebook,
+					'linkedin' => $linkedin
+					);
+				}
+				
+				$this->CompanyProfile_model->updateStaff($id,$data);
+				
+				redirect('AdminController/index');	
+			}
+
+		}
 
 
 
@@ -172,7 +304,7 @@
 		// Partner------------------------------------------------------------------------
 		public function addPartner()
 		{
-			$config['upload_path'] = './assets/company_profile/img/partners';
+			$config['upload_path'] = './assets/company_profile/img/partners/';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = 200;
 
@@ -203,6 +335,63 @@
 				
 				redirect('AdminController/index');
 			}		
+
+		}
+
+		public function updatePartner($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Partner'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updatePartner');
+			$this->load->view('admintemplates/footer');
+
+		}
+
+		public function do_updatePartner($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/partners/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 200;
+
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+
+				$upload_data = $this->upload->data();
+
+				$name = $this->input->post('updateName');
+				$link = $this->input->post('updateLink');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'name' => $name,	
+					'link' => $link,
+					);
+				}
+				else
+				{
+					$data = array(	
+					'name' => $name,	
+					'link' => $link,
+					'img' => $image,
+					);
+				}
+				
+				$this->CompanyProfile_model->updatePartner($id,$data);
+				
+				redirect('AdminController/index');	
+			}
 
 		}
 

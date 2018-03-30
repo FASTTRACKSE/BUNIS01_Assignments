@@ -13,20 +13,24 @@
       </ol>
 		<div class="row">
 	      <div class="col-12">
+
 			<?php foreach ($data as $d) {?>
 
-			<form action="<?php echo(base_url());?>/index.php/AdminController/updateData/<?php echo($d['id']) ?>" method="POST">
-				Type <br>
-				<input type="text" name="dataType" value="<?php echo $d['type']; ?>" required><br><br>
-				Description <br>
-				<textarea name="dataDescription" required><?php echo($d['description']) ?></textarea>	
-				<br><br>
+			<?php echo form_open_multipart('AdminController/do_updatePartner/'.$d['id']);?>  
+				Name <br>
+				<input type="text" name="updateName" value="<?php echo $d['name']; ?>" required><br><br>
+				Link <br>
+				<input type="text" name="updateLink" value="<?php echo $d['link']; ?>" required><br><br>
+
+				Image [150x50] <br>
+				<img src="<?php echo base_url().'/assets/company_profile/img/partners/'.$d['img']; ?>" width="150px" height="50px" >
+				<input type="file" name="img_file" value="<?php echo($d['img']) ?>" ><br><br>
+
 	         	<a href="<?php echo(base_url()); ?>index.php/AdminController">
 	            	<input type="button" value="Back" />
 	          	</a>
 				<input type="submit" name="update" value="Update">
 			</form>
-
 			<?php }  ?>
 
 	      </div> 

@@ -55,8 +55,8 @@
                 <td><?php echo ($a['date']);?></td>
                 <td><?php echo ($a['title']);?></td>
                 <td><?php echo ($a['description']); ?></td>
-                <td><img class="rounded-circle" width="200px"; height="200px"; src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
-                <td> <a href="#">Update</a></td>
+                <td><img class="rounded-circle" width="150px"; height="150px"; src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateAbout/<?php echo($a['id']) ?>">Update</a></td>
                 <td> <a href="#">Delete</a></td>
 
               </tr>
@@ -84,11 +84,11 @@
                 <td><?php echo ($s['id']);?></td>
                 <td><?php echo ($s['name']);?></td>
                 <td><?php echo ($s['job']);?></td>
-                <td><img class="rounded-circle" width="200px"; height="200px"; src="<?php echo base_url().'/assets/company_profile/img/staffs/'.$s['img']; ?>" alt=""></td>
+                <td><img class="rounded-circle" width="150px"; height="150px"; src="<?php echo base_url().'/assets/company_profile/img/staffs/'.$s['img']; ?>" alt=""></td>
                 <td><?php echo ($s['twitter']); ?></td>
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
-                <td> <a href="#">Update</a></td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateStaff/<?php echo($s['id']) ?>">Update</a></td>
                 <td> <a href="#">Delete</a></td>
               </tr>
             <?php endforeach; ?>
@@ -112,8 +112,8 @@
                 <td><?php echo ($p['id']);?></td>
                 <td><?php echo ($p['name']);?></td>
                 <td><?php echo ($p['link']);?></td>
-                <td> <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" width="150px"; height="50px";></td>
-                <td> <a href="#">Update</a></td>
+                <td> <img width="150px"; height="50px"; src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" ></td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updatePartner/<?php echo($p['id']) ?>">Update</a></td>
                 <td> <a href="#">Delete</a></td>
               </tr>
             <?php endforeach; ?>

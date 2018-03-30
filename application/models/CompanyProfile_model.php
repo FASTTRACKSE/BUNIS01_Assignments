@@ -2,22 +2,6 @@
 
 class CompanyProfile_model extends CI_Model {
 
-	public function getPartners()
-	{
-		$this->db->order_by("id");
-		$query = $this->db->get("partners");
-
-		return $query->result_array();
-	}
-
-	public function getStaffs()
-	{
-		$this->db->order_by("id");
-		$query = $this->db->get("staffs");
-
-		return $query->result_array();
-	}
-
 	public function getDatas()
 	{
 		$this->db->from("datas");
@@ -41,6 +25,50 @@ class CompanyProfile_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
+	public function getAboutById($id)
+	{
+		$this->db->from("datas_about");
+		$this->db->where("id" , $id);
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
+
+	public function getStaffs()
+	{
+		$this->db->order_by("id");
+		$query = $this->db->get("staffs");
+
+		return $query->result_array();
+	}
+	public function getStaffById($id)
+	{
+		$this->db->from("staffs");
+		$this->db->where("id" , $id);
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
+
+	public function getPartners()
+	{
+		$this->db->order_by("id");
+		$query = $this->db->get("partners");
+
+		return $query->result_array();
+	}
+
+	public function getPartnerById($id)
+	{
+		$this->db->from("partners");
+		$this->db->where("id" , $id);
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
+
+	
 
 // add------------------------------------------------------------------------------------------
 
@@ -69,17 +97,20 @@ class CompanyProfile_model extends CI_Model {
 
 	public function updateAbout($id, $data)
 	{
-		
+		$this->db->where('id', $id);
+		$this->db->update('datas_about', $data);
 	}
 
 	public function updateStaff($id, $data)
 	{
-		
+		$this->db->where('id', $id);
+		$this->db->update('staffs', $data);
 	}
 
 	public function updatePartner($id, $data)
 	{
-		
+		$this->db->where('id', $id);
+		$this->db->update('partners', $data);
 	}
 
 
