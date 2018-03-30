@@ -16,7 +16,7 @@
     <!-- Page Content -->
  
         <!-- /.col-lg-3 -->
-
+<!-- 
         <div class="col-lg-9 marginTop">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -45,14 +45,14 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-
+ -->
           <div class="row">
 
             <?php foreach ($UsedCarsID as $row)
   {
     ?>
           
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6 mb-4" >
               <div class="card h-100" >
                 <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['UsedCarsImage'] ;?>"></a>
                 <div class="card-body">
