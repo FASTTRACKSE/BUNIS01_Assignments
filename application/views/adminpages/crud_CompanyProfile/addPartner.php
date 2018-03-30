@@ -16,21 +16,15 @@
       </ol>
     <div class="row">
       <div class="col-12">
-        <h3>Add New Staff</h3> <br>
+        <h3>Add New Partner</h3> <br>
         
-        <?php echo form_open_multipart('AdminController/addStaff'); ?>       
+        <?php echo form_open_multipart('AdminController/addPartner'); ?>       
         <!-- <?php echo $error; ?> -->
           Name <br>
-          <input type="text" name="staffName" required><br><br>
-          Job <br>
-          <input type="text" name="staffJob" required><br><br>
-          Twitter <br>
-          <input type="text" name="staffTwitter" required><br><br>
-          Facebook <br>
-          <input type="text" name="staffFB" required><br><br>
-          Linkedin <br>
-          <input type="text" name="staffLinkedin" required><br><br>
-          Image [500x500] <br>
+          <input type="text" name="partnerName" required><br><br>
+          Link <br>
+          <input type="text" name="partnerLink" required><br><br>
+          Image [150x50]<br>
           <input type="file" name="img_file" id="img_file" required>
           <br><br>
           <a href="<?php echo(base_url()); ?>index.php/AdminController/CompanyProfile">

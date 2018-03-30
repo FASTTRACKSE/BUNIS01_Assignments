@@ -18,7 +18,7 @@
 		<h3>Add New About</h3><br>
 		
 		<?php echo form_open_multipart('AdminController/addAbout');?>
-		<?php echo $error; ?>
+		<!-- <?php echo $error; ?> -->
 			Date <br>
 			<input type="text" name="aboutDate" required><br><br>
 			Title <br>
@@ -26,7 +26,7 @@
 			Description <br>
 			<input type="text" name="aboutDesc" required><br><br>
 			Image [200x200] <br>
-			<input type="file" name="img_file" id="img_file" required>
+			<input type="file" name="img_file" id="img_file" required> 
 			<br><br>
 			<a href="<?php echo(base_url()); ?>index.php/AdminController/CompanyProfile">
 			   <input type="button" value="Back" />
