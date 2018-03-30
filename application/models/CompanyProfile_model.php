@@ -26,6 +26,15 @@ class CompanyProfile_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function getDataById($id)
+	{
+		$this->db->from("datas");
+		$this->db->where("id" , $id);
+		$query = $this->db->get();
+
+		return $query->result_array();
+	}
+
 	public function getAbout()
 	{
 		$this->db->from("datas_about");
@@ -52,23 +61,23 @@ class CompanyProfile_model extends CI_Model {
 
 
 // update---------------------------------------------------------------------------------------
-	public function updateVision()
+	public function updateData($id, $data)
 	{
-
+		$this->db->where('id', $id);
+		$this->db->update('datas', $data);
 	}
 
-	public function updateMission()
-	{
-		
-	}
-
-
-	public function updateCustomerCare()
+	public function updateAbout($id, $data)
 	{
 		
 	}
 
-	public function updateTechnicalSupport()
+	public function updateStaff($id, $data)
+	{
+		
+	}
+
+	public function updatePartner($id, $data)
 	{
 		
 	}
