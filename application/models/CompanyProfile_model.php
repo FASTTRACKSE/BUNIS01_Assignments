@@ -33,6 +33,16 @@ class CompanyProfile_model extends CI_Model {
 		return $query->result_array();
 	}
 
+// add------------------------------------------------------------------------------------------
+
+	public function addAbout($data)
+	{
+		$this->db->insert("datas_about", $data);	
+	}
+
+
+
+// update---------------------------------------------------------------------------------------
 	public function updateVision()
 	{
 

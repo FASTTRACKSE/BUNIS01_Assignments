@@ -5,11 +5,11 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url');
+			$this->load->library('pagination'); 
+			$this->load->library('form_validation');
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
-			$this->load->library('pagination');
 			$this->load->model('Product_Model');
-			$this->load->helper("url");
 
 			if (!$this->session->userdata('username')) {
 		        $this->load->view('adminpages/login');
@@ -40,6 +40,8 @@
 		}
 	}
 
+	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
+
 		public function companyProfile()
 		{
 			$data = array(
@@ -56,6 +58,88 @@
 			$this->load->view('adminpages/companyProfile');
 			$this->load->view('admintemplates/footer');
 		}
+
+		public function addAbout()
+		{
+
+
+			$data = array(
+				'headerTitle' => 'Add About'
+		 	);
+		 	$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/addAbout');
+			$this->load->view('admintemplates/footer');
+
+
+		}
+
+		public function insertAbout()
+		{
+			$this->form_validation->set_rules('aboutID', 'About ID', 'required');
+			$this->form_validation->set_rules('aboutDate', 'Date', 'required');
+			$this->form_validation->set_rules('aboutTitle', 'Title', 'required');
+			$this->form_validation->set_rules('aboutDesc', 'Description', 'required');
+			$this->form_validation->set_rules('aboutImg', 'Image', 'required');
+			$error = array('error' => '');
+
+
+			if ($this->form_validation->run() == FALSE) {
+				$data = array(
+					'headerTitle' => 'Add About'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addAbout',$error);
+				$this->load->view('admintemplates/footer');
+
+			}
+			else{
+
+				$config['upload_path'] = 'assets\company_profile\img\about';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 10000;
+				$config['file_name'] = $pic_name;
+
+	 
+				$this->load->library('upload', $config);
+				
+				if ( ! $this->upload->do_upload('pic_file')) {
+					$error = array('error' => $this->upload->display_errors());
+					$data = array(
+						'headerTitle' => 'Add About'
+				 	);
+				 	$this->load->view('admintemplates/head', $data);
+					$this->load->view('admintemplates/navbar');
+					$this->load->view('adminpages/crud_CompanyProfile/addAbout',$error);
+					$this->load->view('admintemplates/footer');
+				}
+				else {
+
+					$upload_data = $this->upload->data();
+
+					$data = array(	
+						'id' => $this->input->post('aboutID'),
+						'date' => $this->input->post('aboutDate'),
+						'Title' => $this->input->post('aboutTitle'),
+						'Description' => $this->input->post('aboutDesc'),
+						'img' => $upload_data['file_name']
+
+					);
+					$this->CompanyProfile_model->addAbout($data);
+					
+					redirect(site_url(AdminController/CompanyProfile));
+				}		
+					
+			}
+
+		}
+
+
+
+
+
+
 	//news----------------------------------------------------------------------------------
 		public function news(){
 			$config['base_url'] = 'http://localhost/hcautoproject/index.php/AdminController/news/';
