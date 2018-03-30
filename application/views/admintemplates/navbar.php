@@ -19,7 +19,7 @@
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/news">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-fw fa-calendar"></i>
             <span class="nav-link-text">News & Event</span>
           </a>
         </li>
