@@ -7,9 +7,6 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item">
           <a href="<?php echo(base_url()); ?>index.php/AdminController/CompanyProfile">Company Profile</a>
         </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
