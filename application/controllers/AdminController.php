@@ -20,11 +20,7 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
-<<<<<<< HEAD
-
-=======
 		
->>>>>>> 46ef810581a371e5b92e45098dc3052d810c0008
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
