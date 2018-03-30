@@ -40,6 +40,19 @@
 		}
 	}
 
+		public function index()
+		{
+			$data = array(
+				'headerTitle' => 'Welcome, Admin!'
+		 	);
+
+		 	$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/welcome_admin');
+			$this->load->view('admintemplates/footer');
+
+		}
+
 	//HOMEPAGE--------------------------------------------------------------------------------------
 		public function homepage()
 		{
@@ -120,7 +133,7 @@
 
 	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
 
-		public function index()
+		public function companyProfile()
 		{
 			$data = array(
 				'headerTitle' => 'Company Profile'
@@ -160,7 +173,7 @@
 
 				$this->CompanyProfile_model->updateData($id, $data);
 
-				redirect('AdminController/index');						
+				redirect('AdminController/companyProfile');						
 			}
 
 		}
@@ -199,7 +212,7 @@
 				);
 				$this->CompanyProfile_model->addAbout($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
 			}		
 
 		}
@@ -258,7 +271,7 @@
 				
 				$this->CompanyProfile_model->updateAbout($id,$data);
 				
-				redirect('AdminController/index');	
+				redirect('AdminController/companyProfile');	
 			}
 
 		}
@@ -279,7 +292,7 @@
 		public function do_deleteAbout($id){
 			$this->CompanyProfile_model->deleteAbout($id);
 
-			redirect('AdminController/index');
+			redirect('AdminController/companyProfile');
 		}
 
 
@@ -319,7 +332,7 @@
 				);
 				$this->CompanyProfile_model->addStaff($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
 			}		
 
 		}
@@ -383,7 +396,7 @@
 				
 				$this->CompanyProfile_model->updateStaff($id,$data);
 				
-				redirect('AdminController/index');	
+				redirect('AdminController/companyProfile');	
 			}
 
 		}
@@ -404,7 +417,7 @@
 		public function do_deleteStaff($id){
 			$this->CompanyProfile_model->deleteStaff($id);
 
-			redirect('AdminController/index');
+			redirect('AdminController/companyProfile');
 		}
 
 
@@ -440,7 +453,7 @@
 				);
 				$this->CompanyProfile_model->addPartner($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
 			}		
 
 		}
@@ -497,7 +510,7 @@
 				
 				$this->CompanyProfile_model->updatePartner($id,$data);
 				
-				redirect('AdminController/index');	
+				redirect('AdminController/companyProfile');	
 			}
 
 		}
@@ -518,7 +531,7 @@
 		public function do_deletePartner($id){
 			$this->CompanyProfile_model->deletePartner($id);
 
-			redirect('AdminController/index');
+			redirect('AdminController/companyProfile');
 		}
 
 
