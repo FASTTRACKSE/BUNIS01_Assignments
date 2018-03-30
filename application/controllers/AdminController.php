@@ -5,7 +5,8 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url');
-			$this->load->library('pagination'); 
+			$this->load->library('pagination');
+			$this->load->model('Homepage_Model');
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->model('Product_Model');
@@ -39,6 +40,84 @@
 		}
 	}
 
+	//HOMEPAGE--------------------------------------------------------------------------------------
+		public function homepage()
+		{
+			$dataView = array(
+				'headerTitle' => 'Homepage'
+		 	);
+
+			$load_product=$this->Homepage_Model->getImage();
+			$dataPage['id'] = $load_product;
+
+			$data = array_merge($dataView, $dataPage);
+			$data['row_count']= $this->Homepage_Model->getCountRowSlider();
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/editSlider');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function insert_imageslider()
+		{
+			
+			
+			$dataView = array(
+				'headerTitle' => 'Homepage',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/insertSlider');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function create_imageslider()
+		{
+
+			$picture = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/homepage/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $picture;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+					'image' => $upload_data['file_name'],
+				);
+				
+				$this->Homepage_Model->insertImage($data);
+
+				redirect('AdminController/homepage');
+
+				}
+		}
+
+		public function delete_imageslider($id)
+	{
+		$load_product=$this->Homepage_Model->getSpecificImage($id);
+		$dataPage['item'] = $load_product;
+		
+		$this->Homepage_Model->deleteImage($id);
+
+		redirect ('AdminController/homepage');
+	}
+
 	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
 
 		public function index()
@@ -57,6 +136,28 @@
 			$this->load->view('adminpages/companyProfile');
 			$this->load->view('admintemplates/footer');
 		}
+
+		// Data---------------------------------------------------------------------------
+		public function updateData($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Data'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getDataById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateData');
+			$this->load->view('admintemplates/footer');
+
+			
+		}
+
+
+
+
+
 
 		// About--------------------------------------------------------------------------
 		public function addAbout()

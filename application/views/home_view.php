@@ -37,15 +37,14 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350a.jpg" alt="First slide">
+              
+              <?php $i=0; foreach($image as $item){
+                if($i==0){$active = 'active';$i++;}else{$active ='';}
+               ?>
+              <div class="carousel-item <?=$active?>">
+                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/<?=$item['image']?>" alt="First slide">
               </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350b.jpg" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo (base_url()); ?>assets/image/homepage/1200x350c.jpg" alt="Third slide">
-              </div>
+              <?php }?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

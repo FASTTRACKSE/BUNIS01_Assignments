@@ -19,16 +19,19 @@
         <div>
           <h3>Image Slider</h3>
           <table border="2"> 
-            <th>Name</th>
             <th>Image</th>
-            <th colspan="2">Actions</th>
-            <a href="<?php echo  base_url('AdminController/insert_insurance/')?>">Insert</a>
+            <th>Actions</th>
+            <?php 
+            
+             if($row_count<3){         
+            ?>
+            <a href="<?php echo  base_url('AdminController/insert_imageslider/')?>">Insert</a>
+            <?php } ?>
             <?php foreach($id as $row): ?>
               <tr>
-                <td><?php echo ($row['name']);?></td>
+
                 <td><?php echo ($row['image']);?></td>
-                <td> <a href="#">Update</a></td>
-                <td> <a href="#">Delete</a></td>
+                <td> <a href="<?php echo base_url("AdminController/delete_imageslider/").$row['id']; ?>">Delete</a></td>
               </tr>
             <?php endforeach; ?>
           </table>
