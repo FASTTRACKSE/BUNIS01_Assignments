@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2018 at 10:00 AM
+-- Generation Time: Mar 30, 2018 at 10:30 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -39,12 +39,11 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`ID`, `name`, `description`, `picture`, `tag`) VALUES
-(1, 'test', 'testing', '', 'Body'),
+(1, 'test', 'testing', 'testing.jpg', 'Body'),
 (2, 'test1', 'testing1', '', 'Body'),
 (3, 'test2', 'testing2', '', 'Engine'),
 (4, 'test3', 'testing3', '', 'Car Rescue'),
-(5, 'test4', 'testing4', '', 'Electrical'),
-(6, 'test5', 'testing5', '', 'Door-to-Door');
+(5, 'test4', 'testing4', '', 'Electrical');
 
 --
 -- Indexes for dumped tables
@@ -64,7 +63,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

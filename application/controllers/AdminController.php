@@ -20,7 +20,11 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> 46ef810581a371e5b92e45098dc3052d810c0008
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -136,6 +140,28 @@
 			$this->load->view('adminpages/companyProfile');
 			$this->load->view('admintemplates/footer');
 		}
+
+		// Data---------------------------------------------------------------------------
+		public function updateData($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Data'
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getDataById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateData');
+			$this->load->view('admintemplates/footer');
+
+			
+		}
+
+
+
+
+
 
 		// About--------------------------------------------------------------------------
 		public function addAbout()

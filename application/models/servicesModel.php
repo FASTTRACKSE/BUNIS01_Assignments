@@ -24,10 +24,6 @@ class servicesModel extends CI_Model{
     	$this->db->update("service",$data);
     }
 
-    function get_all_pics(){
-		$getPics = $this->db->get('service');
-		return $getPics->result();
-	}
 
 //body
 	function get_Body(){

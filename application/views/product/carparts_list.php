@@ -15,7 +15,7 @@
     <!-- Page Content -->
  
         <!-- /.col-lg-3 -->
-
+<!-- 
         <div class="col-lg-9 marginTop">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -44,7 +44,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-
+ -->
           <div class="row">
 
             <?php foreach ($CarPartsID as $row)

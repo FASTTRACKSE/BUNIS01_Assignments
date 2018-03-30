@@ -215,7 +215,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/bodyController/showBody">Show me more</a>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
           </div>
         </div>
       </div>
@@ -227,7 +227,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/electricalController/showElectrical">See Project</a>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showElectrical">See Project</a>
           </div>
         </div>
       </div>
@@ -239,7 +239,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/engineController/showEngine">See Project</a>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showEngine">See Project</a>
           </div>
         </div>
       </div>
@@ -251,7 +251,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/carRescueController/showCarRescue">See Project</a>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showCarRescue">See Project</a>
           </div>
         </div>
       </div>
@@ -263,7 +263,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/d2dController/showD2D">See Project</a>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showD2D">See Project</a>
           </div>
         </div>
       </div>
