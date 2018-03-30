@@ -19,7 +19,11 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> fd2d778ff9dc9a69daa30d53aa95d912ec5ea631
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -428,19 +432,40 @@
 		public function do_insert_insurance()
 		{
 
+			$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'InsuranceName' =>	$this->input->post('name'),
-			   'InsurancePrice'=> $this->input->post('price'),
-			   'InsuranceDesc'=> $this->input->post('desc'),
-			   'InsuranceImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_insurance( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/insurance');
+
+				$data = array(
+					'InsuranceName' => $this->input->post('name'),
+					'InsurancePrice' => $this->input->post('price'),
+					'InsuranceDesc' => $this->input->post('desc'),
+					
+					'InsuranceImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_insurance( $data);
+
+				redirect('AdminController/insurance');
+
+				}
 		}
+
 
 		public function delete_insurance($id)
 	{
@@ -511,12 +536,39 @@
 		{
 
 
-			$arData = array(
-			   'CarPartsName' =>	$this->input->post('name'),
+			$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+				'CarPartsName' =>	$this->input->post('name'),
 			   'CarPartsPrice'=> $this->input->post('price'),
 			   'CarPartsDesc'=> $this->input->post('desc'),
-			   'CarPartsImage'=> $this->input->post('image')
-			);
+					
+					'CarPartsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_carparts($id, $data);
+
+				redirect('AdminController/carparts');
+
+				}
+			
 
 			$this->Product_Model->update_carparts($id, $arData);
 
@@ -542,18 +594,38 @@
 		public function do_insert_carparts()
 		{
 
+		$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'CarPartsName' =>	$this->input->post('name'),
-			   'CarPartsPrice'=> $this->input->post('price'),
-			   'CarPartsDesc'=> $this->input->post('desc'),
-			   'CarPartsImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_carparts( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/carparts');
+
+				$data = array(
+					'CarPartsName' => $this->input->post('name'),
+					'CarPartsPrice' => $this->input->post('price'),
+					'CarPartsDesc' => $this->input->post('desc'),
+					
+					'CarPartsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_carparts( $data);
+
+				redirect('AdminController/carparts');
+
+				}
 		}
 		public function delete_carparts($id)
 		{
@@ -618,13 +690,29 @@
 
 		public function do_update_oil_fluid($id)
 		{
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+			
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+				$upload_data = $this->upload->data();
+			 
 
 			$arData = array(
 			   'OilandFluidName' =>	$this->input->post('name'),
 			   'OilandFluidPrice'=> $this->input->post('price'),
 			   'OilandFluidDesc'=> $this->input->post('desc'),
-			   'OilandFluidImage'=> $this->input->post('image')
+			   'OilandFluidImage' => $upload_data['file_name'],
 			);
 
 			$this->Product_Model->update_oil_fluid($id, $arData);
@@ -632,7 +720,8 @@
 			
 			 redirect ('AdminController/oil_fluid');
 
-		}
+				}
+			}
 
 			public function insert_oil_fluid()
 		{
@@ -653,17 +742,38 @@
 		{
 
 
-			$arData = array(
-			   'OilandFluidName' =>	$this->input->post('name'),
-			   'OilandFluidPrice'=> $this->input->post('price'),
-			   'OilandFluidDesc'=> $this->input->post('desc'),
-			   'OilandFluidImage'=> $this->input->post('image')
-			);
-
-			$this->Product_Model->insert_oil_fluid( $arData);
-
 			
-			 redirect ('AdminController/oil_fluid');
+		$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+					'OilandFluidName' => $this->input->post('name'),
+					'OilandFluidPrice' => $this->input->post('price'),
+					'OilandFluidDesc' => $this->input->post('desc'),
+					
+					'OilandFluidImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_oil_fluid( $data);
+
+				redirect('AdminController/oil_fluid');
+			}
 		}
 
 
@@ -736,17 +846,35 @@
 
 		public function do_update_acc($id)
 		{
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+			
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+				$upload_data = $this->upload->data();
+			 
 
 			$arData = array(
 			   'AccessoryName' =>	$this->input->post('name'),
 			   'AccessoryPrice'=> $this->input->post('price'),
 			   'AccessoryDesc'=> $this->input->post('desc'),
-			   'AccessoryImage'=> $this->input->post('image')
+			   'AccessoryImage'=> $upload_data['file_name'],
 			);
 
-			$this->Product_Model->update_acc($id, $arData);
+	
 
+			$this->Product_Model->update_acc($id, $arData);
+					}
 			
 			 redirect ('AdminController/acc');
 
@@ -771,17 +899,39 @@
 		{
 
 
-			$arData = array(
-			   'AccessoryName' =>$this->input->post('name'),
-			   'AccessoryPrice'=> $this->input->post('price'),
-			   'AccessoryDesc'=> $this->input->post('desc'),
-			   'AccessoryImage'=> $this->input->post('image')
-			);
-
-			$this->Product_Model->insert_acc( $arData);
-
 			
-			 redirect ('AdminController/acc');
+			
+		$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+					'AccessoryName' => $this->input->post('name'),
+					'AccessoryPrice' => $this->input->post('price'),
+					'AccessoryDesc' => $this->input->post('desc'),
+					
+					'AccessoryImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_acc( $data);
+
+				redirect('AdminController/acc');
+			}
 		}
 
 
@@ -854,18 +1004,42 @@
 		{
 
 
-			$arData = array(
-			   'UsedCarsName' =>$this->input->post('name'),
+			
+			$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+				'UsedCarsName' =>	$this->input->post('name'),
 			   'UsedCarsPrice'=> $this->input->post('price'),
 			   'UsedCarsDesc'=> $this->input->post('desc'),
-			   'UsedCarsImage'=> $this->input->post('image')
-			);
+					
+					'UsedCarsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_usedcars($id, $data);
 
-			$this->Product_Model->update_usedcars($id, $arData);
+				redirect('AdminController/usedcars');
+
+				}
+			
 
 			
-			 redirect ('AdminController/usedcars');
-
 		}
 			public function insert_usedcars()
 		{
@@ -886,18 +1060,38 @@
 		public function do_insert_usedcars()
 		{
 
+		
+		$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'UsedCarsName' =>$this->input->post('name'),
-			   'UsedCarsPrice'=> $this->input->post('price'),
-			   'UsedCarsDesc'=> $this->input->post('desc'),
-			   'UsedCarsImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_usedcars( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/usedcars');
+
+				$data = array(
+					'UsedCarsName' => $this->input->post('name'),
+					'UsedCarsPrice' => $this->input->post('price'),
+					'UsedCarsDesc' => $this->input->post('desc'),
+					
+					'UsedCarsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_usedcars( $data);
+
+				redirect('AdminController/usedcars');
+			}
 		}
 
 
