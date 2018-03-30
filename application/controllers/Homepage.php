@@ -15,7 +15,7 @@ class Homepage extends CI_Controller{
 				'headTitle' => 'Garage HC Auto | Promoting Program',
 		 );
 
-		$load_news=$this->Homepage_Model->getNews();
+		$load_news = $this->Homepage_Model->getNews();
 		$dataPage['id'] = $load_news;
 
 		$data = array_merge($dataHead, $dataPage);
