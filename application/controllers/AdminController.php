@@ -154,7 +154,7 @@
 		public function updateData($id)
 		{
 			$data = array(
-				'headerTitle' => 'Update Data'
+				'headerTitle' => 'Update Data / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getDataById($id);
@@ -183,7 +183,7 @@
 		{
 			$config['upload_path'] = './assets/company_profile/img/about/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 200;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -192,7 +192,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add About'
+					'headerTitle' => 'Add New About'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -213,6 +213,7 @@
 				$this->CompanyProfile_model->addAbout($data);
 				
 				redirect('AdminController/companyProfile');
+				
 			}		
 
 		}
@@ -220,7 +221,7 @@
 		public function updateAbout($id)
 		{
 			$data = array(
-				'headerTitle' => 'Update About'
+				'headerTitle' => 'Update About / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
@@ -238,7 +239,7 @@
 			{
 				$config['upload_path'] = './assets/company_profile/img/about/';
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = 200;
+				$config['max_size'] = 10000;
 
 	 
 				$this->load->library('upload', $config);
@@ -278,7 +279,7 @@
 
 		public function deleteAbout($id){
 			$data = array(
-				'headerTitle' => 'Delete About'
+				'headerTitle' => 'Delete About / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
@@ -302,7 +303,7 @@
 		{
 			$config['upload_path'] = './assets/company_profile/img/staffs/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 500;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -311,7 +312,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add Staff'
+					'headerTitle' => 'Add New Staff'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -340,7 +341,7 @@
 		public function updateStaff($id)
 		{
 			$data = array(
-				'headerTitle' => 'Update Staff'
+				'headerTitle' => 'Update Staff / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
@@ -358,7 +359,7 @@
 			{
 				$config['upload_path'] = './assets/company_profile/img/staffs/';
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = 500;
+				$config['max_size'] = 10000;
 	 
 				$this->load->library('upload', $config);
 				$this->upload->overwrite = true;
@@ -403,7 +404,7 @@
 
 		public function deleteStaff($id){
 			$data = array(
-				'headerTitle' => 'Delete Staff'
+				'headerTitle' => 'Delete Staff / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
@@ -426,7 +427,7 @@
 		{
 			$config['upload_path'] = './assets/company_profile/img/partners/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 200;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -435,7 +436,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add Partner'
+					'headerTitle' => 'Add New Partner'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -461,7 +462,7 @@
 		public function updatePartner($id)
 		{
 			$data = array(
-				'headerTitle' => 'Update Partner'
+				'headerTitle' => 'Update Partner / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);
@@ -479,7 +480,7 @@
 			{
 				$config['upload_path'] = './assets/company_profile/img/partners/';
 				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = 200;
+				$config['max_size'] = 10000;
 
 	 
 				$this->load->library('upload', $config);
@@ -517,7 +518,7 @@
 
 		public function deletePartner($id){
 			$data = array(
-				'headerTitle' => 'Delete Partner'
+				'headerTitle' => 'Delete Partner / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);

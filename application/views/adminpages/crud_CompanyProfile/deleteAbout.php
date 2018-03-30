@@ -7,7 +7,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-        	<a href="<?php echo(base_url()); ?>index.php/AdminController">Company Profiles</a>
+        	<a href="<?php echo(base_url()); ?>index.php/AdminController/companyProfile">Company Profiles</a>
         </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
       </ol>
@@ -16,7 +16,7 @@
 
 			<?php foreach ($data as $d) {?>
 
-			<table border="2">
+			<table border="2" align="center">
 			  <tr>
 			    <th style="padding: 15px;">Date</th>
 			    <td style="padding: 15px;"><?php echo $d['date'] ?></td> 
@@ -40,7 +40,7 @@
 
 			<div class="col-12" style="text-align: center;">
 				<br><h4>Are you sure to delete this about?</h4>
-				<a href="<?php echo(base_url()); ?>index.php/AdminController" style="padding: 50px;">
+				<a href="<?php echo(base_url()); ?>index.php/AdminController/companyProfile" style="padding: 50px;">
 	            	<input style="background-color: green; color: white; font-size: 20px;" type="button" value="No" />
 	          	</a>
 

@@ -132,7 +132,7 @@
                 <?php if ($a['id']%2 > 0): ?>
                 <li>
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
+                    <img class="rounded-circle img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -149,7 +149,7 @@
                 <?php if ($a['id']%2 == 0): ?>
                 <li class="timeline-inverted">
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
+                    <img class="rounded-circle img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
