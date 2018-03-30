@@ -203,9 +203,21 @@
 
 		public function insurance()
 		{
+			$dataView = array(
+				'headerTitle' => 'insurance',
+			);
+
 		$load_product=$this->Product_Model->getProduct();
 		$dataPage['InsuranceID'] = $load_product;
-		$this->load->view('product/admin_product_list', $dataPage);
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_product_list');
+		$this->load->view('admintemplates/footer');
+
+		
 
 		
 		}	
@@ -213,14 +225,38 @@
 		public function update_insurance($id)
 		{
 
-			$dataPage['item']=$this->Product_Model->getProductDesc($id);
-			$this->load->view('product/updatepage_insurance', $dataPage);
+
+					
+			$dataView = array(
+				'headerTitle' => 'insurance',
+			);
+
+		$load_product=$this->Product_Model->getProductDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/updatepage_insurance');
+		$this->load->view('admintemplates/footer');
+
+			
 		}
 		public function insert_insurance()
 		{
-
 			
+			
+			$dataView = array(
+				'headerTitle' => 'insurance',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
 			$this->load->view('product/insertpage_insurance');
+			$this->load->view('admintemplates/footer');
 		}
 
 		public function do_update_insurance($id)
@@ -257,8 +293,20 @@
 
 		public function delete_insurance($id)
 	{
-			$dataPage['item']=$this->Product_Model->getProductDesc($id);
-			$this->load->view('product/deletepage_insurance',$dataPage);
+			$dataView = array(
+				'headerTitle' => 'insurance',
+			);
+
+		$load_product=$this->Product_Model->getProductDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/deletepage_insurance');
+		$this->load->view('admintemplates/footer');
+
 	}
 		public function do_delete_insurance($id)
 	{
@@ -270,17 +318,41 @@
 	
 		public function carparts()
 		{
+		$dataView = array(
+				'headerTitle' => 'carparts',
+			);
+
 		$load_product=$this->Product_Model->getCarParts();
 		$dataPage['CarPartsID'] = $load_product;
-		$this->load->view('product/admin_carparts_list', $dataPage);
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_carparts_list');
+		$this->load->view('admintemplates/footer');
+
 
 		
 		}	
 		public function update_carparts($id)
 		{
 
-			$dataPage['item']=$this->Product_Model->getCarPartsDesc($id);
-			$this->load->view('product/updatepage_carparts', $dataPage);
+				$dataView = array(
+				'headerTitle' => 'carparts',
+			);
+
+		$load_product=$this->Product_Model->getCarPartsDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/updatepage_carparts');
+		$this->load->view('admintemplates/footer');
+
+			
 		}
 
 
@@ -304,8 +376,17 @@
 			public function insert_carparts()
 		{
 
-			
+			$dataView = array(
+				'headerTitle' => 'carparts',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
 			$this->load->view('product/insertpage_carparts');
+			$this->load->view('admintemplates/footer');
+			
 		}
 		public function do_insert_carparts()
 		{
@@ -323,11 +404,23 @@
 			
 			 redirect ('AdminController/carparts');
 		}
-			public function delete_carparts($id)
-	{
-			$dataPage['item']=$this->Product_Model->getCarPartsDesc($id);
-			$this->load->view('product/deletepage_carparts',$dataPage);
-	}
+		public function delete_carparts($id)
+		{
+			$dataView = array(
+				'headerTitle' => 'carparts',
+			);
+
+		$load_product=$this->Product_Model->getCarPartsDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/deletepage_carparts');
+		$this->load->view('admintemplates/footer');
+		}
+
 		public function do_delete_carparts($id)
 	{
 		
@@ -338,17 +431,38 @@
 
 		public function oil_fluid()
 		{
+		$dataView = array(
+				'headerTitle' => 'oil and fluid',
+			);
+
 		$load_product=$this->Product_Model->getOilandFluid();
 		$dataPage['OilandFluidID'] = $load_product;
-		$this->load->view('product/admin_oil_fluid_list', $dataPage);
 
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_oil_fluid_list');
+		$this->load->view('admintemplates/footer');
 		
 		}	
 		public function update_oil_fluid($id)
 		{
+						$dataView = array(
+				'headerTitle' => 'oil and fluid',
+			);
 
-			$dataPage['item']=$this->Product_Model->getOilandFluidDesc($id);
-			$this->load->view('product/updatepage_oil_fluid', $dataPage);
+		$load_product=$this->Product_Model->getOilandFluidDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/updatepage_oil_fluid');
+		$this->load->view('admintemplates/footer');
+
+			
 		}
 
 		public function do_update_oil_fluid($id)
@@ -373,7 +487,16 @@
 		{
 
 			
+				$dataView = array(
+				'headerTitle' => 'oil and fluid',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
 			$this->load->view('product/insertpage_oil_fluid');
+			$this->load->view('admintemplates/footer');
 		}
 		public function do_insert_oil_fluid()
 		{
@@ -397,8 +520,19 @@
 
 				public function delete_oil_fluid($id)
 	{
-			$dataPage['item']=$this->Product_Model->getOilandFluidDesc($id);
-			$this->load->view('product/deletepage_oil_fluid',$dataPage);
+			$dataView = array(
+				'headerTitle' => 'oil and fluid',
+			);
+
+			$load_product=$this->Product_Model->getOilandFluidDesc($id);
+			$dataPage['item'] = $load_product;
+
+			$data = array_merge($dataView, $dataPage);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('product/deletepage_oil_fluid');
+			$this->load->view('admintemplates/footer');
 	}
 
 
@@ -411,17 +545,42 @@
 	}
 		public function acc()
 		{
+		$dataView = array(
+				'headerTitle' => 'accessory',
+			);
+
 		$load_product=$this->Product_Model->getAcc();
 		$dataPage['AccessoryID'] = $load_product;
-		$this->load->view('product/admin_acc_list', $dataPage);
 
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_acc_list');
+		$this->load->view('admintemplates/footer');
 		
 		}	
+
+		
+		
 		public function update_acc($id)
 		{
 
-			$dataPage['item']=$this->Product_Model->getAccDesc($id);
-			$this->load->view('product/updatepage_accessory', $dataPage);
+					
+				$dataView = array(
+				'headerTitle' => 'accessory',
+			);
+
+		$load_product=$this->Product_Model->getAccDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/updatepage_accessory');
+		$this->load->view('admintemplates/footer');
+
 		}
 
 		public function do_update_acc($id)
@@ -445,7 +604,16 @@
 		{
 
 			
+				$dataView = array(
+				'headerTitle' => 'accessory',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
 			$this->load->view('product/insertpage_acc');
+			$this->load->view('admintemplates/footer');
 		}
 
 		public function do_insert_acc()
@@ -469,8 +637,19 @@
 
 			public function delete_acc($id)
 	{
-			$dataPage['item']=$this->Product_Model->getAccDesc($id);
-			$this->load->view('product/deletepage_acc',$dataPage);
+			$dataView = array(
+				'headerTitle' => 'accessory',
+			);
+
+		$load_product=$this->Product_Model->getAccDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/deletepage_acc');
+		$this->load->view('admintemplates/footer');
 	}
 
 	
@@ -487,17 +666,37 @@
 
 			public function usedcars()
 		{
+		$dataView = array(
+				'headerTitle' => 'used cars',
+			);
+
 		$load_product=$this->Product_Model->getUsedCars();
 		$dataPage['UsedCarsID'] = $load_product;
-		$this->load->view('product/admin_usedcars_list', $dataPage);
 
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_usedcars_list');
+		$this->load->view('admintemplates/footer');
 		
 		}	
 		public function update_usedcars($id)
 		{
 
-			$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
-			$this->load->view('product/updatepage_usedcars', $dataPage);
+			$dataView = array(
+				'headerTitle' => 'used cars',
+			);
+
+		$load_product=$this->Product_Model->getUsedCarsDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/updatepage_usedcars');
+		$this->load->view('admintemplates/footer');
 		}
 
 		public function do_update_usedcars($id)
@@ -521,7 +720,16 @@
 		{
 
 			
+				$dataView = array(
+				'headerTitle' => 'used cars',
+			);
+
+			$data = $dataView;
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
 			$this->load->view('product/insertpage_usedcars');
+			$this->load->view('admintemplates/footer');
 		}
 
 		public function do_insert_usedcars()
@@ -545,8 +753,19 @@
 
 				public function delete_usedcars($id)
 	{
-			$dataPage['item']=$this->Product_Model->getUsedCarsDesc($id);
-			$this->load->view('product/deletepage_usedcars',$dataPage);
+				$dataView = array(
+				'headerTitle' => 'used cars',
+			);
+
+		$load_product=$this->Product_Model->getUsedCarsDesc($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/deletepage_usedcars');
+		$this->load->view('admintemplates/footer');
 	}
 
 	

@@ -2,7 +2,25 @@
  <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+ 
+
+
+
+
+<html lang="vi">
+
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
+      </ol>
+       <head>
 
     
 
@@ -18,7 +36,7 @@ table, th, td {
     
 
         
-<table  style="width:100%" table >
+<table  style="width:50%" table  >
 
   <tr>
     <th>Insurance Name</th>
@@ -69,5 +87,11 @@ table, th, td {
       </table>
 
   </body>
+    <!-- /.container-fluid-->
+    
+</body>
 
 </html>
+</html>
+
+
