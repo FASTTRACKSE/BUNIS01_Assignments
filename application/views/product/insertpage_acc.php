@@ -11,6 +11,7 @@
           <a href="index.html">Dashboard</a>
         </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
+    </ol>
 <head>
 	
 </head>

@@ -19,6 +19,7 @@
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
+		}
 
 		public function loginValidation(){
 
@@ -342,20 +343,42 @@
 			$this->load->view('admintemplates/footer');
 		}
 
+		
 		public function do_update_insurance($id)
 		{
-			$arData = array(
-			   'InsuranceName' =>	$this->input->post('name'),
-			   'InsurancePrice'=> $this->input->post('price'),
-			   'InsuranceDesc'=> $this->input->post('desc'),
-			   'InsuranceImage'=> $this->input->post('image')
-			);
 
-			$this->Product_Model->update_insurance($id,$arData);
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/insurance');
 
+				$data = array(
+					'InsuranceName' => $this->input->post('name'),
+					'InsurancePrice' => $this->input->post('price'),
+					'InsuranceDesc' => $this->input->post('desc'),
+					
+					'InsuranceImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_insurance($id, $data);
+
+				redirect('AdminController/insurance');
+
+				}
 		}
 		public function do_insert_insurance()
 		{
