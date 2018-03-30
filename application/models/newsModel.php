@@ -62,6 +62,11 @@
 			$this->db->delete('news');
 		}
 
+		function updateNews($id, $data){
+			$this->db->where("id", $id);
+			$this->db->update('news', $data);
+		}
+
 	}
 	
 

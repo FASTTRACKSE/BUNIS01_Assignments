@@ -53,7 +53,7 @@
 			<tr>
 				<td>News Picture</td>
 				<td> : </td>
-				<td><input style="height: 30px; width: 200px" type="file" name="newsPicture" required></td>
+				<td><input style="height: 30px; width: 200px" type="file" name="newsPicture" required value="<?php echo($news['imageNews']) ?>"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="" value="Update"></td>
