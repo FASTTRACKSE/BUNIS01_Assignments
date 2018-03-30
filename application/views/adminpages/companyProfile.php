@@ -6,9 +6,6 @@
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
-        </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
       </ol>
     <div class="row">
@@ -23,7 +20,7 @@
         <!-- Update Data -->
         <div>
           <h3>Data</h3>
-          <table border="2"> 
+          <table class="col-12" border="2" style="text-align: center;"> 
             <th>No</th>
             <th>Name</th>
             <th>Description</th>
@@ -42,21 +39,28 @@
         <!-- Update About -->
         <div>
           <h3>About</h3>
-          <table border="2"> 
+          <!-- <form action="<?php echo(base_url()); ?>index.php/AdminController/addAbout">
+            <input type="submit" name="" value="Add About">
+          </form> -->
+          <a href="<?php echo(base_url()); ?>index.php/AdminController/addAbout">
+             <input type="button" value="Add About">
+          </a>
+          <table class="col-12" border="2" style="text-align: center;"> 
             <th>ID</th>
             <th>Date</th>
             <th>Title</th>
             <th>Description</th>
-            <th colspan="3">Actions</th>
+            <th>Image</th>
+            <th colspan="2">Actions</th>
             <?php foreach($about as $a): ?>
               <tr>
                 <td><?php echo ($a['id']);?></td>
                 <td><?php echo ($a['date']);?></td>
                 <td><?php echo ($a['title']);?></td>
                 <td><?php echo ($a['description']); ?></td>
-                <td> <a href="#">Add</a></td>
+                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
                 <td> <a href="#">Update</a></td>
-                <td> <a href="#">Update</a></td>
+                <td> <a href="#">Delete</a></td>
 
               </tr>
             <?php endforeach; ?>
@@ -66,7 +70,10 @@
         <!-- Update Staffs -->
         <div>
           <h3>Staffs</h3>
-          <table border="2"> 
+          <a href="<?php echo(base_url()); ?>index.php/AdminController/addStaff">
+             <input type="button" value="Add Staff">
+          </a>
+          <table class="col-12" border="2" style="text-align: center;"> 
             <th>ID</th>
             <th>Name</th>
             <th>Job</th>
@@ -74,19 +81,18 @@
             <th>Twitter</th>
             <th>Facebook</th>
             <th>LinkedIn</th>
-            <th colspan="3">Actions</th>
+            <th colspan="2">Actions</th>
             <?php foreach($staffs as $s): ?>
               <tr>
                 <td><?php echo ($s['id']);?></td>
                 <td><?php echo ($s['name']);?></td>
                 <td><?php echo ($s['job']);?></td>
-                <td><?php echo ($s['img']); ?></td>
+                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/staffs/'.$s['img']; ?>" alt=""></td>
                 <td><?php echo ($s['twitter']); ?></td>
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
-                <td> <a href="#">Add</a></td>
                 <td> <a href="#">Update</a></td>
-                <td> <a href="#">Update</a></td>
+                <td> <a href="#">Delete</a></td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -95,21 +101,23 @@
         <!-- Update Partners -->
         <div>
           <h3>Partners</h3>
-          <table border="2"> 
+          <a href="<?php echo(base_url()); ?>index.php/AdminController/addPartner">
+             <input type="button" value="Add Partner">
+          </a>
+          <table class="col-12" border="2" style="text-align: center;"> 
             <th>ID</th>
             <th>Name</th>
             <th>Link</th>
             <th>Image</th>
-            <th colspan="3">Actions</th>
+            <th colspan="2">Actions</th>
             <?php foreach($partners as $p): ?>
               <tr>
                 <td><?php echo ($p['id']);?></td>
                 <td><?php echo ($p['name']);?></td>
                 <td><?php echo ($p['link']);?></td>
-                <td><?php echo ($p['img']); ?></td>
-                <td> <a href="#">Add</a></td>
+                <td> <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" style="width: 150px; height: 50px;"></td>
                 <td> <a href="#">Update</a></td>
-                <td> <a href="#">Update</a></td>
+                <td> <a href="#">Delete</a></td>
               </tr>
             <?php endforeach; ?>
           </table>

@@ -5,11 +5,10 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->helper('url');
+			$this->load->library('pagination'); 
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
-			$this->load->library('pagination');
 			$this->load->model('Product_Model');
-			$this->load->helper("url");
 
 			if (!$this->session->userdata('username')) {
 		        redirect('LoginController/login');
@@ -20,8 +19,29 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
+		
+		public function loginValidation(){
 
-		public function companyProfile()
+		$username = $this->input->post('username');
+		$password = md5($this->input->post('password'));
+
+		if($this->studentmodel->checkLogin($username, $password)){
+
+			$session_data = array(
+				'username' => $username
+			);
+			$this->session->set_userdata($session_data);
+			redirect(base_url().'index.php/StudentController/index');
+		}
+		else{
+			$this->session->set_flashdata('error', 'Invalid Username and Password');  
+            
+		}
+	}
+
+	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
+
+		public function index()
 		{
 			$data = array(
 				'headerTitle' => 'Company Profile'
@@ -37,6 +57,134 @@
 			$this->load->view('adminpages/companyProfile');
 			$this->load->view('admintemplates/footer');
 		}
+
+		// About--------------------------------------------------------------------------
+		public function addAbout()
+		{
+			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 200;
+
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
+				$data = array(
+					'headerTitle' => 'Add About'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addAbout',$error);
+				$this->load->view('admintemplates/footer');
+			}
+			else {
+
+				$upload_data = $this->upload->data();
+
+				$data = array(	
+					'id' => $this->input->post('aboutID'),
+					'date' => $this->input->post('aboutDate'),
+					'title' => $this->input->post('aboutTitle'),
+					'description' => $this->input->post('aboutDesc'),
+					'img' => $upload_data['file_name']
+				);
+				$this->CompanyProfile_model->addAbout($data);
+				
+				redirect('AdminController/index');
+			}		
+
+		}
+
+
+		// Staff--------------------------------------------------------------------------
+		public function addStaff()
+		{
+			$config['upload_path'] = './assets/company_profile/img/staffs';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 500;
+
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
+				$data = array(
+					'headerTitle' => 'Add Staff'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addStaff',$error);
+				$this->load->view('admintemplates/footer');
+			}
+			else {
+
+				$upload_data = $this->upload->data();
+
+				$data = array(	
+					'name' => $this->input->post('staffName'),	
+					'job' => $this->input->post('staffJob'),
+					'img' => $upload_data['file_name'],
+					'twitter' => $this->input->post('staffTwitter'),
+					'facebook' => $this->input->post('staffFB'),
+					'linkedin' => $this->input->post('staffLinkedin')
+				);
+				$this->CompanyProfile_model->addStaff($data);
+				
+				redirect('AdminController/index');
+			}		
+
+		}
+
+
+
+
+
+				
+		// Partner------------------------------------------------------------------------
+		public function addPartner()
+		{
+			$config['upload_path'] = './assets/company_profile/img/partners';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 200;
+
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
+				$data = array(
+					'headerTitle' => 'Add Partner'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addPartner',$error);
+				$this->load->view('admintemplates/footer');
+			}
+			else {
+
+				$upload_data = $this->upload->data();
+
+				$data = array(	
+					'name' => $this->input->post('partnerName'),	
+					'link' => $this->input->post('partnerLink'),
+					'img' => $upload_data['file_name']
+				);
+				$this->CompanyProfile_model->addPartner($data);
+				
+				redirect('AdminController/index');
+			}		
+
+		}
+
+
+
+
+
+
 	//news----------------------------------------------------------------------------------
 		public function news(){
 			$config['base_url'] = 'http://localhost/hcautoproject/index.php/AdminController/news/';
@@ -240,37 +388,80 @@
 			$this->load->view('admintemplates/footer');
 		}
 
+		
 		public function do_update_insurance($id)
 		{
-			$arData = array(
-			   'InsuranceName' =>	$this->input->post('name'),
-			   'InsurancePrice'=> $this->input->post('price'),
-			   'InsuranceDesc'=> $this->input->post('desc'),
-			   'InsuranceImage'=> $this->input->post('image')
-			);
 
-			$this->Product_Model->update_insurance($id,$arData);
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/insurance');
 
+				$data = array(
+					'InsuranceName' => $this->input->post('name'),
+					'InsurancePrice' => $this->input->post('price'),
+					'InsuranceDesc' => $this->input->post('desc'),
+					
+					'InsuranceImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_insurance($id, $data);
+
+				redirect('AdminController/insurance');
+
+				}
 		}
 		public function do_insert_insurance()
 		{
 
+			$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'InsuranceName' =>	$this->input->post('name'),
-			   'InsurancePrice'=> $this->input->post('price'),
-			   'InsuranceDesc'=> $this->input->post('desc'),
-			   'InsuranceImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_insurance( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/insurance');
+
+				$data = array(
+					'InsuranceName' => $this->input->post('name'),
+					'InsurancePrice' => $this->input->post('price'),
+					'InsuranceDesc' => $this->input->post('desc'),
+					
+					'InsuranceImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_insurance( $data);
+
+				redirect('AdminController/insurance');
+
+				}
 		}
+
 
 		public function delete_insurance($id)
 	{
@@ -341,12 +532,39 @@
 		{
 
 
-			$arData = array(
-			   'CarPartsName' =>	$this->input->post('name'),
+			$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+				'CarPartsName' =>	$this->input->post('name'),
 			   'CarPartsPrice'=> $this->input->post('price'),
 			   'CarPartsDesc'=> $this->input->post('desc'),
-			   'CarPartsImage'=> $this->input->post('image')
-			);
+					
+					'CarPartsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_carparts($id, $data);
+
+				redirect('AdminController/carparts');
+
+				}
+			
 
 			$this->Product_Model->update_carparts($id, $arData);
 
@@ -372,18 +590,38 @@
 		public function do_insert_carparts()
 		{
 
+		$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'CarPartsName' =>	$this->input->post('name'),
-			   'CarPartsPrice'=> $this->input->post('price'),
-			   'CarPartsDesc'=> $this->input->post('desc'),
-			   'CarPartsImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_carparts( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/carparts');
+
+				$data = array(
+					'CarPartsName' => $this->input->post('name'),
+					'CarPartsPrice' => $this->input->post('price'),
+					'CarPartsDesc' => $this->input->post('desc'),
+					
+					'CarPartsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_carparts( $data);
+
+				redirect('AdminController/carparts');
+
+				}
 		}
 		public function delete_carparts($id)
 		{
@@ -448,13 +686,29 @@
 
 		public function do_update_oil_fluid($id)
 		{
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+			
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+				$upload_data = $this->upload->data();
+			 
 
 			$arData = array(
 			   'OilandFluidName' =>	$this->input->post('name'),
 			   'OilandFluidPrice'=> $this->input->post('price'),
 			   'OilandFluidDesc'=> $this->input->post('desc'),
-			   'OilandFluidImage'=> $this->input->post('image')
+			   'OilandFluidImage' => $upload_data['file_name'],
 			);
 
 			$this->Product_Model->update_oil_fluid($id, $arData);
@@ -462,7 +716,8 @@
 			
 			 redirect ('AdminController/oil_fluid');
 
-		}
+				}
+			}
 
 			public function insert_oil_fluid()
 		{
@@ -483,17 +738,38 @@
 		{
 
 
-			$arData = array(
-			   'OilandFluidName' =>	$this->input->post('name'),
-			   'OilandFluidPrice'=> $this->input->post('price'),
-			   'OilandFluidDesc'=> $this->input->post('desc'),
-			   'OilandFluidImage'=> $this->input->post('image')
-			);
-
-			$this->Product_Model->insert_oil_fluid( $arData);
-
 			
-			 redirect ('AdminController/oil_fluid');
+		$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+					'OilandFluidName' => $this->input->post('name'),
+					'OilandFluidPrice' => $this->input->post('price'),
+					'OilandFluidDesc' => $this->input->post('desc'),
+					
+					'OilandFluidImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_oil_fluid( $data);
+
+				redirect('AdminController/oil_fluid');
+			}
 		}
 
 
@@ -566,17 +842,35 @@
 
 		public function do_update_acc($id)
 		{
+			$pic_name = $this->input->post('name');
 
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+			
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+				$upload_data = $this->upload->data();
+			 
 
 			$arData = array(
 			   'AccessoryName' =>	$this->input->post('name'),
 			   'AccessoryPrice'=> $this->input->post('price'),
 			   'AccessoryDesc'=> $this->input->post('desc'),
-			   'AccessoryImage'=> $this->input->post('image')
+			   'AccessoryImage'=> $upload_data['file_name'],
 			);
 
-			$this->Product_Model->update_acc($id, $arData);
+	
 
+			$this->Product_Model->update_acc($id, $arData);
+					}
 			
 			 redirect ('AdminController/acc');
 
@@ -601,17 +895,39 @@
 		{
 
 
-			$arData = array(
-			   'AccessoryName' =>$this->input->post('name'),
-			   'AccessoryPrice'=> $this->input->post('price'),
-			   'AccessoryDesc'=> $this->input->post('desc'),
-			   'AccessoryImage'=> $this->input->post('image')
-			);
-
-			$this->Product_Model->insert_acc( $arData);
-
 			
-			 redirect ('AdminController/acc');
+			
+		$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+					'AccessoryName' => $this->input->post('name'),
+					'AccessoryPrice' => $this->input->post('price'),
+					'AccessoryDesc' => $this->input->post('desc'),
+					
+					'AccessoryImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_acc( $data);
+
+				redirect('AdminController/acc');
+			}
 		}
 
 
@@ -684,18 +1000,42 @@
 		{
 
 
-			$arData = array(
-			   'UsedCarsName' =>$this->input->post('name'),
+			
+			$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+				'UsedCarsName' =>	$this->input->post('name'),
 			   'UsedCarsPrice'=> $this->input->post('price'),
 			   'UsedCarsDesc'=> $this->input->post('desc'),
-			   'UsedCarsImage'=> $this->input->post('image')
-			);
+					
+					'UsedCarsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_usedcars($id, $data);
 
-			$this->Product_Model->update_usedcars($id, $arData);
+				redirect('AdminController/usedcars');
+
+				}
+			
 
 			
-			 redirect ('AdminController/usedcars');
-
 		}
 			public function insert_usedcars()
 		{
@@ -716,18 +1056,38 @@
 		public function do_insert_usedcars()
 		{
 
+		
+		$pic_name = $this->input->post('name');
 
-			$arData = array(
-			   'UsedCarsName' =>$this->input->post('name'),
-			   'UsedCarsPrice'=> $this->input->post('price'),
-			   'UsedCarsDesc'=> $this->input->post('desc'),
-			   'UsedCarsImage'=> $this->input->post('image')
-			);
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
 
-			$this->Product_Model->insert_usedcars( $arData);
 
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
 			
-			 redirect ('AdminController/usedcars');
+
+				$data = array(
+					'UsedCarsName' => $this->input->post('name'),
+					'UsedCarsPrice' => $this->input->post('price'),
+					'UsedCarsDesc' => $this->input->post('desc'),
+					
+					'UsedCarsImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->insert_usedcars( $data);
+
+				redirect('AdminController/usedcars');
+			}
 		}
 
 
