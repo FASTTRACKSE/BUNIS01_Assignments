@@ -13,8 +13,8 @@
       </ol>
       <div class="row">
         <div class="col-12">
-          <form>
-            <input type="submit" name="addNews" value="Add">
+          <form action="<?php echo(base_url()); ?>index.php/AdminController/addNews">
+            <input type="submit" name="" value="+ Add">
           </form>
 
           <table border="1">
@@ -26,10 +26,10 @@
             <?php foreach($news_list as $news): ?>
               <tr>
                 <td><?php echo ($news['id']);?></td>
-                <td><?php echo ($news['title']);?></td>
+                <td><?php echo substr($news['title'], 0, 30); ?></td>
                 <td><?php echo ($news['type']);?></td>
                 <td><?php echo substr($news['newsDescription'], 0, 150); ?></td>
-                <td> <a href="#">Details</a> <a href="#">Update</a> <a href="#">Delete</a> </td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateNewsConfirm/<?php echo ($news['id']);?>">Update</a> <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteNewsConfirm/<?php echo ($news['id']);?>">Delete</a> </td>
               </tr>
             <?php endforeach; ?>
           </table>

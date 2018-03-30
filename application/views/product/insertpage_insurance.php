@@ -4,12 +4,14 @@
 </head>
 <body>
 
-<form action="<?php echo base_url("Product_Controller/do_insert_insurance/").$item['InsuranceID']; ?>" method="POST">
-Name: <input type="text" name="name" value="<?=$item['InsuranceName']?>" ><br>
-Price: <input type="text" name="price"  value="<?=$item['InsurancePrice']?>"><br>
-Description: <input type="text" name="desc"  value="<?=$item['InsuranceDesc']?>"><br>
+<form action="<?php echo base_url("AdminController/do_insert_insurance/"); ?>" method="POST">
+Name: <input type="text" name="name" value='' ><br>
+Price: <input type="text" name="price"  value=''><br>
+Description: <input type="text" name="desc"  value=''><br>
+Image: <input type="text" name="image"  value=''><br>
 
-<input type="submit" value="Update">
+
+<input type="submit" value="Insert">
  
 </table>
 </form>

@@ -30,20 +30,14 @@
                   <p class="card-text"><?php echo   $item['AccessoryDesc'] ;?></p> 
 
              
-              <a href="<?php echo  base_url('Product_Controller/update_acc/').$item['AccessoryID'] ?>">Update</a>
+              
                 </div>
  
               </div>
 
             
     
-<!-- <img src="<?php echo  base_url('uploads/').$item['InsuranceImage'] ;?>">
 
-	<div class= "descimg" ><?php echo 'Product Name :' ?><?php echo $item['InsuranceName'] . "<br>";?></div>
-	<div><?php echo 'Product Price : ' ?><?php echo $item['InsurancePrice']. "<br>";?></div>
-	<div><?php echo 'Product Description :' ?><?php echo $item['InsuranceDesc']. "<br>";?></div>
- -->
-<!-- <input type ="submit" name="home" value="Home"/> -->
 </form>
 
  </div>

@@ -20,6 +20,8 @@ class Product_Model extends CI_Model
 
 		return $data;
 	}
+
+
 	public function getCarParts()
 	{
 		// $this->db->where("studentID",'BN001');
@@ -139,4 +141,67 @@ class Product_Model extends CI_Model
 		$result = $this->db->insert("insurance",$data);
 		return $result;
 	}
+	public function insert_carparts($data)
+	{
+
+		$result = $this->db->insert("carparts",$data);
+		return $result;
+	}
+	public function insert_acc($data)
+	{
+
+		$result = $this->db->insert("accessory",$data);
+		return $result;
+	}
+	public function insert_oil_fluid($data)
+	{
+
+		$result = $this->db->insert("oilandfluid",$data);
+		return $result;
+	}
+	public function insert_usedcars($data)
+	{
+
+		$result = $this->db->insert("usedcars",$data);
+		return $result;
+	}
+	public function delete_insurance($id)
+	{
+		$this->db->where("InsuranceID",$id);
+		$result=$this->db->delete("insurance");
+		
+		
+		return $result;
+	}
+		public function delete_carparts($id)
+	{
+		$this->db->where("CarPartsID",$id);
+		$result=$this->db->delete("carparts");
+		
+	
+		return $result;
+	}
+		public function delete_oil_fluid($id)
+	{
+		$this->db->where("OilandFluidID",$id);
+		$result=$this->db->delete("oilandfluid");
+		
+	
+		return $result;
+	}
+		public function delete_acc($id)
+	{
+		$this->db->where("AccessoryID",$id);
+		$result=$this->db->delete("accessory");
+		
+		return $result;
+	}
+		public function delete_usedcars($id)
+	{
+		$this->db->where("UsedCarsID",$id);
+		$result=$this->db->delete("usedcars");
+	
+		return $result;
+	}
+
 }

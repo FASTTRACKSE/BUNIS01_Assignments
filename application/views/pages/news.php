@@ -18,10 +18,10 @@
       	<?php foreach($newsList as $news):?>
       		<div class="col-lg-4 col-sm-6 portfolio-item">
 	          <div class="card h-100">
-	            <a href="#"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['id']); ?>.jpg" alt=""></a>
+	            <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['imageNews']); ?>" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
-	                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>"><?php echo($news['id']); ?><?php echo($news['title']) ?></a>
+	                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>"><?php echo($news['title']) ?></a>
 	              </h4>
 	              <p class="card-text"><?php echo substr($news['newsDescription'], 0, 150); ?> . . .</p>
                 <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($news['id']); ?>">Read More . . .</a>
