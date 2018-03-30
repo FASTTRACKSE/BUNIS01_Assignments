@@ -37,7 +37,7 @@
           <h3 align="center">About</h3>
           <hr style="border-width: 10px;">
           <a href="<?php echo(base_url()); ?>index.php/AdminController/addAbout">
-             <input type="button" value="Add New Data About" style="float: right; margin-bottom:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
+             <input type="button" value="Add New About" style="float: right; margin-bottom:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
             <th style="background-color: black; color: white;">ID</th>
