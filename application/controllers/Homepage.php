@@ -15,14 +15,17 @@ class Homepage extends CI_Controller{
 				'headTitle' => 'Garage HC Auto | Promoting Program',
 		 );
 
-		$load_news = $this->Homepage_Model->getNews();
-		$dataPage['id'] = $load_news;
+		$load_image = $this->Homepage_Model->getImage();
+		$dataImage['image'] = $load_image;
 
-		$data = array_merge($dataHead, $dataPage);
+		$load_news = $this->Homepage_Model->getNews();
+		$dataNews['id'] = $load_news;
+
+		$data = array_merge($dataHead, $dataNews, $dataImage);
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view("home_view");
+		$this->load->view("home_view",$data);
 		$this->load->view('templates/footer');
 	}
 }
