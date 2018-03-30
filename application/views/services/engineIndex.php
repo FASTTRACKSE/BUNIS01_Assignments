@@ -284,26 +284,6 @@ mark {
     width: 100%;
     height: 5px;
 }
-
-.project-background1{
-   background-image: url(https://cdn1.bikebandit-images.com/website/images17/menus/aftermarket/spark-plugs.png);
-   background-size: 100%;
-}
-
-.project-background2{
-   background-image: url(http://www.freepngimg.com/download/engine/2-2-engine-picture.png);
-   background-size: cover;
-}
-
-.project-background3{
-   background-image: url(http://kamen-cars.com/tow/en/img/tow.png);
-   background-size: 100% 100%;
-}
-
-.project-background4{
-   background-image: url(https://static1.squarespace.com/static/54e4b9bae4b002fddcd4f798/t/56606e58e4b03f54f280ab72/1449160456756/transparent+mechanic+pic.png?format=500w);
-   background-size: cover;
-}
 </style>
 
 <header class="header" id="header3">
@@ -329,10 +309,11 @@ mark {
       <div class="services-item slide">
           <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
               <div class="project-hover">
-              <h2><?php echo $data['engineName']; ?></h2>
+              <h2><?php echo $data['name']; ?></h2>
               <hr />
-              <p><?php echo $data['engineDesc']; ?></p>
-            <a href="<?php echo base_url() ?>index.php/bodyController/showBodyDetail/<?php echo($data['ID']); ?>">Show me more</a>
+              <p><?php echo $data['description']; ?></p>
+              <p><?php echo $data['tag']; ?></p>
+            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showEngineDetail/<?php echo($data['ID']); ?>">Show me more</a>
           </div>
         </div>
       </div>
