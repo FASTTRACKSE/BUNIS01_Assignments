@@ -6,7 +6,6 @@
 			parent::__construct();
 			$this->load->helper('url');
 			$this->load->library('pagination'); 
-			$this->load->library('form_validation');
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->model('Product_Model');
@@ -19,7 +18,7 @@
 		public function logout(){
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
-
+		}
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -58,32 +57,19 @@
 			$this->load->view('admintemplates/footer');
 		}
 
+		// About--------------------------------------------------------------------------
 		public function addAbout()
 		{
+			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 200;
 
-
-			$data = array(
-				'headerTitle' => 'Add About'
-		 	);
-		 	$this->load->view('admintemplates/head', $data);
-			$this->load->view('admintemplates/navbar');
-			$this->load->view('adminpages/crud_CompanyProfile/addAbout');
-			$this->load->view('admintemplates/footer');
-
-
-		}
-
-		public function insertAbout()
-		{
-			$this->form_validation->set_rules('aboutID', 'About ID', 'required');
-			$this->form_validation->set_rules('aboutDate', 'Date', 'required');
-			$this->form_validation->set_rules('aboutTitle', 'Title', 'required');
-			$this->form_validation->set_rules('aboutDesc', 'Description', 'required');
-			$this->form_validation->set_rules('aboutImg', 'Image', 'required');
-			$error = array('error' => '');
-
-
-			if ($this->form_validation->run() == FALSE) {
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
 				$data = array(
 					'headerTitle' => 'Add About'
 			 	);
@@ -91,48 +77,73 @@
 				$this->load->view('admintemplates/navbar');
 				$this->load->view('adminpages/crud_CompanyProfile/addAbout',$error);
 				$this->load->view('admintemplates/footer');
-
 			}
-			else{
+			else {
 
-				$config['upload_path'] = 'assets\company_profile\img\about';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size'] = 10000;
-				$config['file_name'] = $pic_name;
+				$upload_data = $this->upload->data();
 
-	 
-				$this->load->library('upload', $config);
+				$data = array(	
+					'id' => $this->input->post('aboutID'),
+					'date' => $this->input->post('aboutDate'),
+					'title' => $this->input->post('aboutTitle'),
+					'description' => $this->input->post('aboutDesc'),
+					'img' => $upload_data['file_name']
+				);
+				$this->CompanyProfile_model->addAbout($data);
 				
-				if ( ! $this->upload->do_upload('pic_file')) {
-					$error = array('error' => $this->upload->display_errors());
-					$data = array(
-						'headerTitle' => 'Add About'
-				 	);
-				 	$this->load->view('admintemplates/head', $data);
-					$this->load->view('admintemplates/navbar');
-					$this->load->view('adminpages/crud_CompanyProfile/addAbout',$error);
-					$this->load->view('admintemplates/footer');
-				}
-				else {
-
-					$upload_data = $this->upload->data();
-
-					$data = array(	
-						'id' => $this->input->post('aboutID'),
-						'date' => $this->input->post('aboutDate'),
-						'Title' => $this->input->post('aboutTitle'),
-						'Description' => $this->input->post('aboutDesc'),
-						'img' => $upload_data['file_name']
-
-					);
-					$this->CompanyProfile_model->addAbout($data);
-					
-					redirect(site_url(AdminController/CompanyProfile));
-				}		
-					
-			}
+				redirect('AdminController/CompanyProfile');
+			}		
 
 		}
+
+
+		// Staff--------------------------------------------------------------------------
+		public function addStaff()
+		{
+			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 500;
+
+ 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+			
+			if ( ! $this->upload->do_upload('img_file')) {
+				$error = array('error' => $this->upload->display_errors());
+				$data = array(
+					'headerTitle' => 'Add Staff'
+			 	);
+			 	$this->load->view('admintemplates/head', $data);
+				$this->load->view('admintemplates/navbar');
+				$this->load->view('adminpages/crud_CompanyProfile/addStaff',$error);
+				$this->load->view('admintemplates/footer');
+			}
+			else {
+
+				$upload_data = $this->upload->data();
+
+				$data = array(	
+					'name' => $this->input->post('staffName'),	
+					'job' => $this->input->post('staffJob'),
+					'img' => $upload_data['file_name'],
+					'twitter' => $this->input->post('staffTwitter'),
+					'facebook' => $this->input->post('staffFB'),
+					'linkedin' => $this->input->post('staffLinkedin')
+				);
+				$this->CompanyProfile_model->addStaff($data);
+				
+				redirect('AdminController/CompanyProfile');
+			}		
+
+		}
+
+
+
+
+
+				
+		// Partner------------------------------------------------------------------------
+
 
 
 
