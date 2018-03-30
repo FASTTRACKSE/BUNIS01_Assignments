@@ -10,45 +10,42 @@
       </ol>
     <div class="row">
       <div class="col-12">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>         
-
         <!-- Data -->
         <div>
-          <h3>Data</h3>
+          <hr style="border-width: 10px;">
+          <h3 align="center">Data</h3>
+          <hr style="border-width: 10px;">
           <table class="col-12" border="2" style="text-align: center;"> 
-            <th>No</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
+            <th style="background-color: black; color: white;">No</th>
+            <th style="background-color: black; color: white;">Name</th>
+            <th style="background-color: black; color: white;">Description</th>
+            <th style="background-color: black; color: white;">Actions</th>
             <?php foreach($datas as $d): ?>
               <tr>
                 <td><?php echo ($d['id']);?></td>
                 <td><?php echo ($d['type']);?></td>
                 <td><?php echo ($d['description']); ?></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateData/<?php echo($d['id']) ?>">Update</a></td>
+                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateData/<?php echo($d['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;">Update</a></td>
               </tr>
             <?php endforeach; ?>
           </table>
         </div>
 
         <!-- About -->
-        <div>
-          <h3>About</h3>
+        <div ">
+          <hr style="border-width: 10px;  margin-top:50px;">
+          <h3 align="center">About</h3>
+          <hr style="border-width: 10px;">
           <a href="<?php echo(base_url()); ?>index.php/AdminController/addAbout">
-             <input type="button" value="Add About">
+             <input type="button" value="Add New Data About" style="float: right; margin-bottom:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
-            <th>ID</th>
-            <th>Date</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th colspan="2">Actions</th>
+            <th style="background-color: black; color: white;">ID</th>
+            <th style="background-color: black; color: white;">Date</th>
+            <th style="background-color: black; color: white;">Title</th>
+            <th style="background-color: black; color: white;">Description</th>
+            <th style="background-color: black; color: white;">Image</th>
+            <th style="background-color: black; color: white;">Actions</th>
             <?php foreach($about as $a): ?>
               <tr>
                 <td><?php echo ($a['id']);?></td>
@@ -56,8 +53,12 @@
                 <td><?php echo ($a['title']);?></td>
                 <td><?php echo ($a['description']); ?></td>
                 <td><img class="rounded-circle" width="150px"; height="150px"; src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateAbout/<?php echo($a['id']) ?>">Update</a></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteAbout/<?php echo($a['id']) ?>">Delete</a></td>
+                <td> 
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updateAbout/<?php echo($a['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  </a><br><br>
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteAbout/<?php echo($a['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  </a>
+                </td>
 
               </tr>
             <?php endforeach; ?>
@@ -66,19 +67,21 @@
 
         <!-- Staffs -->
         <div>
-          <h3>Staffs</h3>
+          <hr style="border-width: 10px;  margin-top:50px;">
+          <h3 align="center">Staffs</h3>
+          <hr style="border-width: 10px;">
           <a href="<?php echo(base_url()); ?>index.php/AdminController/addStaff">
-             <input type="button" value="Add Staff">
+             <input type="button" value="Add New Staff" style="float: right; margin:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
-            <th>ID</th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Image</th>
-            <th>Twitter</th>
-            <th>Facebook</th>
-            <th>LinkedIn</th>
-            <th colspan="2">Actions</th>
+            <th style="background-color: black; color: white;">ID</th>
+            <th style="background-color: black; color: white;">Name</th>
+            <th style="background-color: black; color: white;">Job</th>
+            <th style="background-color: black; color: white;">Image</th>
+            <th style="background-color: black; color: white;">Twitter</th>
+            <th style="background-color: black; color: white;">Facebook</th>
+            <th style="background-color: black; color: white;">LinkedIn</th>
+            <th style="background-color: black; color: white;" colspan="2">Actions</th>
             <?php foreach($staffs as $s): ?>
               <tr>
                 <td><?php echo ($s['id']);?></td>
@@ -88,8 +91,12 @@
                 <td><?php echo ($s['twitter']); ?></td>
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateStaff/<?php echo($s['id']) ?>">Update</a></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteStaff/<?php echo($s['id']) ?>">Delete</a></td>
+                <td> 
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updateStaff/<?php echo($s['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  </a><br><br>
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteStaff/<?php echo($s['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  </a>
+                </td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -97,24 +104,30 @@
 
         <!-- Partners -->
         <div>
-          <h3>Partners</h3>
+          <hr style="border-width: 10px;  margin-top:50px;">
+          <h3 align="center">Partners</h3>
+          <hr style="border-width: 10px;">
           <a href="<?php echo(base_url()); ?>index.php/AdminController/addPartner">
-             <input type="button" value="Add Partner">
+             <input type="button" value="Add New Partner" style="float: right; margin:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
-            <th>ID</th>
-            <th>Name</th>
-            <th>Link</th>
-            <th>Image</th>
-            <th colspan="2">Actions</th>
+            <th style="background-color: black; color: white;">ID</th>
+            <th style="background-color: black; color: white;">Name</th>
+            <th style="background-color: black; color: white;">Link</th>
+            <th style="background-color: black; color: white;">Image</th>
+            <th style="background-color: black; color: white;" colspan="2">Actions</th>
             <?php foreach($partners as $p): ?>
               <tr>
                 <td><?php echo ($p['id']);?></td>
                 <td><?php echo ($p['name']);?></td>
                 <td><?php echo ($p['link']);?></td>
                 <td> <img width="150px"; height="50px"; src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" ></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updatePartner/<?php echo($p['id']) ?>">Update</a></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/deletePartner/<?php echo($p['id']) ?>">Delete</td>
+                <td> 
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updatePartner/<?php echo($p['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  </a>
+                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deletePartner/<?php echo($p['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  </a>
+                </td>
               </tr>
             <?php endforeach; ?>
           </table>

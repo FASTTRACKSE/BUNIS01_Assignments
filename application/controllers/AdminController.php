@@ -324,7 +324,6 @@
 
 		}
 
-
 		public function updateStaff($id)
 		{
 			$data = array(
