@@ -91,7 +91,7 @@
 				);
 				$this->CompanyProfile_model->addAbout($data);
 				
-				redirect('AdminController/CompanyProfile');
+				redirect('AdminController/index');
 			}		
 
 		}
@@ -132,7 +132,7 @@
 				);
 				$this->CompanyProfile_model->addStaff($data);
 				
-				redirect('AdminController/CompanyProfile');
+				redirect('AdminController/index');
 			}		
 
 		}
@@ -174,7 +174,7 @@
 				);
 				$this->CompanyProfile_model->addPartner($data);
 				
-				redirect('AdminController/CompanyProfile');
+				redirect('AdminController/index');
 			}		
 
 		}
