@@ -25,7 +25,7 @@
                 <td><?php echo ($d['id']);?></td>
                 <td><?php echo ($d['type']);?></td>
                 <td><?php echo ($d['description']); ?></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateData/<?php echo($d['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;">Update</a></td>
+                <td style="padding: 10px;"><a href="<?php echo(base_url()); ?>index.php/AdminController/updateData/<?php echo($d['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;">Update</a></td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -53,7 +53,7 @@
                 <td><?php echo ($a['title']);?></td>
                 <td><?php echo ($a['description']); ?></td>
                 <td><img class="rounded-circle" width="150px"; height="150px"; src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
-                <td> 
+                <td  style="padding: 10px;"> 
                   <a href="<?php echo(base_url()); ?>index.php/AdminController/updateAbout/<?php echo($a['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
                   </a><br><br>
                   <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteAbout/<?php echo($a['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
