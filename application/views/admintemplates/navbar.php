@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/companyprofile">
+          <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/index">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Company Profile</span>
           </a>
