@@ -1,4 +1,4 @@
-/*!
+	/*!
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
@@ -21,12 +21,12 @@ body {
 .homepage-service{
 	max-width: 100%;
   	height: auto;
-  	position: relative;
+  	/*position: relative;
 	margin: auto;
 	left: 90px;
 	right: 0;
 	top: 0;
-	bottom: 0;
+	bottom: 0;*/
 }
 
 /*.href-hs{
@@ -51,4 +51,9 @@ body {
 	text-align: center;
 }
 
+.customImg{
+	width: 350px;
+	height: 350px;
+	object-fit: cover;
+}
 
