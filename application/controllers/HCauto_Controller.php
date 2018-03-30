@@ -14,7 +14,7 @@ class HCauto_Controller extends CI_Controller{
 		);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('services');
+		$this->load->view('services/services');
 		$this->load->view('templates/footer');
 	}
 
@@ -26,7 +26,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getData"] = $this->servicesModel->get_Body();
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('bodyIndex',$data);
+		$this->load->view('services/bodyIndex',$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -37,7 +37,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($bodyID);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view("detailIndex",$data);
+		$this->load->view("services/detailIndex",$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -49,7 +49,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getData"] = $this->servicesModel->get_CarRescue();
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view("carRescueIndex",$data);
+		$this->load->view("services/carRescueIndex",$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -72,7 +72,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getData"] = $this->servicesModel->get_D2D();
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view("d2dIndex",$data);
+		$this->load->view("services/d2dIndex",$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -95,7 +95,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getData"] = $this->servicesModel->get_Electrical();
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view("electricalIndex",$data);
+		$this->load->view("services/electricalIndex",$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -106,7 +106,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getDataByID"] = $this->servicesModelce->get_Data_by_ID($electricalID);
 		// $this->load->view('templates/head');
 		// $this->load->view('templates/navbar');
-		$this->load->view("detailIndex",$data);
+		$this->load->view("services/detailIndex",$data);
 		// $this->load->view('templates/footer');
 	}
 
@@ -118,7 +118,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getData"] = $this->servicesModel->get_Engine();
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view("engineIndex",$data);
+		$this->load->view("services/engineIndex",$data);
 		$this->load->view('templates/footer');
 	}
 
@@ -129,7 +129,7 @@ class HCauto_Controller extends CI_Controller{
 		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($engineID);
 		// $this->load->view('templates/head');
 		// $this->load->view('templates/navbar');
-		$this->load->view("detailIndex",$data);
+		$this->load->view("services/detailIndex",$data);
 		// $this->load->view('templates/footer');
 	}
 }
