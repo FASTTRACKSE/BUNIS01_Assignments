@@ -11,12 +11,14 @@
 
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
+			$rs= $this->loginModel->checkLogin($username, $password);
 
 			if($this->loginModel->checkLogin($username, $password)){
 
 				$session_data = array(
 					'username' => $username
 				);
+				
 				$this->session->set_userdata($session_data);
 				redirect(base_url().'index.php/AdminController/news');
 			}
