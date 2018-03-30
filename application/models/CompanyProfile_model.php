@@ -40,6 +40,10 @@ class CompanyProfile_model extends CI_Model {
 		$this->db->insert("datas_about", $data);	
 	}
 
+	public function addStaff($data)
+	{
+		$this->db->insert("staffs", $data);	
+	}
 
 
 // update---------------------------------------------------------------------------------------

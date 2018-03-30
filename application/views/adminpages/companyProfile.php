@@ -53,6 +53,7 @@
             <th>Date</th>
             <th>Title</th>
             <th>Description</th>
+            <th>Image</th>
             <th colspan="2">Actions</th>
             <?php foreach($about as $a): ?>
               <tr>
@@ -60,6 +61,7 @@
                 <td><?php echo ($a['date']);?></td>
                 <td><?php echo ($a['title']);?></td>
                 <td><?php echo ($a['description']); ?></td>
+                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
                 <td> <a href="#">Update</a></td>
                 <td> <a href="#">Delete</a></td>
 
@@ -71,15 +73,14 @@
         <!-- Update Staffs -->
         <div>
           <h3>Staffs</h3>
-          <form>
-            <input type="submit" name="addAbout" value="Add">
-          </form>
+          <a href="<?php echo(base_url()); ?>index.php/AdminController/addStaff">
+             <input type="button" value="Add Staff">
+          </a>
           <table class="col-12" border="2" style="text-align: center;"> 
             <th>ID</th>
             <th>Name</th>
             <th>Job</th>
             <th>Image</th>
-            <th>Image Name</th>
             <th>Twitter</th>
             <th>Facebook</th>
             <th>LinkedIn</th>
@@ -89,8 +90,7 @@
                 <td><?php echo ($s['id']);?></td>
                 <td><?php echo ($s['name']);?></td>
                 <td><?php echo ($s['job']);?></td>
-                <td><img class="rounded-circle" style="width: 200px; height: 200px;" src="<?php echo base_url().'/assets/company_profile/img/team/'.$s['img']; ?>" alt=""></td>
-                <td><?php echo ($s['img']); ?></td>
+                <td><img class="rounded-circle" style="width: 100px; height: 100px;" src="<?php echo base_url().'/assets/company_profile/img/team/'.$s['img']; ?>" alt=""></td>
                 <td><?php echo ($s['twitter']); ?></td>
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
@@ -112,7 +112,6 @@
             <th>Name</th>
             <th>Link</th>
             <th>Image</th>
-            <th>Image Name</th>
             <th colspan="2">Actions</th>
             <?php foreach($partners as $p): ?>
               <tr>
@@ -120,7 +119,6 @@
                 <td><?php echo ($p['name']);?></td>
                 <td><?php echo ($p['link']);?></td>
                 <td> <img class="img-fluid d-block mx-auto" src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" alt=""></td>
-                <td><?php echo ($p['img']); ?></td>
                 <td> <a href="#">Update</a></td>
                 <td> <a href="#">Delete</a></td>
               </tr>
