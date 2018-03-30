@@ -10,7 +10,7 @@
 			$this->load->model('loginModel');
 
 			$username = $this->input->post('username');
-			$password = $this->input->post('password');
+			$password = md5($this->input->post('password'));
 			$rs= $this->loginModel->checkLogin($username, $password);
 
 			if($this->loginModel->checkLogin($username, $password)){
