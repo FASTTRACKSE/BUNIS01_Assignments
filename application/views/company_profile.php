@@ -132,7 +132,7 @@
                 <?php if ($a['id']%2 > 0): ?>
                 <li>
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
+                    <img class="rounded-circle img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -149,7 +149,7 @@
                 <?php if ($a['id']%2 == 0): ?>
                 <li class="timeline-inverted">
                   <div class="timeline-image">
-                    <img class="rounded-circle img-fluid" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
+                    <img class="rounded-circle img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt="">
                   </div>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
@@ -309,34 +309,36 @@
       <footer>
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
-              <span class="copyright">Copyright &copy; HCAuto.vn 2018</span>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
               <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-wechat"></i>
-                  </a>
-                </li>
+                <?php foreach ($datas as $d) {?>
+                  <?php if ($d['id'] == 5): ?>
+                    <li class="list-inline-item">
+                      <a href="<?php echo "http://".$d['description']; ?>">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                  <?php endif ?>
+                  <?php if ($d['id'] == 6): ?>
+                    <li class="list-inline-item">
+                      <a href="<?php echo "http://".$d['description']; ?>">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                  <?php endif ?>
+                  <?php if ($d['id'] == 7): ?>
+                    <li class="list-inline-item">
+                      <a href="<?php echo "http://".$d['description']; ?>">
+                        <i class="fa fa-wechat"></i>
+                      </a>
+                    </li>
+                  <?php endif ?>
+                <?php }  ?>
               </ul>
+              <span class="copyright">Copyright &copy; HCAuto.vn 2018</span>
+
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-12">
               <ul class="list-inline quicklinks">
                 <li class="list-inline-item">
                   <a href="#">Privacy Policy</a>
@@ -345,7 +347,7 @@
                   <a href="#">Terms of Use</a>
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
       </footer>

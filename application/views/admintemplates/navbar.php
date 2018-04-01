@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="<?php echo(base_url());?>index.php/admincontroller/index">Welcome!</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,19 +7,19 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/homepage">
-            <i class="fa fa-fw fa-area-chart"></i>
+            <i class="fa fa-fw fa-desktop"></i>
             <span class="nav-link-text">Homepage</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/index">
-            <i class="fa fa-fw fa-area-chart"></i>
+          <a class="nav-link" href="<?php echo(base_url());?>index.php/admincontroller/companyProfile">
+            <i class="fa fa-fw fa-book"></i>
             <span class="nav-link-text">Company Profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/news">
-            <i class="fa fa-fw fa-table"></i>
+            <i class="fa fa-fw fa-calendar"></i>
             <span class="nav-link-text">News & Event</span>
           </a>
         </li>
