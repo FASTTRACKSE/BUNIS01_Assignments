@@ -14,123 +14,73 @@ class HCauto_Controller extends CI_Controller{
 		);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('services/services');
+		$this->load->view('services');
 		$this->load->view('templates/footer');
 	}
 
 // body index
 	public function showBody(){
-		$data = array(
+		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$data["getData"] = $this->servicesModel->get_Body();
-		$this->load->view('templates/head');
+		$dataModel["getData"] = $this->servicesModel->get_Body();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view('services/bodyIndex',$data);
-		$this->load->view('templates/footer');
-	}
-
-	public function showDetail($bodyID){
-		$data = array(
-			'headtitle' => 'Body',
-		);
-		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($bodyID);
-		$this->load->view('templates/head');
-		$this->load->view('templates/navbar');
-		$this->load->view("services/detailIndex",$data);
+		$this->load->view('bodyIndex');
 		$this->load->view('templates/footer');
 	}
 
 //car rescue index
 	public function showCarRescue(){
-		$data = array(
+		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$data["getData"] = $this->servicesModel->get_CarRescue();
-		$this->load->view('templates/head');
+		$dataModel["getData"] = $this->servicesModel->get_CarRescue();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("services/carRescueIndex",$data);
+		$this->load->view("carRescueIndex");
 		$this->load->view('templates/footer');
-	}
-
-	public function showCarRescueDetail($rescueID){
-		$data = array(
-			'headtitle' => 'Body',
-		);
-		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($rescueID);
-		// $this->load->view('templates/head');
-		// $this->load->view('templates/navbar');
-		$this->load->view("detailIndex",$data);
-		// $this->load->view('templates/footer');
 	}
 
 //d2d index
 	public function showD2D(){
-		$data = array(
+		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$data["getData"] = $this->servicesModel->get_D2D();
-		$this->load->view('templates/head');
+		$dataModel["getData"] = $this->servicesModel->get_D2D();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("services/d2dIndex",$data);
+		$this->load->view("d2dIndex");
 		$this->load->view('templates/footer');
-	}
-
-	public function showD2DDetail($d2dID){
-		$data = array(
-			'headtitle' => 'Body',
-		);
-		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($d2dID);
-		// $this->load->view('templates/head');
-		// $this->load->view('templates/navbar');
-		$this->load->view("detailIndex",$data);
-		// $this->load->view('templates/footer');
 	}
 
 //electrical index
 	public function showElectrical(){
-		$data = array(
+		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$data["getData"] = $this->servicesModel->get_Electrical();
-		$this->load->view('templates/head');
+		$dataModel["getData"] = $this->servicesModel->get_Electrical();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("services/electricalIndex",$data);
+		$this->load->view("electricalIndex");
 		$this->load->view('templates/footer');
-	}
-
-	public function showElectricalDetail($electricalID){
-		$data = array(
-			'headtitle' => 'Body',
-		);
-		$data["getDataByID"] = $this->servicesModelce->get_Data_by_ID($electricalID);
-		// $this->load->view('templates/head');
-		// $this->load->view('templates/navbar');
-		$this->load->view("services/detailIndex",$data);
-		// $this->load->view('templates/footer');
 	}
 
 //engine index
 	public function showEngine(){
-		$data = array(
+		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$data["getData"] = $this->servicesModel->get_Engine();
-		$this->load->view('templates/head');
+		$dataModel["getData"] = $this->servicesModel->get_Engine();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("services/engineIndex",$data);
+		$this->load->view("engineIndex");
 		$this->load->view('templates/footer');
-	}
-
-	public function showEngineDetail($engineID){
-		$data = array(
-			'headtitle' => 'Body',
-		);
-		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($engineID);
-		// $this->load->view('templates/head');
-		// $this->load->view('templates/navbar');
-		$this->load->view("services/detailIndex",$data);
-		// $this->load->view('templates/footer');
 	}
 }
 ?>
