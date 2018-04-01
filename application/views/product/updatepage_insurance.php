@@ -19,7 +19,7 @@ Name: <input type="text" name="name" value="<?=$item['InsuranceName']?>" ><br>
 Price: <input type="text" name="price"  value="<?=$item['InsurancePrice']?>"><br>
 Description: <input type="text" name="desc"  value="<?=$item['InsuranceDesc']?>"><br>
 Image: <input type="file" name="image"  value="<?=$item['InsuranceImage']?>"><br>
-
+ <input type="submit" name="back" value="Back" formaction="<?php echo base_url("AdminController/getallproduct");?>">
 <input type="submit" value="Update">
  
 </table>

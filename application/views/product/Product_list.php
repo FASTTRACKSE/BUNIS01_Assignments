@@ -5,11 +5,43 @@
   <head>
 
     <link href="<?php echo (base_url()); ?>assets/productpart/css/shop-homepage.css" rel="stylesheet">
-
+    <div style="margin-left:200px">
+<h1 style="margin-top:100px">Insurance</h1>
+</div>
   </head>
 
-  <body>
+  <body >
 
+    <div class="container">
+          <div style="margin-top: 100px;" class="row">
+
+
+            <?php foreach ($InsuranceID as $row)
+  {
+    ?>
+          
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100" >
+             <img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['InsuranceImage'] ;?>">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <?php echo  $row['InsuranceName']  ;?>
+                  </h4>
+                  <h5><?php echo  $row['InsurancePrice']  ;?></h5>
+                  <!-- <p class="card-text"><?php echo   $row['InsuranceDesc'] ;?></p> -->
+
+              <a href="load_desc/<?php echo $row['InsuranceID'] ?>">Find out more</a>
+     
+                </div>
+ 
+              </div>
+
+            </div>
+              <?php  
+  }
+  ?>
+  </div>
+</div>
 
     <!-- Navigation -->
 
@@ -45,33 +77,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
- -->
-          <div style="margin-top: 100px;" class="row">
-
-            <?php foreach ($InsuranceID as $row)
-  {
-    ?>
-          
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100" >
-                <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['InsuranceImage'] ;?>"></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#"><?php echo  $row['InsuranceName']  ;?></a>
-                  </h4>
-                  <h5><?php echo  $row['InsurancePrice']  ;?></h5>
-                  <!-- <p class="card-text"><?php echo   $row['InsuranceDesc'] ;?></p> -->
-
-              <a href="load_desc/<?php echo $row['InsuranceID'] ?>">Find out more</a>
-     
-                </div>
  
-              </div>
-
-            </div>
-              <?php  
-  }
-  ?>
            
         </div>
         <!-- /.col-lg-9 -->

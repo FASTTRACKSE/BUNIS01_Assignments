@@ -25,7 +25,7 @@ Image: <input type="file" name="image"  value=''><br>
 
 
 <input type="submit" value="Insert">
- 
+  <input type="submit" name="back" value="Back" formaction="<?php echo base_url("AdminController/getallproduct");?>">
 </table>
 </form>
 </body>

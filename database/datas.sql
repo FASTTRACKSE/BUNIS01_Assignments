@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2018 at 04:40 AM
+-- Generation Time: Mar 30, 2018 at 05:48 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `datas` (
   `id` int(11) NOT NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,10 +39,13 @@ CREATE TABLE `datas` (
 --
 
 INSERT INTO `datas` (`id`, `type`, `description`) VALUES
-(1, 'VISION', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dol'),
-(2, 'MISSION', 'Mission Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute ir'),
-(3, 'Customer Care', 'Address: Room 0000, Floor 00, Building 00, Da Nang, Vietnam <br>\r\nPhone number: 000.0000 0000 <br>             Fax: 000. 0000 0000 <br>       \r\nEmail: hcacustomercare@hcautovn.org  <br>           \r\nWebsite: www.hacautovn.org <br>'),
-(4, 'Technical Support', 'Address: Room 0000, Floor 00, Building 00, Da Nang, Vietnam <br>\r\nPhone number: 000.0000 0000 <br>              Fax: 000. 0000 0000 <br>              \r\nEmail: hcatechnicalsupport@hcautovn.org <br>              \r\nWebsite: www.hacautovn.org <br>');
+(1, 'VISION', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(2, 'MISSION', 'Mission Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(3, 'Customer Care', 'Address: Room 0000, Floor 00, Building 00, Da Nang, Vietnam <br>\r\nPhone number: 000.0000 0000 <br>             \r\nFax: 000. 0000 0000 <br>       \r\nEmail: hcacustomercare@hcautovn.org  <br>           \r\nWebsite: www.hacautovn.org <br>'),
+(4, 'Technical Support', 'Address: Room 0000, Floor 00, Building 00, Da Nang, Vietnam <br>\r\nPhone number: 000.0000 0000 <br>              \r\nFax: 000. 0000 0000 <br>              \r\nEmail: hcatechnicalsupport@hcautovn.org <br>              \r\nWebsite: www.hacautovn.org <br>'),
+(5, 'Twitter', '#'),
+(6, 'Facebook', '#'),
+(7, 'WeChat', '#');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +65,7 @@ ALTER TABLE `datas`
 -- AUTO_INCREMENT for table `datas`
 --
 ALTER TABLE `datas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
