@@ -22,7 +22,7 @@
 			     	</form>
 				</td>
 				<td>
-					<form action="<?php echo base_url() ?>index.php/servicesAdminController/pagination/">
+					<form action="<?php echo base_url() ?>index.php/servicesAdminController/view/">
 			     		<input type="submit" name="" value="NO">
 			     	</form>
 				</td>

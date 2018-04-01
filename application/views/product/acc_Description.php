@@ -6,10 +6,15 @@
  
     <!-- Custom styles for this template -->
     <link href="<?php echo (base_url()); ?>assets/css/shop-homepage.css" rel="stylesheet">
+          <div style="margin-left:200px">
+<h1 style="margin-top:100px">Accessory</h1>
+</div>
+
 
   </head>
 
   <body>
+        <div class="container">
 
     
 
@@ -19,12 +24,12 @@
 
          
           
-            <div class="col-lg-4 col-md-6 mb-4">
+            <div style="margin-top: 100px;" class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" height="400" width="400" src="<?php echo  base_url('assets/image/product/').$item['AccessoryImage'] ;?>"></a>
+                <img class="card-img-top" height="400" width="400" src="<?php echo  base_url('assets/image/product/').$item['AccessoryImage'] ;?>">
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#"><?php echo  $item['AccessoryName']  ;?></a>
+                    <?php echo  $item['AccessoryName']  ;?>
                   </h4>
                   <h5><?php echo  $item['AccessoryPrice']  ;?></h5>
                   <p class="card-text"><?php echo   $item['AccessoryDesc'] ;?></p> 

@@ -223,80 +223,18 @@ mark {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-
-
-.project {
-    width: 100%;
-    height: 500px;
-    background-image: url(http://img.apwcontent.com/sites/apw-migration/design/newhf/categoryimg/auto_body_parts_-and-_mirrors.png);
-    background-size: auto;
-    background-position: center;
-    padding: 0 !important;
-    float:left;
-}
-
-.project-hover {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    opacity: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background-color: rgba(186, 232, 2, 0.7);
-    padding: 40% 30px !important;
-}
-
-.project-hover hr {
-    height: 30px;
-    width: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background-color: rgba(255, 255, 255, 1);
-    border: 0;
-}
-
-.project-hover a {
-    color: rgba(255, 255, 255, 1);
-    padding: 2px 22px;
-    line-height: 40px;
-    border: 2px solid rgba(255, 255, 255, 1);
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-
-.project-hover a:hover {
-    border-color: rgba(51, 51, 51, 1);
-    color: rgba(51, 51, 51, 1);
-    background-color: red;
-}
-
-.project:hover .project-hover {
-    opacity: 1;
-}
-
-.project:hover .project-hover hr {
-    width: 100%;
-    height: 5px;
-}
-
 </style>
 
 <header class="header" id="header3">
     <div class="left">
         <div class="caption animated bounceInLeft">
-            <h2 class="title display-3">Car Rescue</h2>
-            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ea accusamus enim hic, itaque eius quibusdam maxime veritatis maiores, ipsum porro beatae. Quisquam deleniti maxime velit tempora, molestias corrupti iusto!</p>
+            <h2 class="title display-3"><?php echo $getData['name']; ?></h2>
+            <p class="text"><?php echo $getData['description']; ?></p>
         </div>  
     </div>
     
     <div class="right animated bounceInLeft delay">
-      <img src="http://www.3benefitsof.com/wp-content/uploads/2013/07/car-service.png" alt="" class="img-fluid">
+      <img src="<?php echo base_url()."/assets/img/"?><?php echo $getData['picture']; ?>" alt="" class="img-fluid">
     </div>
     <i class="scroll fa fa-angle-double-down"></i>
 </header>
@@ -304,27 +242,8 @@ mark {
 <body>
 <div class="site-content cf">
 <div class="services cf" id="showcase">
-<div class="title-arch">Car Rescue<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p></div>
-
-<?php foreach ($getData as $data) { ?>
-      <div class="services-item slide">
-          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
-              <div class="project-hover">
-              <h2><?php echo $data['name']; ?></h2>
-              <hr />
-              <p><?php echo $data['description']; ?></p>
-              <p><?php echo $data['tag']; ?></p>
-            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showDetail/<?php echo($data['ID']); ?>">Show me more</a>
-          </div>
-        </div>
-      </div>
-<?php 
-    }
-?>
-      </div>
-    </div>
-  </div>
+<div class="title-arch"><?php echo $getData['name']; ?><p><?php echo $getData['longDesc']; ?></p></div>
 </div>
-</body>
+</div>
 </body>
 </html>

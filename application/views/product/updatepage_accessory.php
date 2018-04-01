@@ -20,7 +20,7 @@ Price: <input type="text" name="price"  value="<?=$item['AccessoryPrice']?>"><br
 Description: <input type="text" name="desc"  value="<?=$item['AccessoryDesc']?>"><br>
 Image: <input type="file" name="image"  value="<?=$item['AccessoryImage']?>"><br>
 <input type="submit" value="Update">
- 
+  <input type="submit" name="back" value="Back" formaction="<?php echo base_url("AdminController/getallproduct");?>">
 </table>
 </form>
 </body>

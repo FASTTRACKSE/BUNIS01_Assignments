@@ -31,6 +31,8 @@
 
         <div class="clearfix">
         <input type="submit" name="submitBtn" value="Register">
+
+        <a href="<?php echo base_url() ?>index.php/servicesAdminController/view/">Back</a>
      </div>
  </div>
 </form>

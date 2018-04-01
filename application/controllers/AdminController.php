@@ -20,11 +20,7 @@
 			$this->session->sess_destroy();
 			redirect(base_url().'index.php/LoginController/login');
 		}
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 46ef810581a371e5b92e45098dc3052d810c0008
 		public function loginValidation(){
 
 		$username = $this->input->post('username');
@@ -43,6 +39,19 @@
             
 		}
 	}
+
+		public function index()
+		{
+			$data = array(
+				'headerTitle' => 'Welcome, Admin!'
+		 	);
+
+		 	$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/welcome_admin');
+			$this->load->view('admintemplates/footer');
+
+		}
 
 	//HOMEPAGE--------------------------------------------------------------------------------------
 		public function homepage()
@@ -124,7 +133,7 @@
 
 	//COMPANY PROFILE-----------------------------------------------------------------------------------------------
 
-		public function index()
+		public function companyProfile()
 		{
 			$data = array(
 				'headerTitle' => 'Company Profile'
@@ -145,7 +154,7 @@
 		public function updateData($id)
 		{
 			$data = array(
-				'headerTitle' => 'Update Data'
+				'headerTitle' => 'Update Data / '.$id
 		 	);
 
 			$data['data'] = $this->CompanyProfile_model->getDataById($id);
@@ -154,21 +163,27 @@
 			$this->load->view('admintemplates/navbar');
 			$this->load->view('adminpages/crud_CompanyProfile/updateData');
 			$this->load->view('admintemplates/footer');
-
 			
+			if ($this->input->post('update'))
+			{
+				$data = array(
+				'type' => $this->input->post('dataType'),
+		        'description'  => $this->input->post('dataDescription')
+				);
+
+				$this->CompanyProfile_model->updateData($id, $data);
+
+				redirect('AdminController/companyProfile');						
+			}
+
 		}
-
-
-
-
-
 
 		// About--------------------------------------------------------------------------
 		public function addAbout()
 		{
-			$config['upload_path'] = './assets/company_profile/img/about';
+			$config['upload_path'] = './assets/company_profile/img/about/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 200;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -177,7 +192,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add About'
+					'headerTitle' => 'Add New About'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -197,18 +212,98 @@
 				);
 				$this->CompanyProfile_model->addAbout($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
+				
 			}		
 
 		}
+
+		public function updateAbout($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update About / '.$id
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateAbout');
+			$this->load->view('admintemplates/footer');
+
+		}
+
+		public function do_updateAbout($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/about/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 10000;
+
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+				$upload_data = $this->upload->data();
+
+				$aboutDate = $this->input->post('updateDate');
+				$aboutTitle = $this->input->post('updateTitle');
+				$aboutDesc = $this->input->post('updateDesc');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'date' => $aboutDate,
+					'title' => $aboutTitle,
+					'description' => $aboutDesc
+					);
+				}
+				else
+				{
+					$data = array(	
+					'date' => $aboutDate,
+					'title' => $aboutTitle,
+					'description' => $aboutDesc,
+					'img' => $image
+					);
+				}
+				
+				$this->CompanyProfile_model->updateAbout($id,$data);
+				
+				redirect('AdminController/companyProfile');	
+			}
+
+		}
+
+		public function deleteAbout($id){
+			$data = array(
+				'headerTitle' => 'Delete About / '.$id
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getAboutById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deleteAbout');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deleteAbout($id){
+			$this->CompanyProfile_model->deleteAbout($id);
+
+			redirect('AdminController/companyProfile');
+		}
+
 
 
 		// Staff--------------------------------------------------------------------------
 		public function addStaff()
 		{
-			$config['upload_path'] = './assets/company_profile/img/staffs';
+			$config['upload_path'] = './assets/company_profile/img/staffs/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 500;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -217,7 +312,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add Staff'
+					'headerTitle' => 'Add New Staff'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -238,22 +333,101 @@
 				);
 				$this->CompanyProfile_model->addStaff($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
 			}		
 
 		}
 
+		public function updateStaff($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Staff / '.$id
+		 	);
 
+			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
 
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updateStaff');
+			$this->load->view('admintemplates/footer');
 
+		}
 
+		public function do_updateStaff($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/staffs/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 10000;
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+				$upload_data = $this->upload->data();
+
+				$name = $this->input->post('updateName');
+				$job = $this->input->post('updateJob');
+				$twitter = $this->input->post('updateTwitter');
+				$facebook = $this->input->post('updateFB');
+				$linkedin = $this->input->post('updateLinkedin');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'name' => $name,	
+					'job' => $job,
+					'twitter' => $twitter,
+					'facebook' => $facebook,
+					'linkedin' => $linkedin
+					);
+				}
+				else
+				{
+					$data = array(	
+					'name' => $name,	
+					'job' => $job,
+					'img' => $image,
+					'twitter' => $twitter,
+					'facebook' => $facebook,
+					'linkedin' => $linkedin
+					);
+				}
 				
+				$this->CompanyProfile_model->updateStaff($id,$data);
+				
+				redirect('AdminController/companyProfile');	
+			}
+
+		}
+
+		public function deleteStaff($id){
+			$data = array(
+				'headerTitle' => 'Delete Staff / '.$id
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getStaffById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deleteStaff');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deleteStaff($id){
+			$this->CompanyProfile_model->deleteStaff($id);
+
+			redirect('AdminController/companyProfile');
+		}
+
+
 		// Partner------------------------------------------------------------------------
 		public function addPartner()
 		{
-			$config['upload_path'] = './assets/company_profile/img/partners';
+			$config['upload_path'] = './assets/company_profile/img/partners/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size'] = 200;
+			$config['max_size'] = 10000;
 
  
 			$this->load->library('upload', $config);
@@ -262,7 +436,7 @@
 			if ( ! $this->upload->do_upload('img_file')) {
 				$error = array('error' => $this->upload->display_errors());
 				$data = array(
-					'headerTitle' => 'Add Partner'
+					'headerTitle' => 'Add New Partner'
 			 	);
 			 	$this->load->view('admintemplates/head', $data);
 				$this->load->view('admintemplates/navbar');
@@ -280,9 +454,85 @@
 				);
 				$this->CompanyProfile_model->addPartner($data);
 				
-				redirect('AdminController/index');
+				redirect('AdminController/companyProfile');
 			}		
 
+		}
+
+		public function updatePartner($id)
+		{
+			$data = array(
+				'headerTitle' => 'Update Partner / '.$id
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/updatePartner');
+			$this->load->view('admintemplates/footer');
+
+		}
+
+		public function do_updatePartner($id)
+		{
+			if ($this->input->post('update'))
+			{
+				$config['upload_path'] = './assets/company_profile/img/partners/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = 10000;
+
+	 
+				$this->load->library('upload', $config);
+				$this->upload->overwrite = true;
+				$this->upload->do_upload('img_file');
+
+
+				$upload_data = $this->upload->data();
+
+				$name = $this->input->post('updateName');
+				$link = $this->input->post('updateLink');
+				$image = $upload_data['file_name'];
+
+				if ($image == NULL) {
+					$data = array(	
+					'name' => $name,	
+					'link' => $link,
+					);
+				}
+				else
+				{
+					$data = array(	
+					'name' => $name,	
+					'link' => $link,
+					'img' => $image,
+					);
+				}
+				
+				$this->CompanyProfile_model->updatePartner($id,$data);
+				
+				redirect('AdminController/companyProfile');	
+			}
+
+		}
+
+		public function deletePartner($id){
+			$data = array(
+				'headerTitle' => 'Delete Partner / '.$id
+		 	);
+
+			$data['data'] = $this->CompanyProfile_model->getPartnerById($id);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('adminpages/crud_CompanyProfile/deletePartner');
+			$this->load->view('admintemplates/footer');
+		}
+
+		public function do_deletePartner($id){
+			$this->CompanyProfile_model->deletePartner($id);
+
+			redirect('AdminController/companyProfile');
 		}
 
 
@@ -526,7 +776,7 @@
 				
 				$this->Product_Model->update_insurance($id, $data);
 
-				redirect('AdminController/insurance');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -562,7 +812,7 @@
 				
 				$this->Product_Model->insert_insurance( $data);
 
-				redirect('AdminController/insurance');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -590,7 +840,7 @@
 		
 			$this->Product_Model->delete_insurance($id);
 
-			redirect ('AdminController/insurance');
+			redirect ('AdminController/getallproduct');
 	}
 	
 		public function carparts()
@@ -666,15 +916,10 @@
 				
 				$this->Product_Model->update_carparts($id, $data);
 
-				redirect('AdminController/carparts');
+				redirect('AdminController/getallproduct');
 
 				}
 			
-
-			$this->Product_Model->update_carparts($id, $arData);
-
-			
-			 redirect ('AdminController/carparts');
 
 		}
 			public function insert_carparts()
@@ -724,7 +969,7 @@
 				
 				$this->Product_Model->insert_carparts( $data);
 
-				redirect('AdminController/carparts');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -750,7 +995,7 @@
 		
 			$this->Product_Model->delete_carparts($id);
 
-			redirect ('AdminController/carparts');
+			redirect ('AdminController/getallproduct');
 	}
 
 		public function oil_fluid()
@@ -819,7 +1064,7 @@
 			$this->Product_Model->update_oil_fluid($id, $arData);
 
 			
-			 redirect ('AdminController/oil_fluid');
+			 redirect ('AdminController/getallproduct');
 
 				}
 			}
@@ -873,7 +1118,7 @@
 				
 				$this->Product_Model->insert_oil_fluid( $data);
 
-				redirect('AdminController/oil_fluid');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -903,7 +1148,7 @@
 		
 			$this->Product_Model->delete_oil_fluid($id);
 
-			redirect ('AdminController/oil_fluid');
+			redirect ('AdminController/getallproduct');
 	}
 		public function acc()
 		{
@@ -977,7 +1222,7 @@
 			$this->Product_Model->update_acc($id, $arData);
 					}
 			
-			 redirect ('AdminController/acc');
+			 redirect ('AdminController/getallproduct');
 
 		}
 			public function insert_acc()
@@ -1031,7 +1276,7 @@
 				
 				$this->Product_Model->insert_acc( $data);
 
-				redirect('AdminController/acc');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -1060,7 +1305,7 @@
 		
 			$this->Product_Model->delete_acc($id);
 
-			redirect ('AdminController/acc');
+			redirect ('AdminController/getallproduct');
 	}
 
 
@@ -1135,7 +1380,7 @@
 				
 				$this->Product_Model->update_usedcars($id, $data);
 
-				redirect('AdminController/usedcars');
+				redirect('AdminController/getallproduct');
 
 				}
 			
@@ -1191,7 +1436,7 @@
 				
 				$this->Product_Model->insert_usedcars( $data);
 
-				redirect('AdminController/usedcars');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -1220,7 +1465,40 @@
 		
 			$this->Product_Model->delete_usedcars($id);
 
-			redirect ('AdminController/usedcars');
+			redirect ('AdminController/getallproduct');
+	}
+
+	public function getallproduct()
+	{
+
+		$dataView = array(
+				'headerTitle' => 'Product',
+			);
+
+		$load_insurance=$this->Product_Model->getProduct();
+		$dataPageInsurance['InsuranceID'] = $load_insurance;
+
+		$load_carparts=$this->Product_Model->getCarParts();
+		$dataPageCarParts['CarPartsID'] = $load_carparts;
+
+		$load_oilandfluid=$this->Product_Model->getOilandFluid();
+		$dataPageOilandFluid['OilandFluidID'] = $load_oilandfluid;
+
+		$load_accessory=$this->Product_Model->getAcc();
+		$dataPageAcc['AccessoryID'] = $load_accessory;
+
+		$load_usedcars=$this->Product_Model->getUsedCars();
+		$dataPageUsedCars['UsedCarsID'] = $load_usedcars;
+
+		$data = array_merge($dataView, $dataPageInsurance,$dataPageCarParts,$dataPageOilandFluid,$dataPageAcc,$dataPageUsedCars);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_productpage');
+		$this->load->view('admintemplates/footer');
+
+
+
 	}
 
 
