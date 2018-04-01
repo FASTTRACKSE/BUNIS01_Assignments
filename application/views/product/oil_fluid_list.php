@@ -4,12 +4,45 @@
   <head>
 
     <link href="<?php echo (base_url()); ?>assets/productpart/css/shop-homepage.css" rel="stylesheet">
-
+       <div style="margin-left:200px">
+<h1 style="margin-top:100px">Oil and Fluid</h1>
+</div>
   </head>
 
   <body>
 
+    <div class="container">
+         
 
+
+          <div style="margin-top: 100px;" class="row">
+
+            <?php foreach ($OilandFluidID as $row)
+  {
+    ?>
+          
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100" >
+                <img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['OilandFluidImage'] ;?>">
+                <div class="card-body">
+                  <h4 class="card-title">
+                   <?php echo  $row['OilandFluidName']  ;?>
+                  </h4>
+                  <h5><?php echo  $row['OilandFluidPrice']  ;?></h5>
+                 
+              <a href="load_oil_fluid_desc/<?php echo $row['OilandFluidID'] ?>">Find out more</a>
+     
+                </div>
+ 
+              </div>
+
+            </div>
+              <?php  
+  }
+  ?>
+</div>
+
+</div>
     <!-- Navigation -->
 
     <!-- Page Content -->
@@ -45,31 +78,6 @@
             </a>
           </div> -->
 
-          <div style="margin-top: 100px;" class="row">
-
-            <?php foreach ($OilandFluidID as $row)
-  {
-    ?>
-          
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100" >
-                <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['OilandFluidImage'] ;?>"></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#"><?php echo  $row['OilandFluidName']  ;?></a>
-                  </h4>
-                  <h5><?php echo  $row['OilandFluidPrice']  ;?></h5>
-                 
-              <a href="load_oil_fluid_desc/<?php echo $row['OilandFluidID'] ?>">Find out more</a>
-     
-                </div>
- 
-              </div>
-
-            </div>
-              <?php  
-  }
-  ?>
            
         </div>
         <!-- /.col-lg-9 -->

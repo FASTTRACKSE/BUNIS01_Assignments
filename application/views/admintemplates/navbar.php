@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/insurance">
+          <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/getallproduct">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Products</span>
           </a>

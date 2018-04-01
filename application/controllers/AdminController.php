@@ -522,7 +522,7 @@
 				
 				$this->Product_Model->update_insurance($id, $data);
 
-				redirect('AdminController/insurance');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -558,7 +558,7 @@
 				
 				$this->Product_Model->insert_insurance( $data);
 
-				redirect('AdminController/insurance');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -586,7 +586,7 @@
 		
 			$this->Product_Model->delete_insurance($id);
 
-			redirect ('AdminController/insurance');
+			redirect ('AdminController/getallproduct');
 	}
 	
 		public function carparts()
@@ -662,15 +662,10 @@
 				
 				$this->Product_Model->update_carparts($id, $data);
 
-				redirect('AdminController/carparts');
+				redirect('AdminController/getallproduct');
 
 				}
 			
-
-			$this->Product_Model->update_carparts($id, $arData);
-
-			
-			 redirect ('AdminController/carparts');
 
 		}
 			public function insert_carparts()
@@ -720,7 +715,7 @@
 				
 				$this->Product_Model->insert_carparts( $data);
 
-				redirect('AdminController/carparts');
+				redirect('AdminController/getallproduct');
 
 				}
 		}
@@ -746,7 +741,7 @@
 		
 			$this->Product_Model->delete_carparts($id);
 
-			redirect ('AdminController/carparts');
+			redirect ('AdminController/getallproduct');
 	}
 
 		public function oil_fluid()
@@ -815,7 +810,7 @@
 			$this->Product_Model->update_oil_fluid($id, $arData);
 
 			
-			 redirect ('AdminController/oil_fluid');
+			 redirect ('AdminController/getallproduct');
 
 				}
 			}
@@ -869,7 +864,7 @@
 				
 				$this->Product_Model->insert_oil_fluid( $data);
 
-				redirect('AdminController/oil_fluid');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -899,7 +894,7 @@
 		
 			$this->Product_Model->delete_oil_fluid($id);
 
-			redirect ('AdminController/oil_fluid');
+			redirect ('AdminController/getallproduct');
 	}
 		public function acc()
 		{
@@ -973,7 +968,7 @@
 			$this->Product_Model->update_acc($id, $arData);
 					}
 			
-			 redirect ('AdminController/acc');
+			 redirect ('AdminController/getallproduct');
 
 		}
 			public function insert_acc()
@@ -1027,7 +1022,7 @@
 				
 				$this->Product_Model->insert_acc( $data);
 
-				redirect('AdminController/acc');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -1056,7 +1051,7 @@
 		
 			$this->Product_Model->delete_acc($id);
 
-			redirect ('AdminController/acc');
+			redirect ('AdminController/getallproduct');
 	}
 
 
@@ -1131,7 +1126,7 @@
 				
 				$this->Product_Model->update_usedcars($id, $data);
 
-				redirect('AdminController/usedcars');
+				redirect('AdminController/getallproduct');
 
 				}
 			
@@ -1187,7 +1182,7 @@
 				
 				$this->Product_Model->insert_usedcars( $data);
 
-				redirect('AdminController/usedcars');
+				redirect('AdminController/getallproduct');
 			}
 		}
 
@@ -1216,7 +1211,40 @@
 		
 			$this->Product_Model->delete_usedcars($id);
 
-			redirect ('AdminController/usedcars');
+			redirect ('AdminController/getallproduct');
+	}
+
+	public function getallproduct()
+	{
+
+		$dataView = array(
+				'headerTitle' => 'Product',
+			);
+
+		$load_insurance=$this->Product_Model->getProduct();
+		$dataPageInsurance['InsuranceID'] = $load_insurance;
+
+		$load_carparts=$this->Product_Model->getCarParts();
+		$dataPageCarParts['CarPartsID'] = $load_carparts;
+
+		$load_oilandfluid=$this->Product_Model->getOilandFluid();
+		$dataPageOilandFluid['OilandFluidID'] = $load_oilandfluid;
+
+		$load_accessory=$this->Product_Model->getAcc();
+		$dataPageAcc['AccessoryID'] = $load_accessory;
+
+		$load_usedcars=$this->Product_Model->getUsedCars();
+		$dataPageUsedCars['UsedCarsID'] = $load_usedcars;
+
+		$data = array_merge($dataView, $dataPageInsurance,$dataPageCarParts,$dataPageOilandFluid,$dataPageAcc,$dataPageUsedCars);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/admin_productpage');
+		$this->load->view('admintemplates/footer');
+
+
+
 	}
 
 
