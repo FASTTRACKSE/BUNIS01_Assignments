@@ -43,6 +43,7 @@ class HCauto_Controller extends CI_Controller{
 		$this->load->view('templates/navbar');
 
 		$this->load->view("services/detailIndex",$data);
+
 		$this->load->view('bodyIndex');
 		$this->load->view('templates/footer');
 	}
@@ -72,6 +73,10 @@ class HCauto_Controller extends CI_Controller{
 		// $this->load->view('templates/footer');
 	}
 
+
+		$this->load->view("carRescueIndex");
+		$this->load->view('templates/footer');
+	}
 
 		$this->load->view("carRescueIndex");
 		$this->load->view('templates/footer');
@@ -107,6 +112,10 @@ class HCauto_Controller extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+		$this->load->view("d2dIndex");
+		$this->load->view('templates/footer');
+	}
+
 //electrical index
 	public function showElectrical(){
 		$dataHeader = array(
@@ -130,6 +139,10 @@ class HCauto_Controller extends CI_Controller{
 		// $this->load->view('templates/navbar');
 		$this->load->view("services/detailIndex",$data);
 		// $this->load->view('templates/footer');
+	}
+
+		$this->load->view("electricalIndex");
+		$this->load->view('templates/footer');
 	}
 
 		$this->load->view("electricalIndex");
@@ -165,5 +178,8 @@ class HCauto_Controller extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+		$this->load->view("engineIndex");
+		$this->load->view('templates/footer');
+	}
 }
 ?>
