@@ -8,11 +8,11 @@
 			$this->load->library('pagination');
 			$this->load->model('Homepage_Model');
 			$this->load->model('CompanyProfile_model');
-			$this->load->model('newsModel');
+			$this->load->model('NewsModel');
 			$this->load->model('Product_Model');
-			$this->load->model('servicesModel');
-			$this->load->model('servicesAdminModel');
-			$this->load->model('loginModel');
+			$this->load->model('ServicesModel');
+			$this->load->model('ServicesAdminModel');
+			$this->load->model('LoginModel');
 
 			if (!$this->session->userdata('username')) {
 		        redirect('LoginController/login');
@@ -557,7 +557,7 @@
 				'headerTitle' => 'News',
 			);
 
-			$dataPage['news_list'] = $this->newsModel->getList($config['per_page'], $this->uri->segment(3));
+			$dataPage['news_list'] = $this->NewsModel->getList($config['per_page'], $this->uri->segment(3));
 
 			$data = array_merge($dataView, $dataPage);
 
@@ -607,7 +607,7 @@
 					'imageNews' => $upload_data['file_name'],
 				);
 				
-				$this->newsModel->insertNews($data);
+				$this->NewsModel->insertNews($data);
 
 				redirect('AdminController/news');
 			}
@@ -618,7 +618,7 @@
 				'headerTitle' => 'News',
 			);
 
-			$dataPage['news'] = $this->newsModel->deleteNewsConfirm($id);
+			$dataPage['news'] = $this->NewsModel->deleteNewsConfirm($id);
 
 			$data = array_merge($dataView, $dataPage);
 
@@ -630,7 +630,7 @@
 
 		public function deleteNews($id){
 
-			$this->newsModel->deleteNews($id);
+			$this->NewsModel->deleteNews($id);
 
 			redirect('AdminController/news');
 		}
@@ -641,7 +641,7 @@
 				'headerTitle' => 'News',
 			);
 
-			$dataPage['news'] = $this->newsModel->getNewsById($id);
+			$dataPage['news'] = $this->NewsModel->getNewsById($id);
 
 			$data = array_merge($dataView, $dataPage);
 
@@ -679,7 +679,7 @@
 					'imageNews' => $upload_data['file_name'],
 				);
 				
-				$this->newsModel->updateNews($id, $data);
+				$this->NewsModel->updateNews($id, $data);
 
 				redirect('AdminController/news');
 			}
@@ -1543,7 +1543,7 @@
                     "picture" => $upload_data['file_name'],
                 );
                 
-                $this->servicesAdminModel->insert_Data($data);
+                $this->ServicesAdminModel->insert_Data($data);
 
                 redirect('AdminController/viewAdminService');
             }
@@ -1575,7 +1575,7 @@
                     "picture" => $upload_data['file_name'],
                 );
                 
-                $this->servicesAdminModel->update_Data_by_ID($ID,$data);
+                $this->ServicesAdminModel->update_Data_by_ID($ID,$data);
 
                 redirect('AdminController/viewAdminService');
             }
@@ -1590,7 +1590,7 @@
 
 		$this->pagination->initialize($config);
 
-		$dataPage['getDataPagination'] = $this->servicesAdminModel->getPagination($config['per_page'],
+		$dataPage['getDataPagination'] = $this->ServicesAdminModel->getPagination($config['per_page'],
 			$this->uri->segment(3));
 
 		$dataHead = array(
@@ -1609,7 +1609,7 @@
 		$dataHead = array(
 			'headerTitle' => 'Services',
 		);
-		$dataPage['row'] = $this->servicesAdminModel->get_Data_by_ID($ID);
+		$dataPage['row'] = $this->ServicesAdminModel->get_Data_by_ID($ID);
 
 		$data = array_merge($dataHead, $dataPage);
 
@@ -1620,7 +1620,7 @@
 	}
 
 	public function deleteService($deleteID){;
-		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
+		$this->ServicesAdminModel->delete_Data_by_ID($deleteID);
 		redirect("AdminController/viewAdminService");
 	}
 
@@ -1628,7 +1628,7 @@
 		$data = array(
 			'headerTitle' => 'Services',
 		);
-		$data["row"] = $this->servicesAdminModel->get_Data_by_ID($ID);
+		$data["row"] = $this->ServicesAdminModel->get_Data_by_ID($ID);
 		$this->load->view('admintemplates/head');
 		$this->load->view('admintemplates/navbar');
 		$this->load->view('Services/updateIndex', $data);
@@ -1720,7 +1720,7 @@
 				'headerTitle' => 'Settings',
 		);
 
-		$dataPage['admin'] = $this->loginModel->getAdminDetail();
+		$dataPage['admin'] = $this->LoginModel->getAdminDetail();
 		$data=array_merge($dataView, $dataPage);
 
 		$this->load->view('admintemplates/head', $data);
@@ -1735,7 +1735,7 @@
 			'password' => md5($this->input->post('password'))
 		);
 
-		$this->loginModel->updatePassword($data);
+		$this->LoginModel->updatePassword($data);
 
 		redirect('AdminController/adminSettings');
 	}

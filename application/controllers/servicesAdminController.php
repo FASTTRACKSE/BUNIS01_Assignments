@@ -46,7 +46,7 @@ class ServicesAdminController extends CI_Controller{
                 
                 $this->servicesAdminModel->insert_Data($data);
 
-                redirect('servicesAdminController/view');
+                redirect('ServicesAdminController/view');
             }
         }
 
@@ -78,13 +78,13 @@ class ServicesAdminController extends CI_Controller{
                 
                 $this->servicesAdminModel->update_Data_by_ID($ID,$data);
 
-                redirect('servicesAdminController/view');
+                redirect('ServicesAdminController/view');
             }
         }
 
 	public function view(){
 
-		$config["base_url"] = base_url()."index.php/servicesAdminController/view";
+		$config["base_url"] = base_url()."index.php/ServicesAdminController/view";
 		$config["total_rows"] = $this->db->get('service')->num_rows();
 		$config["per_page"] = 5;
 		$config["num_limits"] = 5;
@@ -122,7 +122,7 @@ class ServicesAdminController extends CI_Controller{
 
 	public function delete($deleteID){;
 		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
-		redirect("servicesAdminController/view");
+		redirect("ServicesAdminController/view");
 	}
 
 	public function toUpdate($ID){
