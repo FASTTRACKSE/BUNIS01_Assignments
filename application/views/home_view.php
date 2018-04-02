@@ -93,7 +93,7 @@
             <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300a.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a>Engine</a>
+                <a style="text-decoration: none;" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showEngine">Engine</a>
               </h4>
             </div>
           </div>
@@ -103,7 +103,7 @@
             <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300b.png" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a>Electrical</a>
+                <a style="text-decoration: none;" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showElectrical">Electrical</a>
               </h4>
             </div>
           </div>
@@ -113,7 +113,7 @@
             <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300c.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a>Body</a>
+                <a style="text-decoration: none;" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showBody">Body</a>
               </h4>
             </div>
           </div>
@@ -123,7 +123,7 @@
             <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300d.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a>Car Rescue</a>
+                 <a style="text-decoration: none;" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showCarRescue">Car Rescue</a>
               </h4>
             </div>
           </div>
@@ -133,7 +133,7 @@
             <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300e.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a>Door-to-Door Delivery</a>
+                 <a style="text-decoration: none;" href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showD2D">Door-to-Door Delivery</a>
               </h4>
             </div>
           </div>

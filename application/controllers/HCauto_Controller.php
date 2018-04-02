@@ -15,7 +15,7 @@ class HCauto_Controller extends CI_Controller{
 
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('Services/services');
+		$this->load->view('services/services');
 		$this->load->view('templates/footer');
 	}
 
