@@ -211,7 +211,6 @@
               </div>
             </div>
 
-<<<<<<< HEAD
       <div class="services-item slide">
           <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
               <div class="project-hover">
@@ -223,7 +222,6 @@
           </div>
         </div>
       </div>
-=======
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background1 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
@@ -235,7 +233,6 @@
                 </div>
               </div>
             </div>
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background2 wow animated animated4 fadeInLeft">

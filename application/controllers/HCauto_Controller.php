@@ -10,71 +10,65 @@ class HCauto_Controller extends CI_Controller{
 // view index
 	public function view(){
 		$data = array(
-			'headtitle' => 'Services',
+			'headTitle' => 'Garage HC Auto | Services',
 		);
-		$this->load->view('templates/head');
+
+		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
 		$this->load->view('Services/services');
-=======
-		$this->load->view('services/services');
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 		$this->load->view('templates/footer');
 	}
 
 // body index
 	public function showBody(){
 
-		$data = array(
-			'headtitle' => 'Body',
+		$dataHeader = array(
+			'headTitle' => 'Garage HC Auto | Body Service',
 		);
-		$data["getData"] = $this->servicesModel->get_Body();
-		$this->load->view('templates/head');
+
+		$dataModel["getData"] = $this->servicesModel->get_Body();
+
+		$data = array_merge($dataHeader, $dataModel);
+
+		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('services/bodyIndex',$data);
+		$this->load->view('services/bodyIndex');
 		$this->load->view('templates/footer');
 	}
 
 	public function showDetail($bodyID){
 		$dataHeader = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Body Service',
 		);
+
 		$dataModel["getData"] = $this->servicesModel->get_Body();
 		$data=array_merge($dataHeader, $dataModel);
+
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
-		$this->load->view('Services/bodyIndex');
-=======
-
-		$this->load->view("services/detailIndex",$data);
-
+		$this->load->view("services/detailIndex");
 		$this->load->view('bodyIndex');
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 		$this->load->view('templates/footer');
 	}
 
 //car rescue index
 	public function showCarRescue(){
 		$dataHeader = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Car Rescue Service',
 		);
+
 		$dataModel["getData"] = $this->servicesModel->get_CarRescue();
 		$data=array_merge($dataHeader, $dataModel);
+
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
-		$this->load->view("Services/carRescueIndex");
-=======
-
 		$this->load->view("services/carRescueIndex",$data);
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 		$this->load->view('templates/footer');
 	}
 
 	public function showCarRescueDetail($rescueID){
 		$data = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Car Rescue Service',
 		);
 		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($rescueID);
 		// $this->load->view('templates/head');
@@ -87,24 +81,21 @@ class HCauto_Controller extends CI_Controller{
 //d2d index
 	public function showD2D(){
 		$dataHeader = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Door to Door Service',
 		);
+
 		$dataModel["getData"] = $this->servicesModel->get_D2D();
 		$data=array_merge($dataHeader, $dataModel);
+
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
-		$this->load->view("Services/d2dIndex");
-=======
-
 		$this->load->view("services/d2dIndex",$data);
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 		$this->load->view('templates/footer');
 	}
 
 	public function showD2DDetail($d2dID){
 		$data = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Door to Door Service',
 		);
 		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($d2dID);
 		// $this->load->view('templates/head');
@@ -118,24 +109,20 @@ class HCauto_Controller extends CI_Controller{
 //electrical index
 	public function showElectrical(){
 		$dataHeader = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Door to Door Service',
 		);
 		$dataModel["getData"] = $this->servicesModel->get_Electrical();
 		$data=array_merge($dataHeader, $dataModel);
+
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
-		$this->load->view("Services/electricalIndex");
-=======
-
 		$this->load->view("services/electricalIndex",$data);
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
 		$this->load->view('templates/footer');
 	}
 
 	public function showElectricalDetail($electricalID){
 		$data = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Electrical Service',
 		);
 		$data["getDataByID"] = $this->servicesModelce->get_Data_by_ID($electricalID);
 		// $this->load->view('templates/head');
@@ -148,24 +135,21 @@ class HCauto_Controller extends CI_Controller{
 //engine index
 	public function showEngine(){
 		$dataHeader = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Engine Service',
 		);
+
 		$dataModel["getData"] = $this->servicesModel->get_Engine();
 		$data=array_merge($dataHeader, $dataModel);
+
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-<<<<<<< HEAD
-		$this->load->view("Services/engineIndex");
-=======
-
-		$this->load->view("services/engineIndex",$data);
->>>>>>> f455e31ff5c588fb3c1af813a98fe8cf573447b6
+		$this->load->view("services/engineIndex");
 		$this->load->view('templates/footer');
 	}
 
 	public function showEngineDetail($engineID){
 		$data = array(
-			'headtitle' => 'Body',
+			'headTitle' => 'Garage HC Auto | Engine Service',
 		);
 		$data["getDataByID"] = $this->servicesModel->get_Data_by_ID($engineID);
 		// $this->load->view('templates/head');
