@@ -210,18 +210,6 @@
                 </div>
               </div>
             </div>
-
-      <div class="services-item slide">
-          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
-              <div class="project-hover">
-              <h2>Body</h2>
-            
-              <hr />
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url()?>index.php/HCauto_Controller/showBody">Show me more</a>
-          </div>
-        </div>
-      </div>
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background1 wow animated animated4 fadeInLeft">
                     <div class="project-hover">

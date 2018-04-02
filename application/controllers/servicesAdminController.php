@@ -14,7 +14,7 @@ class ServicesAdminController extends CI_Controller{
 		);
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/insertIndex');
+		$this->load->view('services/insertIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -102,7 +102,7 @@ class ServicesAdminController extends CI_Controller{
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/servicesAdminIndex');
+		$this->load->view('services/servicesAdminIndex');
 		$this->load->view('admintemplates/footer');
  	}
 
@@ -116,7 +116,7 @@ class ServicesAdminController extends CI_Controller{
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/deleteIndex');
+		$this->load->view('services/deleteIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -132,7 +132,7 @@ class ServicesAdminController extends CI_Controller{
 		$data["row"] = $this->servicesAdminModel->get_Data_by_ID($ID);
 		$this->load->view('admintemplates/head');
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/updateIndex', $data);
+		$this->load->view('services/updateIndex', $data);
 		$this->load->view('admintemplates/footer');
 	}
 }
