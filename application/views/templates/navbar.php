@@ -14,10 +14,10 @@
             <a class="nav-link" href="<?php echo(base_url()); ?>CompanyProfile">Company Profile</a>
             
             <!-- <div class="dropdown-content">
-                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#vision">Vision</a>
-                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#mission">Mission</a>
-                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#team">Organization Chart</a>
-                <a href="<?php echo(base_url()); ?>index.php/CompanyProfile#contact">Contacts</a>
+                <a href="<?php echo(base_url()); ?>CompanyProfile#vision">Vision</a>
+                <a href="<?php echo(base_url()); ?>CompanyProfile#mission">Mission</a>
+                <a href="<?php echo(base_url()); ?>CompanyProfile#team">Organization Chart</a>
+                <a href="<?php echo(base_url()); ?>CompanyProfile#contact">Contacts</a>
             </div> -->
           </div>
 

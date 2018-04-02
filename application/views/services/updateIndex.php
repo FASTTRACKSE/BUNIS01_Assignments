@@ -10,7 +10,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item active"> <?php echo($headerTitle); ?> </li>
       </ol>
-    <form action="<?php echo base_url("index.php/AdminController/updateService/").$row['ID'];?>" enctype="multipart/form-data" method="POST">
+    <form action="<?php echo base_url("AdminController/updateService/").$row['ID'];?>" enctype="multipart/form-data" method="POST">
  	<div class="container">
 
         <label><b>Name</b></label>
@@ -29,7 +29,7 @@
         <div class="clearfix">
         <input type="submit" name="submitBtn" value="Register">
 
-        <a href="<?php echo base_url() ?>index.php/AdminController/viewAdminService/">Back</a>
+        <a href="<?php echo base_url() ?>AdminController/viewAdminService/">Back</a>
      </div>
  </div>
 </form>

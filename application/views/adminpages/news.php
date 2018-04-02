@@ -10,7 +10,7 @@
       </ol>
       <div class="row">
         <div class="col-12">
-          <form action="<?php echo(base_url()); ?>index.php/AdminController/addNews">
+          <form action="<?php echo(base_url()); ?>AdminController/addNews">
             <input type="submit" name="" value="+ Add">
           </form>
 
@@ -26,7 +26,7 @@
                 <td><?php echo substr($news['title'], 0, 30); ?></td>
                 <td><?php echo ($news['type']);?></td>
                 <td><?php echo substr($news['newsDescription'], 0, 150); ?></td>
-                <td> <a href="<?php echo(base_url()); ?>index.php/AdminController/updateNewsConfirm/<?php echo ($news['id']);?>">Update</a> <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteNewsConfirm/<?php echo ($news['id']);?>">Delete</a> </td>
+                <td> <a href="<?php echo(base_url()); ?>AdminController/updateNewsConfirm/<?php echo ($news['id']);?>">Update</a> <a href="<?php echo(base_url()); ?>AdminController/deleteNewsConfirm/<?php echo ($news['id']);?>">Delete</a> </td>
               </tr>
             <?php endforeach; ?>
           </table>

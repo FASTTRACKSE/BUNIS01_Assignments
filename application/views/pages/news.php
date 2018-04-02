@@ -18,13 +18,13 @@
       	<?php foreach($newsList as $news):?>
       		<div class="col-lg-4 col-sm-6 portfolio-item">
 	          <div class="card h-100">
-	            <a href="<?php echo(base_url()); ?>index.php/NewsController/viewNewsDetail/<?php echo($news['id']); ?>"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['imageNews']); ?>" alt=""></a>
+	            <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($news['id']); ?>"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['imageNews']); ?>" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
-	                <a href="<?php echo(base_url()); ?>index.php/NewsController/viewNewsDetail/<?php echo($news['id']); ?>"><?php echo($news['title']) ?></a>
+	                <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($news['id']); ?>"><?php echo($news['title']) ?></a>
 	              </h4>
 	              <p class="card-text"><?php echo substr($news['newsDescription'], 0, 150); ?> . . .</p>
-                <a href="<?php echo(base_url()); ?>index.php/NewsController/viewNewsDetail/<?php echo($news['id']); ?>">Read More . . .</a>
+                <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($news['id']); ?>">Read More . . .</a>
 	            </div>
 	          </div>
 	        </div> 
@@ -50,7 +50,7 @@
              
                   
                   <li class="page-item">
-                    <a class="page-link" href="<?php echo(base_url()); ?>index.php/NewsController/<?php echo($type);?>/<?php if($i<1){echo('');}else{echo($i+1);} ?>"><?php echo($i+1); ?></a>
+                    <a class="page-link" href="<?php echo(base_url()); ?>NewsController/<?php echo($type);?>/<?php if($i<1){echo('');}else{echo($i+1);} ?>"><?php echo($i+1); ?></a>
                   </li>
                   
               

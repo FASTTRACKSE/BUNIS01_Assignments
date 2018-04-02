@@ -206,7 +206,7 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
+                  <a href="<?php echo base_url() ?>HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@
             
               <hr />
               <p><?php echo $getData['description']; ?></p>
-            <a href="<?php echo base_url()?>index.php/HCauto_Controller/showBody">Show me more</a>
+            <a href="<?php echo base_url()?>HCauto_Controller/showBody">Show me more</a>
           </div>
         </div>
       </div>
@@ -232,7 +232,7 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showElectrical">See Project</a>
+                  <a href="<?php echo base_url() ?>HCauto_Controller/showElectrical">See Project</a>
                 </div>
               </div>
             </div>
@@ -244,7 +244,7 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showEngine">See Project</a>
+                  <a href="<?php echo base_url() ?>HCauto_Controller/showEngine">See Project</a>
                 </div>
               </div>
             </div>
@@ -256,7 +256,7 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showCarRescue">See Project</a>
+                  <a href="<?php echo base_url() ?>HCauto_Controller/showCarRescue">See Project</a>
                 </div>
               </div>
             </div>
@@ -268,7 +268,7 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showD2D">See Project</a>
+                  <a href="<?php echo base_url() ?>HCauto_Controller/showD2D">See Project</a>
                 </div>
               </div>
             </div>

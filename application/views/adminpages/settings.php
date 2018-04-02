@@ -10,7 +10,7 @@
       </ol>
 
       <table>
-      	<form action="<?php echo(base_url());?>/index.php/adminController/changePassword" method="POST">
+      	<form action="<?php echo(base_url());?>adminController/changePassword" method="POST">
       		<tr>
       			<td>Username</td>
       			<td><input type="text" name="username" value="<?php echo($admin['username']); ?>"></td>
