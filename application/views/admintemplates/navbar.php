@@ -25,13 +25,13 @@
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/getallproduct">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-cubes"></i>
             <span class="nav-link-text">Products</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/viewAdminService">
-            <i class="fa fa-fw fa-file"></i>
+            <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Services</span>
           </a>
         </li>
