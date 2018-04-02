@@ -33,14 +33,14 @@ body {
 	text-align: center;
 }
 
-/*.service-bottom{
+.service-bottom{
 	position: relative;
 	margin: auto;
 	left: 200px;
 	right: 0;
 	top: 0;
 	bottom: 0;
-}*/
+}
 
 /*.href-hs{
 	position: relative;

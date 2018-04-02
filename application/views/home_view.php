@@ -65,7 +65,7 @@
             <?php foreach ($id as $row)  { ?>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100" >
-                <a href="#"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/newspart/img/news/').$row['imageNews'] ;?>"></a>
+                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($row['id']); ?>"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/newspart/img/news/').$row['imageNews'] ;?>"></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewNewsDetail/<?php echo($row['id']); ?>"><?php echo $row['title'];?></a>
@@ -90,36 +90,56 @@
           <div class="row">
             <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300a.jpg" alt=""></a>
+            <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300a.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Engine</a>
+                <a>Engine</a>
               </h4>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300b.png" alt=""></a>
+            <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300b.png" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Electrical</a>
+                <a>Electrical</a>
               </h4>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300c.jpg" alt=""></a>
+            <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300c.jpg" alt="">
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Body</a>
+                <a>Body</a>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100 service-bottom">
+            <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300d.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a>Car Rescue</a>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100 service-bottom">
+            <img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300e.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a>Door-to-Door Delivery</a>
               </h4>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-6 portfolio-item">
+        <!-- <div class="col-sm-6 portfolio-item">
           <div class="card h-100 service-bottom">
             <a href="<?php echo(base_url()); ?>index.php/HCauto_Controller/showCarRescue"><img class="card-img-top" src="<?php echo (base_url()); ?>assets/image/homepage/400x300d.jpg" alt=""></a>
             <div class="card-body">
@@ -138,7 +158,7 @@
               </h4>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
             <!-- <div class="col-md-2 col-sm-6 mb-4">
