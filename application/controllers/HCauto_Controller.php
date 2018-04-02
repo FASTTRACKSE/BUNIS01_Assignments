@@ -12,7 +12,7 @@ class HCauto_Controller extends CI_Controller{
 		$dataHeader = array(
 			'headTitle' => 'Garage HC Auto | Services',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_Services();
+		$dataModel["getData"] = $this->ServicesModel->get_Services();
 		$data = array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');

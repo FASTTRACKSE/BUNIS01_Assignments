@@ -205,10 +205,10 @@
             <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2><?php echo $getData['name']; ?></h2>
+                    <h2><?php echo $data['name']; ?></h2>
                   
                     <hr />
-                    <p><?php echo $getData['description']; ?></p>
+                    <p><?php echo $data['description']; ?></p>
 
                     <img src="<?php echo base_url()."/assets/img/"?><?php echo $getData['picture']; ?>">
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
