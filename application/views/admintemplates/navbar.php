@@ -35,6 +35,12 @@
             <span class="nav-link-text">Services</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+          <a class="nav-link" href="<?php echo(base_url()); ?>index.php/admincontroller/adminSettings">
+            <i class="fa fa-fw fa-cogs"></i>
+            <span class="nav-link-text">Settings</span>
+          </a>
+        </li>
       </ul>
       
       <ul class="navbar-nav ml-auto">

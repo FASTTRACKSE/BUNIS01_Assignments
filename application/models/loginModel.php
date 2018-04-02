@@ -14,6 +14,17 @@
 		        return false;
 		    }
 		}
+
+		function getAdminDetail(){
+			$query = $this->db->get('admin');
+			$data=$query->row_array(); //to print 1 row
+			return $data;
+		}
+
+		function updatePassword($data){
+			$this->db->where("id", '1');
+			$this->db->update('admin', $data);
+		}
 	}
 
  ?>

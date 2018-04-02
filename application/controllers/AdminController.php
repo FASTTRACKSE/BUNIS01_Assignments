@@ -12,6 +12,7 @@
 			$this->load->model('Product_Model');
 			$this->load->model('servicesModel');
 			$this->load->model('servicesAdminModel');
+			$this->load->model('loginModel');
 
 			if (!$this->session->userdata('username')) {
 		        redirect('LoginController/login');
@@ -1710,6 +1711,33 @@
 		$this->load->view('templates/navbar');
 		$this->load->view("Services/engineIndex");
 		$this->load->view('templates/footer');
+	}
+
+
+//adminsettings
+	public function adminSettings(){
+		$dataView = array(
+				'headerTitle' => 'Settings',
+		);
+
+		$dataPage['admin'] = $this->loginModel->getAdminDetail();
+		$data=array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('adminpages/settings');
+		$this->load->view('admintemplates/footer');
+	}
+
+	public function changePassword(){
+		$data = array(
+			'username' => $this->input->post('username'),
+			'password' => md5($this->input->post('password'))
+		);
+
+		$this->loginModel->updatePassword($data);
+
+		redirect('AdminController/adminSettings');
 	}
 
 
