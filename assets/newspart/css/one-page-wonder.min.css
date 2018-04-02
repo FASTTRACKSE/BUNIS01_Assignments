@@ -175,3 +175,20 @@ div.dropdown-content {
     text-align: center;
 }
 
+.bodyCustomNewsDetail p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.headNewsDetail{
+    font-size: 36pt;
+    text-align: left;
+}
+
+.dateNewsDetail{
+    font-size: 11pt;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #666666;
+}
+
