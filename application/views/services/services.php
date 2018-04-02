@@ -217,7 +217,7 @@
             </div>
 <?php } ?>
 
-                  <a href="<?php echo base_url() ?>HCauto_Controller/showBody">Show me more</a>
+<!--                   <a href="<?php echo base_url() ?>HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
             </div>
@@ -280,7 +280,7 @@
                   <a href="<?php echo base_url() ?>HCauto_Controller/showD2D">See Project</a>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             </div>
           </div>
