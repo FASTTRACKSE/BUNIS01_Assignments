@@ -25,7 +25,7 @@
                 <td><?php echo ($d['id']);?></td>
                 <td><?php echo ($d['type']);?></td>
                 <td><?php echo ($d['description']); ?></td>
-                <td style="padding: 10px;"><a href="<?php echo(base_url()); ?>index.php/AdminController/updateData/<?php echo($d['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;">Update</a></td>
+                <td style="padding: 10px;"><a href="<?php echo(base_url()); ?>AdminController/updateData/<?php echo($d['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;">Update</a></td>
               </tr>
             <?php endforeach; ?>
           </table>
@@ -36,7 +36,7 @@
           <hr style="border-width: 10px;  margin-top:50px;">
           <h3 align="center">About</h3>
           <hr style="border-width: 10px;">
-          <a href="<?php echo(base_url()); ?>index.php/AdminController/addAbout">
+          <a href="<?php echo(base_url()); ?>AdminController/addAbout">
              <input type="button" value="Add New About" style="float: right; margin-bottom:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
@@ -54,9 +54,9 @@
                 <td><?php echo ($a['description']); ?></td>
                 <td><img class="rounded-circle" width="150px"; height="150px"; src="<?php echo base_url().'/assets/company_profile/img/about/'.$a['img']; ?>" alt=""></td>
                 <td  style="padding: 10px;"> 
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updateAbout/<?php echo($a['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  <a href="<?php echo(base_url()); ?>AdminController/updateAbout/<?php echo($a['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
                   </a><br><br>
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteAbout/<?php echo($a['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  <a href="<?php echo(base_url()); ?>AdminController/deleteAbout/<?php echo($a['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
                   </a>
                 </td>
 
@@ -70,7 +70,7 @@
           <hr style="border-width: 10px;  margin-top:50px;">
           <h3 align="center">Staffs</h3>
           <hr style="border-width: 10px;">
-          <a href="<?php echo(base_url()); ?>index.php/AdminController/addStaff">
+          <a href="<?php echo(base_url()); ?>AdminController/addStaff">
              <input type="button" value="Add New Staff" style="float: right; margin:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
@@ -92,9 +92,9 @@
                 <td><?php echo ($s['facebook']); ?></td>
                 <td><?php echo ($s['linkedin']); ?></td>
                 <td> 
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updateStaff/<?php echo($s['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  <a href="<?php echo(base_url()); ?>AdminController/updateStaff/<?php echo($s['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
                   </a><br><br>
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deleteStaff/<?php echo($s['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  <a href="<?php echo(base_url()); ?>AdminController/deleteStaff/<?php echo($s['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
                   </a>
                 </td>
               </tr>
@@ -107,7 +107,7 @@
           <hr style="border-width: 10px;  margin-top:50px;">
           <h3 align="center">Partners</h3>
           <hr style="border-width: 10px;">
-          <a href="<?php echo(base_url()); ?>index.php/AdminController/addPartner">
+          <a href="<?php echo(base_url()); ?>AdminController/addPartner">
              <input type="button" value="Add New Partner" style="float: right; margin:15px; background-color: #ff9900; color: white; padding: 10px 24px; text-align: center; font-size: 16px; border-radius: 8px;">
           </a>
           <table class="col-12" border="2" style="text-align: center;"> 
@@ -123,9 +123,9 @@
                 <td><?php echo ($p['link']);?></td>
                 <td> <img width="150px"; height="50px"; src="<?php echo base_url().'/assets/company_profile/img/partners/'.$p['img']; ?>" ></td>
                 <td> 
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/updatePartner/<?php echo($p['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
+                  <a href="<?php echo(base_url()); ?>AdminController/updatePartner/<?php echo($p['id']) ?>" style="background-color: rgb(66, 184, 221); color: white; padding: 6px 10px; margin: 10px; text-align: center; font-size: 16px; border-radius: 8px;" >Update
                   </a>
-                  <a href="<?php echo(base_url()); ?>index.php/AdminController/deletePartner/<?php echo($p['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
+                  <a href="<?php echo(base_url()); ?>AdminController/deletePartner/<?php echo($p['id']) ?>" style="background-color: #e60000; color: white; padding: 6px 10px; margin:10px; text-align: center; font-size: 16px; border-radius: 8px;" >Delete
                   </a>
                 </td>
               </tr>
