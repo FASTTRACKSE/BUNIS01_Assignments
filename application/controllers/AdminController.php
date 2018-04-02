@@ -1506,14 +1506,7 @@
 	//services
 
 	//admin
-	public function __construct(){
-		parent::__construct();
-		$this->load->helper('url');
-		$this->load->library('pagination');
-		$this->load->model('servicesAdminModel');
-	}
-
-	public function register(){
+	public function registerService(){
 		$data = array(
 			'headerTitle' => 'Services',
 		);
@@ -1523,7 +1516,7 @@
 		$this->load->view('admintemplates/footer');
 	}
 
-    public function insert()
+    public function insertService()
         {
             $pic_name = $this->input->post('fName');
 
@@ -1551,11 +1544,11 @@
                 
                 $this->servicesAdminModel->insert_Data($data);
 
-                redirect('AdminController/view');
+                redirect('AdminController/viewAdminService');
             }
         }
 
-    public function update($ID)
+    public function updateService($ID)
         {
             $pic_name = $this->input->post('fName');
 
@@ -1583,11 +1576,11 @@
                 
                 $this->servicesAdminModel->update_Data_by_ID($ID,$data);
 
-                redirect('AdminController/view');
+                redirect('AdminController/viewAdminService');
             }
         }
 
-	public function view(){
+	public function viewAdminService(){
 
 		$config["base_url"] = base_url()."index.php/AdminController/view";
 		$config["total_rows"] = $this->db->get('service')->num_rows();
@@ -1625,9 +1618,9 @@
 		$this->load->view('admintemplates/footer');
 	}
 
-	public function delete($deleteID){;
+	public function deleteService($deleteID){;
 		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
-		redirect("servicesAdminController/view");
+		redirect("AdminController/viewAdminService");
 	}
 
 	public function toUpdate($ID){
@@ -1644,7 +1637,7 @@
 	//front end
 
 // view index
-	public function view(){
+	public function viewService(){
 		$data = array(
 			'headtitle' => 'Services',
 		);

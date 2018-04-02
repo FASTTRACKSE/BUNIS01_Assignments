@@ -14,7 +14,7 @@
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
       </ol>
 
-	<form action="<?php echo base_url() ?>index.php/servicesAdminController/insert" method="POST"
+	<form action="<?php echo base_url() ?>index.php/AdminController/insertService" method="POST"
     enctype="multipart/form-data">
  	<div class="container">
  		<label><b>Name</b></label>
