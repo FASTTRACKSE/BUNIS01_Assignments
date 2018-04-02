@@ -7,7 +7,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-        	<a href="<?php echo(base_url()); ?>index.php/AdminController/companyProfile">Company Profiles</a>
+        	<a href="<?php echo(base_url()); ?>AdminController/companyProfile">Company Profiles</a>
         </li>
         <li class="breadcrumb-item active"><?php echo($headerTitle); ?></li>
       </ol>
@@ -47,11 +47,11 @@
 
 			<div class="col-12"  style="text-align: center;">
 				<br><h4>Are you sure to delete this staff?</h4>
-				<a href="<?php echo(base_url()); ?>index.php/AdminController/companyProfile" style="padding: 50px;">
+				<a href="<?php echo(base_url()); ?>AdminController/companyProfile" style="padding: 50px;">
 	            	<input style="background-color: green; color: white; font-size: 20px;" type="button" value="No" />
 	          	</a>
 
-	          	<a href="<?php echo(base_url());?>index.php/AdminController/do_deleteStaff/<?php echo($d['id']) ?>" style="padding: 50px;">
+	          	<a href="<?php echo(base_url());?>AdminController/do_deleteStaff/<?php echo($d['id']) ?>" style="padding: 50px;">
 	            	<input style="background-color: red; color: white; font-size: 20px;" type="button" value="Yes" />
 	          	</a>
 			</div>

@@ -18,7 +18,7 @@
     
 
 
-<form  method="POST" action="<?=base_url()?>index.php/Product_Model/load_desc">
+<form  method="POST" action="<?=base_url()?>Product_Model/load_desc">
   
 
          

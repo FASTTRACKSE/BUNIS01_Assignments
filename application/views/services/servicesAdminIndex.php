@@ -27,8 +27,8 @@
 					<td><?php echo $row['name']; ?></td>
 					<td><?php echo $row['description']; ?></td>
 					<td><?php echo $row['picture']; ?></td>
-					<td><a href="<?php echo base_url() ?>index.php/ServicesAdminController/toUpdate/<?php echo($row['ID']);?>">Update</a></td>
-					<td><a href="<?php echo base_url() ?>index.php/ServicesAdminController/toDelete/<?php echo($row['ID']); ?>"> Delete</a></td>
+					<td><a href="<?php echo base_url() ?>ServicesAdminController/toUpdate/<?php echo($row['ID']);?>">Update</a></td>
+					<td><a href="<?php echo base_url() ?>ServicesAdminController/toDelete/<?php echo($row['ID']); ?>"> Delete</a></td>
 				</tr>
 		<?php
 			}
@@ -38,7 +38,7 @@
 
 		<br>
 		<br>
-		<a href="<?php echo base_url() ?>index.php/ServicesAdminController/register">Register</a>
+		<a href="<?php echo base_url() ?>ServicesAdminController/register">Register</a>
 	</div>
 
     </div>

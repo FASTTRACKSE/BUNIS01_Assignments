@@ -15,7 +15,7 @@
       	<tr>
 			<textarea name="newsDesc" form="newsForm" placeholder="Enter news here . . ." required><?php echo($news['newsDescription']) ?></textarea>	
 		</tr>
-		<form action="<?php echo(base_url());?>/index.php/adminController/updateNews/<?php echo($news['id']) ?>" method="POST" enctype="multipart/form-data" id="newsForm">
+		<form action="<?php echo(base_url());?>adminController/updateNews/<?php echo($news['id']) ?>" method="POST" enctype="multipart/form-data" id="newsForm">
 			<tr>
 				<td>Title</td>
 				<td> : </td>
@@ -58,7 +58,7 @@
 			<tr>
 				<td><input type="submit" name="" value="Update"></td>
 	</form>
-				<form action="<?php echo(base_url());?>index.php/AdminController/news/">
+				<form action="<?php echo(base_url());?>AdminController/news/">
 					<td><input type="submit" name="" value="Back"></td>		
 				</form>
 			</tr>

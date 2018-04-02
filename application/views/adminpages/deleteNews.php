@@ -14,13 +14,13 @@
       <table>
         <tr>
           <td>
-            <form action="<?php echo(base_url());?>index.php/AdminController/news/">
+            <form action="<?php echo(base_url());?>AdminController/news/">
               Are you sure to delete this news?
               <input style="background-color: green; color: white;" type="submit" name="" value="No">
             </form>  
           </td>
           <td>
-            <form action="<?php echo(base_url());?>index.php/AdminController/deleteNews/<?php echo($news['id']) ?>">
+            <form action="<?php echo(base_url());?>AdminController/deleteNews/<?php echo($news['id']) ?>">
               <input style="background-color: red; color: white;" type="submit" name="" value="Yes">
             </form>
           </td>
