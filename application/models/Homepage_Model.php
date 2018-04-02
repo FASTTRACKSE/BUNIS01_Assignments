@@ -46,6 +46,13 @@ class Homepage_Model extends CI_Model
 		
 		return $result;
 	}
+
+	public function getPartners(){
+		$query = $this->db->get("partners");
+		$data = $query->result_array();
+
+		return $data;
+	}
 }
 
 ?>

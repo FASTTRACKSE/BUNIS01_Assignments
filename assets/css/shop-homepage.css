@@ -17,16 +17,29 @@ body {
 .caro-margin{
 	margin-top: 40px;
 }
-
+/*
 .homepage-service{
 	max-width: 100%;
   	height: auto;
-  	/*position: relative;
+  	position: relative;
 	margin: auto;
 	left: 90px;
 	right: 0;
 	top: 0;
-	bottom: 0;*/
+	bottom: 0;
+}*/
+
+.card-title{
+	text-align: center;
+}
+
+.service-bottom{
+	position: relative;
+	margin: auto;
+	left: 200px;
+	right: 0;
+	top: 0;
+	bottom: 0;
 }
 
 /*.href-hs{
@@ -38,14 +51,14 @@ body {
 	bottom: 0;
 }*/
 
-.logo{
+/*.logo{
 	position: relative;
 	margin: auto;
 	left: 380px;
 	right: 0;
 	top: 0;
 	bottom: 0;
-}
+}*/
 
 .sponsor{
 	text-align: center;

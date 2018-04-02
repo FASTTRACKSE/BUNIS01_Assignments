@@ -5,7 +5,13 @@
 	<!-- Page Content -->
     <div class="container bodyCustomNewsDetail">
 
-    	<h1 class="my-4"><?php echo($news['title']) ?></h1>
+    	<div class="headNewsDetail">
+    		<p ><?php echo($news['title']) ?></p>
+    	</div>
+    	<div class="dateNewsDetail">
+    		<p><i><?php echo($news['postDate']); ?></i></p>	
+    	</div>
+    	
 
 
     	<img class="imgNewsDetail" src="<?php echo(base_url()); ?>assets/newspart/img/news/<?php echo($news['imageNews']); ?>">

@@ -10,6 +10,8 @@
 			$this->load->model('CompanyProfile_model');
 			$this->load->model('newsModel');
 			$this->load->model('Product_Model');
+			$this->load->model('servicesModel');
+			$this->load->model('servicesAdminModel');
 
 			if (!$this->session->userdata('username')) {
 		        redirect('LoginController/login');
@@ -1501,6 +1503,214 @@
 
 	}
 
+	//services
+
+	//admin
+	public function registerService(){
+		$data = array(
+			'headerTitle' => 'Services',
+		);
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('Services/insertIndex');
+		$this->load->view('admintemplates/footer');
+	}
+
+    public function insertService()
+        {
+            $pic_name = $this->input->post('fName');
+
+            $config['upload_path']          = './assets/img/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10000;
+            $config['file_name'] = $pic_name;
+     
+            $this->load->library('upload', $config);
+            $this->upload->overwrite = true;
+
+
+            if (!$this->upload->do_upload('picFile')){
+                $error = array('error' => $this->upload->display_errors());
+            }else{
+
+                $upload_data = $this->upload->data();
+
+                $data = array(
+					"name" =>$this->input->post("fName"),
+					"description" =>$this->input->post("fDesc"),
+					"tag" =>$this->input->post("fTag"),
+                    "picture" => $upload_data['file_name'],
+                );
+                
+                $this->servicesAdminModel->insert_Data($data);
+
+                redirect('AdminController/viewAdminService');
+            }
+        }
+
+    public function updateService($ID)
+        {
+            $pic_name = $this->input->post('fName');
+
+            $config['upload_path']          = './assets/img/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10000;
+            $config['file_name'] = $pic_name;
+     
+            $this->load->library('upload', $config);
+            $this->upload->overwrite = true;
+
+
+            if (!$this->upload->do_upload('picFile')){
+                $error = array('error' => $this->upload->display_errors());
+            }else{
+
+                $upload_data = $this->upload->data();
+
+                $data = array(
+					"name" =>$this->input->post("fName"),
+					"description" =>$this->input->post("fDesc"),
+					"tag" =>$this->input->post("fTag"),
+                    "picture" => $upload_data['file_name'],
+                );
+                
+                $this->servicesAdminModel->update_Data_by_ID($ID,$data);
+
+                redirect('AdminController/viewAdminService');
+            }
+        }
+
+	public function viewAdminService(){
+
+		$config["base_url"] = base_url()."index.php/AdminController/view";
+		$config["total_rows"] = $this->db->get('service')->num_rows();
+		$config["per_page"] = 5;
+		$config["num_limits"] = 5;
+
+		$this->pagination->initialize($config);
+
+		$dataPage['getDataPagination'] = $this->servicesAdminModel->getPagination($config['per_page'],
+			$this->uri->segment(3));
+
+		$dataHead = array(
+			'headerTitle' => 'Services',
+		);
+
+		$data = array_merge($dataPage, $dataHead);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('Services/servicesAdminIndex');
+		$this->load->view('admintemplates/footer');
+ 	}
+
+	public function toDelete($ID){
+		$dataHead = array(
+			'headerTitle' => 'Services',
+		);
+		$dataPage['row'] = $this->servicesAdminModel->get_Data_by_ID($ID);
+
+		$data = array_merge($dataHead, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('Services/deleteIndex');
+		$this->load->view('admintemplates/footer');
+	}
+
+	public function deleteService($deleteID){;
+		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
+		redirect("AdminController/viewAdminService");
+	}
+
+	public function toUpdate($ID){
+		$data = array(
+			'headerTitle' => 'Services',
+		);
+		$data["row"] = $this->servicesAdminModel->get_Data_by_ID($ID);
+		$this->load->view('admintemplates/head');
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('Services/updateIndex', $data);
+		$this->load->view('admintemplates/footer');
+	}
+
+	//front end
+
+// view index
+	public function viewService(){
+		$data = array(
+			'headtitle' => 'Services',
+		);
+		$this->load->view('templates/head');
+		$this->load->view('templates/navbar');
+		$this->load->view('Services/services');
+		$this->load->view('templates/footer');
+	}
+
+// body index
+	public function showBody(){
+		$dataHeader = array(
+			'headtitle' => 'Body',
+		);
+		$dataModel["getData"] = $this->servicesModel->get_Body();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
+		$this->load->view('templates/navbar');
+		$this->load->view('Services/bodyIndex');
+		$this->load->view('templates/footer');
+	}
+
+//car rescue index
+	public function showCarRescue(){
+		$dataHeader = array(
+			'headtitle' => 'Body',
+		);
+		$dataModel["getData"] = $this->servicesModel->get_CarRescue();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
+		$this->load->view('templates/navbar');
+		$this->load->view("Services/carRescueIndex");
+		$this->load->view('templates/footer');
+	}
+
+//d2d index
+	public function showD2D(){
+		$dataHeader = array(
+			'headtitle' => 'Body',
+		);
+		$dataModel["getData"] = $this->servicesModel->get_D2D();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
+		$this->load->view('templates/navbar');
+		$this->load->view("Services/d2dIndex");
+		$this->load->view('templates/footer');
+	}
+
+//electrical index
+	public function showElectrical(){
+		$dataHeader = array(
+			'headtitle' => 'Body',
+		);
+		$dataModel["getData"] = $this->servicesModel->get_Electrical();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
+		$this->load->view('templates/navbar');
+		$this->load->view("Services/electricalIndex");
+		$this->load->view('templates/footer');
+	}
+
+//engine index
+	public function showEngine(){
+		$dataHeader = array(
+			'headtitle' => 'Body',
+		);
+		$dataModel["getData"] = $this->servicesModel->get_Engine();
+		$data=array_merge($dataHeader, $dataModel);
+		$this->load->view('templates/head',$data);
+		$this->load->view('templates/navbar');
+		$this->load->view("Services/engineIndex");
+		$this->load->view('templates/footer');
+	}
 
 
 

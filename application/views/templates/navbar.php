@@ -40,7 +40,7 @@
         <li class="nav-item">
           
           <div class="dropdown">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/Product_Controller/index">Products</a>
             
             <div class="dropdown-content">
                 <a href="<?php echo(base_url()); ?>index.php/Product_Controller/index">Insurance</a>

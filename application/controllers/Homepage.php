@@ -21,7 +21,10 @@ class Homepage extends CI_Controller{
 		$load_news = $this->Homepage_Model->getNews();
 		$dataNews['id'] = $load_news;
 
-		$data = array_merge($dataHead, $dataNews, $dataImage);
+		$load_partners = $this->Homepage_Model->getPartners();
+		$dataPartners['partner'] = $load_partners;
+
+		$data = array_merge($dataHead, $dataNews, $dataImage, $dataPartners);
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
