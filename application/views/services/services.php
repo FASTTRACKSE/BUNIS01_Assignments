@@ -197,15 +197,15 @@
 
       <div class="site-content cf">
       <div class="services cf" id="showcase">
-      <div class="title-arch">Our services<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p></div>
+      <div class="title-arch">Our services</div>
 
             <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2>Body</h2>
+                    <h2><?php echo $getData['name']; ?></h2>
                   
                     <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+                    <p><?php echo $getData['description']; ?></p>
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
@@ -214,10 +214,10 @@
       <div class="services-item slide">
           <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
               <div class="project-hover">
-              <h2>Body</h2>
+              <h2><?php echo $getData['name']; ?></h2>
             
               <hr />
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+              <p><?php echo $getData['description']; ?></p>
             <a href="<?php echo base_url()?>index.php/HCauto_Controller/showBody">Show me more</a>
           </div>
         </div>
@@ -225,10 +225,10 @@
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background1 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2>Electrical</h2>
+                    <h2><?php echo $getData['name']; ?></h2>
                   
                     <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+                    <p><?php echo $getData['description']; ?></p>
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showElectrical">See Project</a>
                 </div>
               </div>
@@ -237,10 +237,10 @@
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background2 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2>Engine</h2>
+                    <h2><?php echo $getData['name']; ?></h2>
                   
                     <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+                    <p><?php echo $getData['description']; ?></p>
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showEngine">See Project</a>
                 </div>
               </div>
@@ -249,10 +249,10 @@
             <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background3 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2>Car Rescue</h2>
+                    <h2><?php echo $getData['name']; ?></h2>
                   
                     <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+                    <p><?php echo $getData['description']; ?></p>
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showCarRescue">See Project</a>
                 </div>
               </div>
@@ -261,10 +261,10 @@
                 <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background4 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
-                    <h2>Door-to-Door Delivery</h2>
+                    <h2><?php echo $getData['name']; ?></h2>
                   
                     <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
+                    <p><?php echo $getData['description']; ?></p>
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showD2D">See Project</a>
                 </div>
               </div>
