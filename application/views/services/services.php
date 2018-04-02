@@ -112,9 +112,6 @@
       .project {
           width: 100%;
           height: 500px;
- /*         background-image: url(http://img.apwcontent.com/sites/apw-migration/design/newhf/categoryimg/auto_body_parts_-and-_mirrors.png);
-          background-size: auto;
-          background-position: center;*/
           padding: 0 !important;
           float:left;
       }
@@ -201,21 +198,21 @@
       <div class="services cf" id="showcase">
       <div class="title-arch">Our services</div>
       
-<?php foreach($getData as $data){ ?>
+<?php foreach($getData as $data):?>
+
             <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
-                    <div class="project-hover">
-                    <h2><?php echo $data['name']; ?></h2>
+                    <div>
+                    <h1 style="color: black;"><?php echo $data['name']; ?></h1>
                   
-                    <hr />
-                    <p><?php echo $data['description']; ?></p>
+                    <p style="font-size: 16pt;" ><?php echo $data['description']; ?></p>
 
-                    <img src="<?php echo base_url()."/assets/img/"?><?php echo $getData['picture']; ?>">
-                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
+                    <img src="<?php echo base_url()."/assets/img/"?><?php echo $data['picture']; ?>">
+                  <a href="<?php echo base_url() ?>index.php/HCauto_Controller/<?php if($data['tag'] == 'Body'){echo('showBody');}if($data['tag'] == 'Electrical'){echo('showElectrical');}if($data['tag'] == 'Engine'){echo('showEngine');}if($data['tag'] == 'Car Rescue'){echo('showCarRescue');}if($data['tag'] == 'Door to Door Delivery'){echo('showD2D');} ?>">Show me more . . . </a>
                 </div>
               </div>
             </div>
-<?php } ?>
+<?php endforeach; ?>
 
 <!--                   <a href="<?php echo base_url() ?>HCauto_Controller/showBody">Show me more</a>
                 </div>

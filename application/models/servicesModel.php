@@ -3,10 +3,8 @@ class ServicesModel extends CI_Model{
 
 //view services
 	function get_Services(){
-		$this->db->select('*');
-		$this->db->where('tag');
 		$query = $this->db->get("service");
-		$data = $query->row_array();
+		$data = $query->result_array();
 		return $data;
 	}
 
@@ -53,7 +51,7 @@ class ServicesModel extends CI_Model{
 	function get_D2D(){
 		//$this->db->select('*');
 		//$this->db->where_in("SELECT * FROM service WHERE tag = 'Door-to-Door'");
-        $this->db->where('tag =','Door-to-Door'); 
+        $this->db->where('tag =','Door to Door Delivery'); 
 		$query = $this->db->get("service");
 		$data = $query->row_array();
 		return $data;

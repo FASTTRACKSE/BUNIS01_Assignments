@@ -13,7 +13,9 @@ class HCauto_Controller extends CI_Controller{
 			'headTitle' => 'Garage HC Auto | Services',
 		);
 		$dataModel["getData"] = $this->ServicesModel->get_Services();
+
 		$data = array_merge($dataHeader, $dataModel);
+		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('services/services');
