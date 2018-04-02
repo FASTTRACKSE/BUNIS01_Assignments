@@ -1,6 +1,6 @@
 <?php 
 	
-	class newsModel extends CI_Model{
+	class NewsModel extends CI_Model{
 
 
 		function getList($perPage, $uri){

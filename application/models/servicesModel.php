@@ -1,5 +1,5 @@
 <?php
-class servicesModel extends CI_Model{
+class ServicesModel extends CI_Model{
 
 //body
 	function get_Body(){

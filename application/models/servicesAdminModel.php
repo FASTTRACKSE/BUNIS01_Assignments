@@ -1,5 +1,5 @@
 <?php
-class servicesAdminModel extends CI_Model{
+class ServicesAdminModel extends CI_Model{
 
     function get_Data_by_ID($getID){
         $this->db->select('*');
