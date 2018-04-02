@@ -215,7 +215,7 @@ mark {
             
               <hr />
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
+            <a href="<?php echo base_url()?>index.php/HCauto_Controller/showBody">Show me more</a>
           </div>
         </div>
       </div>

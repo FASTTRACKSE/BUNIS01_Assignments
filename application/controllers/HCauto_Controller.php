@@ -14,7 +14,7 @@ class HCauto_Controller extends CI_Controller{
 		);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('services');
+		$this->load->view('Services/services');
 		$this->load->view('templates/footer');
 	}
 
@@ -27,7 +27,7 @@ class HCauto_Controller extends CI_Controller{
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view('bodyIndex');
+		$this->load->view('Services/bodyIndex');
 		$this->load->view('templates/footer');
 	}
 
@@ -40,7 +40,7 @@ class HCauto_Controller extends CI_Controller{
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("carRescueIndex");
+		$this->load->view("Services/carRescueIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -53,7 +53,7 @@ class HCauto_Controller extends CI_Controller{
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("d2dIndex");
+		$this->load->view("Services/d2dIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -66,7 +66,7 @@ class HCauto_Controller extends CI_Controller{
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("electricalIndex");
+		$this->load->view("Services/electricalIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -79,7 +79,7 @@ class HCauto_Controller extends CI_Controller{
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("engineIndex");
+		$this->load->view("Services/engineIndex");
 		$this->load->view('templates/footer');
 	}
 }
