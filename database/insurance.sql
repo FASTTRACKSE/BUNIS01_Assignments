@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2018 at 06:28 PM
+-- Generation Time: Apr 02, 2018 at 06:05 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -41,9 +41,9 @@ CREATE TABLE `insurance` (
 --
 
 INSERT INTO `insurance` (`InsuranceID`, `InsuranceName`, `InsurancePrice`, `InsuranceDesc`, `InsuranceImage`) VALUES
-(1, 'AllState', 100000, 'Insurance', 'allstate.jpg'),
-(9, 'Progressive', 200000, 'Insurance', 'progressive.jpg'),
-(10, 'Liberty Mutual', 300000, 'Insurance', 'libertymutual.jpg');
+(9, 'Progressive', 200000, 'Insurance', 'Progressive.png'),
+(10, 'Liberty Mutual', 300000, 'Insurance', 'libertymutual.jpg'),
+(11, 'AllState', 100000, 'Insurance', 'AllState.jpg');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +63,7 @@ ALTER TABLE `insurance`
 -- AUTO_INCREMENT for table `insurance`
 --
 ALTER TABLE `insurance`
-  MODIFY `InsuranceID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `InsuranceID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
