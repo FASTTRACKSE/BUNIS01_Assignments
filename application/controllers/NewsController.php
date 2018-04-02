@@ -11,7 +11,6 @@
 		}
 
 		public function viewNews(){
-			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get('news')->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -35,7 +34,6 @@
 		}
 
 		public function viewPromoProg(){
-			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'promoprog'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -59,7 +57,6 @@
 		}
 
 		public function viewTechCons(){
-			$config['base_url'] = 'http://localhost/hcauto/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'techcons'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -83,7 +80,6 @@
 		}
 
 		public function viewAutoNews(){
-			$config['base_url'] = 'http://localhost/hcauto/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'autonews'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;

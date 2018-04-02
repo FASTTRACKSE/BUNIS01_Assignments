@@ -1513,7 +1513,7 @@
 		);
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/insertIndex');
+		$this->load->view('services/insertIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -1601,7 +1601,7 @@
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/servicesAdminIndex');
+		$this->load->view('services/servicesAdminIndex');
 		$this->load->view('admintemplates/footer');
  	}
 
@@ -1615,7 +1615,7 @@
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/deleteIndex');
+		$this->load->view('services/deleteIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -1631,7 +1631,7 @@
 		$data["row"] = $this->ServicesAdminModel->get_Data_by_ID($ID);
 		$this->load->view('admintemplates/head');
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/updateIndex', $data);
+		$this->load->view('services/updateIndex', $data);
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -1644,7 +1644,7 @@
 		);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('Services/services');
+		$this->load->view('services/services');
 		$this->load->view('templates/footer');
 	}
 
@@ -1657,7 +1657,7 @@
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view('Services/bodyIndex');
+		$this->load->view('services/bodyIndex');
 		$this->load->view('templates/footer');
 	}
 
@@ -1670,7 +1670,7 @@
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("Services/carRescueIndex");
+		$this->load->view("services/carRescueIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -1683,7 +1683,7 @@
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("Services/d2dIndex");
+		$this->load->view("services/d2dIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -1696,7 +1696,7 @@
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("Services/electricalIndex");
+		$this->load->view("services/electricalIndex");
 		$this->load->view('templates/footer');
 	}
 
@@ -1709,7 +1709,7 @@
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
-		$this->load->view("Services/engineIndex");
+		$this->load->view("services/engineIndex");
 		$this->load->view('templates/footer');
 	}
 

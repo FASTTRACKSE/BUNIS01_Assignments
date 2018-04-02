@@ -7,13 +7,13 @@
 
 		public function loginValidation(){
 
-			$this->load->model('loginModel');
+			$this->load->model('LoginModel');
 
 			$username = $this->input->post('username');
 			$password = md5($this->input->post('password'));
-			$rs= $this->loginModel->checkLogin($username, $password);
+			$rs= $this->LoginModel->checkLogin($username, $password);
 
-			if($this->loginModel->checkLogin($username, $password)){
+			if($this->LoginModel->checkLogin($username, $password)){
 
 				$session_data = array(
 					'username' => $username
