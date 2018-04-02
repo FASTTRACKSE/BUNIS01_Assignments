@@ -26,12 +26,12 @@
         <li class="nav-item">
           
           <div class="dropdown">
-            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/newscontroller/viewNews">News & Events</a>
+            <a class="nav-link" href="<?php echo(base_url()); ?>index.php/NewsController/viewNews">News & Events</a>
             
             <div class="dropdown-content">
-                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewPromoProg">Promotion Program</a>
-                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewTechCons">Technical Consulting</a>
-                <a href="<?php echo(base_url()); ?>index.php/newscontroller/viewAutoNews">Automotive News</a>
+                <a href="<?php echo(base_url()); ?>index.php/NewsController/viewPromoProg">Promotion Program</a>
+                <a href="<?php echo(base_url()); ?>index.php/NewsController/viewTechCons">Technical Consulting</a>
+                <a href="<?php echo(base_url()); ?>index.php/NewsController/viewAutoNews">Automotive News</a>
             </div>
           </div>
 

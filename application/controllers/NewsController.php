@@ -7,11 +7,10 @@
 			parent::__construct();
 			$this->load->helper('url');
 			$this->load->library('pagination');
-			$this->load->model('newsModel');
+			$this->load->model('NewsModel');
 		}
 
 		public function viewNews(){
-			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get('news')->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -26,7 +25,7 @@
 				'type' => 'viewNews',
 			);
 
-			$dataPage['newsList'] = $this->newsModel->getList($config['per_page'], $this->uri->segment(3));
+			$dataPage['newsList'] = $this->NewsModel->getList($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
@@ -35,7 +34,6 @@
 		}
 
 		public function viewPromoProg(){
-			$config['base_url'] = 'http://localhost/hcautoproject/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'promoprog'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -50,7 +48,7 @@
 				'type' => 'viewPromoProg',
 			);
 
-			$dataPage['newsList'] = $this->newsModel->getListPromoProg($config['per_page'], $this->uri->segment(3));
+			$dataPage['newsList'] = $this->NewsModel->getListPromoProg($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
@@ -59,7 +57,6 @@
 		}
 
 		public function viewTechCons(){
-			$config['base_url'] = 'http://localhost/hcauto/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'techcons'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -74,7 +71,7 @@
 				'type' => 'viewTechCons',
 			);
 
-			$dataPage['newsList'] = $this->newsModel->getListTechCons($config['per_page'], $this->uri->segment(3));
+			$dataPage['newsList'] = $this->NewsModel->getListTechCons($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
@@ -83,7 +80,6 @@
 		}
 
 		public function viewAutoNews(){
-			$config['base_url'] = 'http://localhost/hcauto/index.php/NewsController/viewPromoProg';
 			$config['total_rows'] = $this->db->get_where('news', array('type' => 'autonews'))->num_rows();
 			$config['per_page'] = 6;
 			$config['num_links'] = 5;
@@ -98,7 +94,7 @@
 				'type' => 'viewAutoNews'
 			);
 
-			$dataPage['newsList'] = $this->newsModel->getListAutoNews($config['per_page'], $this->uri->segment(3));
+			$dataPage['newsList'] = $this->NewsModel->getListAutoNews($config['per_page'], $this->uri->segment(3));
 
 			$this->load->view('templates/head', $data);
 			$this->load->view('templates/navbar');
@@ -108,7 +104,7 @@
 
 		public function viewNewsDetail($id){
 
-			$dataPage['news'] = $this->newsModel->getNewsById($id);
+			$dataPage['news'] = $this->NewsModel->getNewsById($id);
 
 			$dataHead = array(
 				'headTitle' => 'Garage HC Auto',

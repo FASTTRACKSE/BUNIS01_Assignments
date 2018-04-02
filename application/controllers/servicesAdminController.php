@@ -1,5 +1,5 @@
 <?php 
-class servicesAdminController extends CI_Controller{
+class ServicesAdminController extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
@@ -14,7 +14,7 @@ class servicesAdminController extends CI_Controller{
 		);
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/insertIndex');
+		$this->load->view('services/insertIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
@@ -46,7 +46,7 @@ class servicesAdminController extends CI_Controller{
                 
                 $this->servicesAdminModel->insert_Data($data);
 
-                redirect('servicesAdminController/view');
+                redirect('ServicesAdminController/view');
             }
         }
 
@@ -78,13 +78,13 @@ class servicesAdminController extends CI_Controller{
                 
                 $this->servicesAdminModel->update_Data_by_ID($ID,$data);
 
-                redirect('servicesAdminController/view');
+                redirect('ServicesAdminController/view');
             }
         }
 
 	public function view(){
 
-		$config["base_url"] = base_url()."index.php/servicesAdminController/view";
+		$config["base_url"] = base_url()."index.php/ServicesAdminController/view";
 		$config["total_rows"] = $this->db->get('service')->num_rows();
 		$config["per_page"] = 5;
 		$config["num_limits"] = 5;
@@ -102,7 +102,7 @@ class servicesAdminController extends CI_Controller{
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/servicesAdminIndex');
+		$this->load->view('services/servicesAdminIndex');
 		$this->load->view('admintemplates/footer');
  	}
 
@@ -116,13 +116,13 @@ class servicesAdminController extends CI_Controller{
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/deleteIndex');
+		$this->load->view('services/deleteIndex');
 		$this->load->view('admintemplates/footer');
 	}
 
 	public function delete($deleteID){;
 		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
-		redirect("servicesAdminController/view");
+		redirect("ServicesAdminController/view");
 	}
 
 	public function toUpdate($ID){
@@ -132,7 +132,7 @@ class servicesAdminController extends CI_Controller{
 		$data["row"] = $this->servicesAdminModel->get_Data_by_ID($ID);
 		$this->load->view('admintemplates/head');
 		$this->load->view('admintemplates/navbar');
-		$this->load->view('Services/updateIndex', $data);
+		$this->load->view('services/updateIndex', $data);
 		$this->load->view('admintemplates/footer');
 	}
 }
