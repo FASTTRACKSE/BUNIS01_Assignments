@@ -209,19 +209,18 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
-<<<<<<< HEAD
+
                     <img src="<?php echo base_url()."/assets/img/"?><?php echo $getData['picture']; ?>">
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
             </div>
 <?php } ?>
-=======
+
                   <a href="<?php echo base_url() ?>HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
 
       <div class="services-item slide">
           <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
@@ -234,9 +233,7 @@
           </div>
         </div>
       </div>
-=======
->>>>>>> 3ba3bcc7cacdd963be344b0a6f5bdf518f216cb3
->>>>>>> 89091526f497931e634f5297e3b94367d5904f33
+
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background1 wow animated animated4 fadeInLeft">
                     <div class="project-hover">
