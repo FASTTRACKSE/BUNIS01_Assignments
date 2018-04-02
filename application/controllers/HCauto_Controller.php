@@ -14,7 +14,7 @@ class HCauto_Controller extends CI_Controller{
 		);
 		$this->load->view('templates/head');
 		$this->load->view('templates/navbar');
-		$this->load->view('services');
+		$this->load->view('services/services');
 		$this->load->view('templates/footer');
 	}
 
@@ -32,8 +32,6 @@ class HCauto_Controller extends CI_Controller{
 	}
 
 	public function showDetail($bodyID){
-		$data = array(
-
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
@@ -74,14 +72,6 @@ class HCauto_Controller extends CI_Controller{
 	}
 
 
-		$this->load->view("carRescueIndex");
-		$this->load->view('templates/footer');
-	}
-
-		$this->load->view("carRescueIndex");
-		$this->load->view('templates/footer');
-	}
-
 //d2d index
 	public function showD2D(){
 		$dataHeader = array(
@@ -108,13 +98,6 @@ class HCauto_Controller extends CI_Controller{
 	}
 
 
-		$this->load->view("d2dIndex");
-		$this->load->view('templates/footer');
-	}
-
-		$this->load->view("d2dIndex");
-		$this->load->view('templates/footer');
-	}
 
 //electrical index
 	public function showElectrical(){
@@ -141,13 +124,6 @@ class HCauto_Controller extends CI_Controller{
 		// $this->load->view('templates/footer');
 	}
 
-		$this->load->view("electricalIndex");
-		$this->load->view('templates/footer');
-	}
-
-		$this->load->view("electricalIndex");
-		$this->load->view('templates/footer');
-	}
 
 //engine index
 	public function showEngine(){
@@ -174,12 +150,5 @@ class HCauto_Controller extends CI_Controller{
 		// $this->load->view('templates/footer');
 	}
 
-		$this->load->view("engineIndex");
-		$this->load->view('templates/footer');
-	}
-
-		$this->load->view("engineIndex");
-		$this->load->view('templates/footer');
-	}
 }
 ?>

@@ -1,5 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
@@ -134,12 +133,10 @@ html {
 .cf {
   *zoom: 1;
 }
-body {
-  font-family: 'Roboto', Arial, sans-serif;
+body {\
   margin: 0;
   color: #555555;
   background-color: #f5f7fa;
-  text-align: center;
 }
 img {
   max-width: 100%;
