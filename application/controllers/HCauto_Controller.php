@@ -9,10 +9,11 @@ class HCauto_Controller extends CI_Controller{
 
 // view index
 	public function view(){
-		$data = array(
+		$dataHeader = array(
 			'headTitle' => 'Garage HC Auto | Services',
 		);
-
+		$dataModel["getData"] = $this->servicesModel->get_Services();
+		$data = array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('services/services');

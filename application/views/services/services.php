@@ -112,12 +112,14 @@
       .project {
           width: 100%;
           height: 500px;
-          background-image: url(http://img.apwcontent.com/sites/apw-migration/design/newhf/categoryimg/auto_body_parts_-and-_mirrors.png);
+ /*         background-image: url(http://img.apwcontent.com/sites/apw-migration/design/newhf/categoryimg/auto_body_parts_-and-_mirrors.png);
           background-size: auto;
-          background-position: center;
+          background-position: center;*/
           padding: 0 !important;
           float:left;
       }
+
+
 
       .project-hover {
           width: 100%;
@@ -169,7 +171,7 @@
           height: 5px;
       }
 
-      .project-background1{
+  /*    .project-background1{
          background-image: url(https://cdn1.bikebandit-images.com/website/images17/menus/aftermarket/spark-plugs.png);
          background-size: 100%;
       }
@@ -188,7 +190,7 @@
          background-image: url(https://static1.squarespace.com/static/54e4b9bae4b002fddcd4f798/t/56606e58e4b03f54f280ab72/1449160456756/transparent+mechanic+pic.png?format=500w);
          background-size: cover;
       }
-
+*/
 
 
       </style>
@@ -198,7 +200,8 @@
       <div class="site-content cf">
       <div class="services cf" id="showcase">
       <div class="title-arch">Our services</div>
-
+      
+<?php foreach($getData as $data){ ?>
             <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
                     <div class="project-hover">
@@ -206,25 +209,12 @@
                   
                     <hr />
                     <p><?php echo $getData['description']; ?></p>
+                    <img src="<?php echo base_url()."/assets/img/"?><?php echo $getData['picture']; ?>">
                   <a href="<?php echo base_url() ?>index.php/HCauto_Controller/showBody">Show me more</a>
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-
-      <div class="services-item slide">
-          <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project wow animated animated4 fadeInLeft">
-              <div class="project-hover">
-              <h2><?php echo $getData['name']; ?></h2>
-            
-              <hr />
-              <p><?php echo $getData['description']; ?></p>
-            <a href="<?php echo base_url()?>index.php/HCauto_Controller/showBody">Show me more</a>
-          </div>
-        </div>
-      </div>
-=======
->>>>>>> 3ba3bcc7cacdd963be344b0a6f5bdf518f216cb3
+<?php } ?>
               <div class="services-item slide">
                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 project project-background1 wow animated animated4 fadeInLeft">
                     <div class="project-hover">

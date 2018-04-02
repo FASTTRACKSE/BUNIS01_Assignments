@@ -1,6 +1,15 @@
 <?php
 class ServicesModel extends CI_Model{
 
+//view services
+	function get_Services(){
+		$this->db->select('*');
+		$this->db->where('tag');
+		$query = $this->db->get("service");
+		$data = $query->row_array();
+		return $data;
+	}
+
 //body
 	function get_Body(){
 		// $this->db->where_in("SELECT * FROM service WHERE tag = 'Body'");
