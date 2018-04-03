@@ -26,6 +26,7 @@
 					<td><?php echo $row['ID']; ?></td>
 					<td><?php echo $row['name']; ?></td>
 					<td><?php echo $row['description']; ?></td>
+					<td><?php echo $row['tag']; ?></td>
 					<td><?php echo $row['picture']; ?></td>
 					<td><a href="<?php echo base_url() ?>ServicesAdminController/toUpdate/<?php echo($row['ID']);?>">Update</a></td>
 					<td><a href="<?php echo base_url() ?>ServicesAdminController/toDelete/<?php echo($row['ID']); ?>"> Delete</a></td>
