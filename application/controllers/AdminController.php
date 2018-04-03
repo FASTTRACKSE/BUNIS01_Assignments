@@ -1653,7 +1653,7 @@
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_Body();
+		$dataModel["getData"] = $this->ServicesModel->get_Body();
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
@@ -1666,7 +1666,7 @@
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_CarRescue();
+		$dataModel["getData"] = $this->ServicesModel->get_CarRescue();
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
@@ -1679,7 +1679,7 @@
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_D2D();
+		$dataModel["getData"] = $this->ServicesModel->get_D2D();
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
@@ -1692,7 +1692,7 @@
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_Electrical();
+		$dataModel["getData"] = $this->ServicesModel->get_Electrical();
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');
@@ -1705,7 +1705,7 @@
 		$dataHeader = array(
 			'headtitle' => 'Body',
 		);
-		$dataModel["getData"] = $this->servicesModel->get_Engine();
+		$dataModel["getData"] = $this->ServicesModel->get_Engine();
 		$data=array_merge($dataHeader, $dataModel);
 		$this->load->view('templates/head',$data);
 		$this->load->view('templates/navbar');

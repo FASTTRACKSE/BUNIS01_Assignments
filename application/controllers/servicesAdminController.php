@@ -5,7 +5,7 @@ class ServicesAdminController extends CI_Controller{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('pagination');
-		$this->load->model('servicesAdminModel');
+		$this->load->model('ServicesAdminModel');
 	}
 
 	public function register(){
@@ -44,7 +44,7 @@ class ServicesAdminController extends CI_Controller{
                     "picture" => $upload_data['file_name'],
                 );
                 
-                $this->servicesAdminModel->insert_Data($data);
+                $this->ServicesAdminModel->insert_Data($data);
 
                 redirect('ServicesAdminController/view');
             }
@@ -76,7 +76,7 @@ class ServicesAdminController extends CI_Controller{
                     "picture" => $upload_data['file_name'],
                 );
                 
-                $this->servicesAdminModel->update_Data_by_ID($ID,$data);
+                $this->ServicesAdminModel->update_Data_by_ID($ID,$data);
 
                 redirect('ServicesAdminController/view');
             }
@@ -91,7 +91,7 @@ class ServicesAdminController extends CI_Controller{
 
 		$this->pagination->initialize($config);
 
-		$dataPage['getDataPagination'] = $this->servicesAdminModel->getPagination($config['per_page'],
+		$dataPage['getDataPagination'] = $this->ServicesAdminModel->getPagination($config['per_page'],
 			$this->uri->segment(3));
 
 		$dataHead = array(
@@ -110,7 +110,7 @@ class ServicesAdminController extends CI_Controller{
 		$dataHead = array(
 			'headerTitle' => 'Services',
 		);
-		$dataPage['row'] = $this->servicesAdminModel->get_Data_by_ID($ID);
+		$dataPage['row'] = $this->ServicesAdminModel->get_Data_by_ID($ID);
 
 		$data = array_merge($dataHead, $dataPage);
 
@@ -121,7 +121,7 @@ class ServicesAdminController extends CI_Controller{
 	}
 
 	public function delete($deleteID){;
-		$this->servicesAdminModel->delete_Data_by_ID($deleteID);
+		$this->ServicesAdminModel->delete_Data_by_ID($deleteID);
 		redirect("ServicesAdminController/view");
 	}
 
@@ -129,7 +129,7 @@ class ServicesAdminController extends CI_Controller{
 		$data = array(
 			'headerTitle' => 'Services',
 		);
-		$data["row"] = $this->servicesAdminModel->get_Data_by_ID($ID);
+		$data["row"] = $this->ServicesAdminModel->get_Data_by_ID($ID);
 		$this->load->view('admintemplates/head');
 		$this->load->view('admintemplates/navbar');
 		$this->load->view('services/updateIndex', $data);
