@@ -108,7 +108,6 @@
 
 			$dataHead = array(
 				'headTitle' => 'Garage HC Auto',
-				'type' => 'viewAutoNews'
 			);
 
 			$data = array_merge($dataPage, $dataHead);
