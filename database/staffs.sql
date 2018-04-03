@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2018 at 03:16 PM
+-- Generation Time: Apr 03, 2018 at 06:00 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `staffs` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `job` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `twitter` varchar(255) NOT NULL,
-  `facebook` varchar(255) NOT NULL,
-  `linkedin` varchar(255) NOT NULL
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `linkedin` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
