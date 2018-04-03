@@ -39,7 +39,7 @@
 
 		<br>
 		<br>
-		<a href="<?php echo base_url() ?>ServicesAdminController/register">Register</a>
+		<a href="<?php echo base_url() ?>ServicesAdminController/register">Add new service</a>
 	</div>
 
     </div>
