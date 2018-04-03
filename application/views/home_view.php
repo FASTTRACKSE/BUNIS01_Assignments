@@ -65,13 +65,13 @@
             <?php foreach ($id as $row)  { ?>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100" >
-                <a href="<?php echo(base_url()); ?>newscontroller/viewNewsDetail/<?php echo($row['id']); ?>"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/newspart/img/news/').$row['imageNews'] ;?>"></a>
+                <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($row['id']); ?>"><img class="card-img-top customImg"  src="<?php echo  base_url('assets/newspart/img/news/').$row['imageNews'] ;?>"></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="<?php echo(base_url()); ?>newscontroller/viewNewsDetail/<?php echo($row['id']); ?>"><?php echo $row['title'];?></a>
+                    <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($row['id']); ?>"><?php echo $row['title'];?></a>
                   </h4>
                   <p class="card-text"><?php echo substr($row['newsDescription'], 0, 150); ?> . . .</p>
-                  <a href="<?php echo(base_url()); ?>newscontroller/viewNewsDetail/<?php echo($row['id']); ?>">Read More . . .</a>
+                  <a href="<?php echo(base_url()); ?>NewsController/viewNewsDetail/<?php echo($row['id']); ?>">Read More . . .</a>
                 </div>
               </div>
             </div>
@@ -201,7 +201,9 @@
             <?php foreach ($partner as $row)  { ?>
             <div class="col-lg-2 col-sm-6 text-center mb-4">
               <div class="logo">
-                <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo  base_url('assets/company_profile/img/partners/').$row['img'] ;?>" alt="">
+                <a href="http://<?php echo $row['link'] ;?>">
+                  <img class="rounded-circle img-fluid d-block mx-auto" src="<?php echo  base_url('assets/company_profile/img/partners/').$row['img'] ;?>" alt="">
+                </a>
               </div>
             </div>
             <?php } ?>
