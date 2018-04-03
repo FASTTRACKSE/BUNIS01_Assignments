@@ -1349,6 +1349,7 @@
 		$this->load->view('admintemplates/footer');
 		}
 
+
 		public function do_update_usedcars($id)
 		{
 
@@ -1390,23 +1391,86 @@
 
 			
 		}
-			public function insert_usedcars()
+		public function do_update_product($id)
+		{
+
+
+			
+			$pic_name = $this->input->post('name');
+
+			$config['upload_path']          = './assets/image/product/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 10000;
+			$config['file_name'] = $pic_name;
+	 
+			$this->load->library('upload', $config);
+			$this->upload->overwrite = true;
+
+
+			if (!$this->upload->do_upload('image')){
+				$error = array('error' => $this->upload->display_errors());
+				print_r($error);
+			}else{
+
+				$upload_data = $this->upload->data();
+			
+
+				$data = array(
+				'ProductName' =>	$this->input->post('name'),
+			   'ProductPrice'=> $this->input->post('price'),
+			   'ProductDesc'=> $this->input->post('desc'),
+				'ProducType'=> $this->input->post('type'),
+				'ProductImage' => $upload_data['file_name'],
+				);
+				
+				$this->Product_Model->update_product($id, $data);
+
+				redirect('AdminController/getallproduct');
+
+				}
+			
+
+			
+		}
+	
+		public function update_product($id)
 		{
 
 			
 				$dataView = array(
-				'headerTitle' => 'used cars',
+				'headerTitle' => 'product',
+			);
+
+			$load_product=$this->Product_Model->getalldata($id);
+			$dataPage['item'] = $load_product;
+			$data = array_merge($dataView, $dataPage);
+
+			$this->load->view('admintemplates/head', $data);
+			$this->load->view('admintemplates/navbar');
+			$this->load->view('product/updatepage_product');
+			$this->load->view('admintemplates/footer');
+		}
+
+		
+		
+
+			public function insert_product()
+		{
+
+			
+				$dataView = array(
+				'headerTitle' => 'product',
 			);
 
 			$data = $dataView;
 
 			$this->load->view('admintemplates/head', $data);
 			$this->load->view('admintemplates/navbar');
-			$this->load->view('product/insertpage_usedcars');
+			$this->load->view('product/insertpage_product');
 			$this->load->view('admintemplates/footer');
 		}
-
-		public function do_insert_usedcars()
+	
+		public function do_insert_product()
 		{
 
 		
@@ -1430,14 +1494,14 @@
 			
 
 				$data = array(
-					'UsedCarsName' => $this->input->post('name'),
-					'UsedCarsPrice' => $this->input->post('price'),
-					'UsedCarsDesc' => $this->input->post('desc'),
-					
-					'UsedCarsImage' => $upload_data['file_name'],
+					'ProductName' => $this->input->post('name'),
+					'ProductPrice' => $this->input->post('price'),
+					'ProductDesc' => $this->input->post('desc'),
+					'ProductType' => $this->input->post('type'),
+					'ProductImage' => $upload_data['file_name'],
 				);
 				
-				$this->Product_Model->insert_usedcars( $data);
+				$this->Product_Model->insert_product( $data);
 
 				redirect('AdminController/getallproduct');
 			}
@@ -1462,19 +1526,36 @@
 		$this->load->view('admintemplates/footer');
 	}
 
+	public function delete_product($id)
+	{
+				$dataView = array(
+				'headerTitle' => 'product',
+			);
+
+		$load_product=$this->Product_Model->delete_product($id);
+		$dataPage['item'] = $load_product;
+
+		$data = array_merge($dataView, $dataPage);
+
+		$this->load->view('admintemplates/head', $data);
+		$this->load->view('admintemplates/navbar');
+		$this->load->view('product/deletepage_product');
+		$this->load->view('admintemplates/footer');
+	}
 	
-		public function do_delete_usedcars($id)
+
+
+		public function do_delete_product($id)
 	{
 		
-			$this->Product_Model->delete_usedcars($id);
+			$this->Product_Model->do_delete_product($id);
 
 			redirect ('AdminController/getallproduct');
 	}
-
 	public function getallproduct()
 	{
 
-		$config['base_url'] = 'http://localhost/ProjectPHP/HCAuto/index.php/AdminController/getallproduct/';
+		$config['base_url'] = base_url().'AdminController/getallproduct/';
 		$config['total_rows'] = $this->db->get('product')->num_rows();
 		$config['per_page'] = 5;
 		$config['num_links'] = 3;

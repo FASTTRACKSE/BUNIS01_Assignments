@@ -27,10 +27,11 @@ table, th, td {
     <th>Product Name</th>
     <th>Product Price</th>
     <th>Product Description</th>
+     <th>Product Type</th>
     <th>Product Image</th>
      <th> Edit</th>
       </tr>
-             <a href="<?php echo  base_url('AdminController/insert_acc')?>">Insert</a>
+             <a href="<?php echo  base_url('AdminController/insert_product')?>">Insert</a>
             <?php foreach ($item as $row)
   {
     ?>
@@ -47,6 +48,9 @@ table, th, td {
 
                    
                    <?php echo "<td>". $row['ProductDesc'] ."</td>";?>
+
+
+                   <?php echo "<td>". $row['ProductType'] ."</td>";?>
                   
 
                    
@@ -54,9 +58,9 @@ table, th, td {
                      
                      
                  <?php echo "<td>" ?>
-                <a href="<?php echo  base_url('AdminController/update_acc/').$row['ProductID'] ?>">Update</a>
+                <a href="<?php echo  base_url('AdminController/update_product/').$row['ProductID'] ?>">Update</a>
 
-                <a href="<?php echo  base_url('AdminController/delete_acc/').$row['ProductID'] ?>">Delete</a> 
+                <a href="<?php echo  base_url('AdminController/delete_product/').$row['ProductID'] ?>">Delete</a> 
    
                <?php echo "</td>" ?>
                <?php echo "</tr>";?>

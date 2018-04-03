@@ -126,6 +126,7 @@ class Product_Model extends CI_Model
 
 		return $data;
 	}
+
 		public function getalladmindata($perPage, $uri)
 	{
 		
@@ -137,7 +138,27 @@ class Product_Model extends CI_Model
     		return (sizeof($data) > 0?$data:null);
 	}
 
+		function insert_product($data){
+			$this->db->insert('product', $data);
+		}
 
+	
+		function do_update_product($id, $data){
+			$this->db->where("ProductID", $id);
+			$this->db->update('product', $data);
+		}
+		function delete_product($id){
+			$this->db->where("ProductID", $id);
+			$query=$this->db->get('product');
+			$data=$query->row_array(); //to print 1 row
+			return $data;
+
+		}
+
+		function do_delete_product($id){
+			$this->db->where("ProductID", $id);
+			$this->db->delete('product');
+		}
 
 
 
