@@ -15,7 +15,7 @@ html lang="vi">
       	<tr>
 			<textarea name="desc" form="productForm" placeholder="Enter product here . . ." required><?php echo($item['ProductDesc']) ?></textarea>	
 		</tr>
-		<form action="<?php echo(base_url());?>AdminController/update_product/<?php echo($item['ProductID']) ?>" method="POST" enctype="multipart/form-data" id="newsForm">
+		<form action="<?php echo(base_url());?>AdminController/do_update_product/<?php echo($item['ProductID']) ?>" method="POST" enctype="multipart/form-data" id="productForm">
 			<tr>
 				<td>Product Name</td>
 				<td> : </td>

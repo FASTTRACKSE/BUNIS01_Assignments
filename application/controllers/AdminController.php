@@ -1419,11 +1419,11 @@
 				'ProductName' =>	$this->input->post('name'),
 			   'ProductPrice'=> $this->input->post('price'),
 			   'ProductDesc'=> $this->input->post('desc'),
-				'ProducType'=> $this->input->post('type'),
+				'ProductType'=> $this->input->post('type'),
 				'ProductImage' => $upload_data['file_name'],
 				);
 				
-				$this->Product_Model->update_product($id, $data);
+				$this->Product_Model->do_update_product($id, $data);
 
 				redirect('AdminController/getallproduct');
 
