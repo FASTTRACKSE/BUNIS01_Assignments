@@ -10,7 +10,7 @@
       </ol>
       
       <div class = "test_table">
-		<table class = "bordered">
+		<table class = "bordered" border="1">
 			<tr>
 				<th>ID</th>
 				<th>Name</th>
@@ -28,8 +28,8 @@
 					<td><?php echo $row['description']; ?></td>
 					<td><?php echo $row['tag']; ?></td>
 					<td><?php echo $row['picture']; ?></td>
-					<td><a href="<?php echo base_url() ?>ServicesAdminController/toUpdate/<?php echo($row['ID']);?>">Update</a></td>
-					<td><a href="<?php echo base_url() ?>ServicesAdminController/toDelete/<?php echo($row['ID']); ?>"> Delete</a></td>
+					<td><a href="<?php echo base_url() ?>ServicesAdminController/toUpdate/<?php echo($row['ID']);?>">Update</a>
+					<a href="<?php echo base_url() ?>ServicesAdminController/toDelete/<?php echo($row['ID']); ?>"> Delete</a></td>
 				</tr>
 		<?php
 			}
