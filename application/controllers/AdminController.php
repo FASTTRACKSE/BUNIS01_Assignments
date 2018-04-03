@@ -21,7 +21,7 @@
 
 		public function logout(){
 			$this->session->sess_destroy();
-			redirect(base_url().'index.php/LoginController/login');
+			redirect(base_url().'LoginController/login');
 		}
 
 		public function loginValidation(){
