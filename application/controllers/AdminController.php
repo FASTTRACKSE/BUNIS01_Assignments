@@ -545,7 +545,7 @@
 
 	//news----------------------------------------------------------------------------------
 		public function news(){
-			$config['base_url'] = 'http://localhost/hcautoproject/index.php/AdminController/news/';
+			$config['base_url'] = base_url().'AdminController/news/';
 			$config['total_rows'] = $this->db->get('news')->num_rows();
 			$config['per_page'] = 5;
 			$config['num_links'] = 3;
