@@ -13,13 +13,22 @@ public function index()
 
 
 	{
+		$config['total_rows'] = $this->db->get('product')->num_rows();
+		$config['per_page'] = 6;
+		$config['num_links'] = 5;
+		$config['use_page_numbers'] = TRUE;
 
 		$data = array(
 				'headTitle' => 'Garage HC Auto | Insurance',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '',
+				'type' => 'index',
 		);
 
-		$load_product=$this->Product_Model->getProduct();
-		$dataPage['InsuranceID'] = $load_product;
+		
+	
+		$dataPage['item'] = $this->Product_Model->getProduct($config['per_page'], $this->uri->segment(3));
+		
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
@@ -30,16 +39,19 @@ public function index()
 	
 	public function load_desc($id)
 	{
-		$data = array(
-				'headTitle' => 'Garage HC Auto | Insurance',
-		);
-		
-		$dataPage['item']=$this->Product_Model->getProductDesc($id);
-		
-		$this->load->view('templates/head', $data);
-		$this->load->view('templates/navbar');
-		$this->load->view('product/Product_Description', $dataPage);
-		$this->load->view('templates/footer');
+			$dataPage['item'] = $this->Product_Model->getalldata($id);
+
+			$dataHead = array(
+				'headTitle' => 'Garage HC Auto',
+				// 'type' => 'load_desc'
+			);
+
+			$data = array_merge($dataPage, $dataHead);
+
+			$this->load->view('templates/head', $data);
+			$this->load->view('templates/navbar');
+			$this->load->view('product/Product_Description');
+			$this->load->view('templates/footer');
 	}
 
 	public function carparts()
@@ -47,17 +59,24 @@ public function index()
 
 	{
 
+		$config['total_rows'] = $this->db->get_where('product', array('ProductType' => 'carparts'))->num_rows();
+			$config['per_page'] = 6;
+			$config['num_links'] = 5;
+			$config['use_page_numbers'] = TRUE;
+
 
 		$data = array(
-				'headTitle' => 'Garage HC Auto | Promoting Program',
+				'headTitle' => 'Garage HC Auto | CarParts',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '| CarParts',
+				'type' => 'index',
 		);
 
-		$load_product=$this->Product_Model->getCarParts();
-		$dataPage['CarPartsID'] = $load_product;
+		$dataPage['item'] = $this->Product_Model->getCarParts($config['per_page'], $this->uri->segment(3));
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('product/carparts_list', $dataPage);
+		$this->load->view('product/Product_list', $dataPage);
 		$this->load->view('templates/footer');
 
 
@@ -83,18 +102,25 @@ public function index()
 
 	{
 
-				$data = array(
+			
+		$config['total_rows'] = $this->db->get_where('product', array('ProductType' => 'Accessory'))->num_rows();
+			$config['per_page'] = 6;
+			$config['num_links'] = 5;
+			$config['use_page_numbers'] = TRUE;
+
+
+		$data = array(
 				'headTitle' => 'Garage HC Auto | Accessory',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '| Accessory',
+				'type' => 'index',
 		);
 
-		$load_product=$this->Product_Model->getAcc();
-		$dataPage['accessory'] = $load_product;
+		$dataPage['item'] = $this->Product_Model->getAcc($config['per_page'], $this->uri->segment(3));
 		
-
-
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('product/acc_list', $dataPage);
+		$this->load->view('product/Product_list', $dataPage);
 		$this->load->view('templates/footer');
 
 
@@ -126,18 +152,25 @@ public function index()
 	
 		{	
 
-				$data = array(
+		$config['total_rows'] = $this->db->get_where('product', array('ProductType' => 'carparts'))->num_rows();
+			$config['per_page'] = 6;
+			$config['num_links'] = 5;
+			$config['use_page_numbers'] = TRUE;
+
+
+		$data = array(
 				'headTitle' => 'Garage HC Auto | Oil and Fluid',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '| Oil and Fluid',
+				'type' => 'index',
 		);
 
-		$load_product=$this->Product_Model->getOilandFluid();
-		$dataPage['OilandFluidID'] = $load_product;
+		$dataPage['item'] = $this->Product_Model->getOilandFluid($config['per_page'], $this->uri->segment(3));
 		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('product/oil_fluid_list', $dataPage);
+		$this->load->view('product/Product_list', $dataPage);
 		$this->load->view('templates/footer');
-
 		
 
 
@@ -169,15 +202,24 @@ public function index()
 
 	{
 
-				$data = array(
+			$config['total_rows'] = $this->db->get_where('product', array('ProductType' => 'usedcars'))->num_rows();
+			$config['per_page'] = 6;
+			$config['num_links'] = 5;
+			$config['use_page_numbers'] = TRUE;
+
+
+		$data = array(
 				'headTitle' => 'Garage HC Auto | Used Cars',
+				'total_rows' => $config['total_rows'],
+				'headerTitle' => '| Used Cars',
+				'type' => 'index',
 		);
 
-		$load_product=$this->Product_Model->getUsedCars();
-		$dataPage['UsedCarsID'] = $load_product;
+		$dataPage['item'] = $this->Product_Model->getUsedCars($config['per_page'], $this->uri->segment(3));
+		
 		$this->load->view('templates/head', $data);
 		$this->load->view('templates/navbar');
-		$this->load->view('product/usedcars_list', $dataPage);
+		$this->load->view('product/Product_list', $dataPage);
 		$this->load->view('templates/footer');
 		
 

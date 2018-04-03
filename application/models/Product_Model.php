@@ -2,14 +2,15 @@
 
 class Product_Model extends CI_Model
 {
-	public function getProduct()
+	public function getProduct($perPage, $uri)
 	{
 		// $this->db->where("studentID",'BN001');
-
-		$query=$this->db->get("insurance");
-		$data=$query->result_array();
-
-		return $data;
+			if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->limit($perPage, $uri*5-5);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
 	public function getProductDesc($id)
 	{
@@ -21,15 +22,26 @@ class Product_Model extends CI_Model
 		return $data;
 	}
 
-
-	public function getCarParts()
+	public function getInsurance($perPage, $uri)
 	{
 		// $this->db->where("studentID",'BN001');
+			if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->where('ProductType', 'Insurance')->limit($perPage, $uri*5-5);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
+	}
 
-		$query=$this->db->get("carparts");
-		$data=$query->result_array();
 
-		return $data;
+	public function getCarParts($perPage, $uri)
+	{
+		if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->where('ProductType', 'CarParts')->limit($perPage, $uri*6-6);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
 
 		public function getCarPartsDesc($id)
@@ -43,14 +55,15 @@ class Product_Model extends CI_Model
 	}
 
 
-	public function getAcc()
+	public function getAcc($perPage, $uri)
 	{
 		// $this->db->where("studentID",'BN001');
-
-		$query=$this->db->get("accessory");
-		$data=$query->result_array();
-
-		return $data;
+	if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->where('ProductType', 'Accessory')->limit($perPage, $uri*6-6);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
 
 		public function getAccDesc($id)
@@ -63,14 +76,14 @@ class Product_Model extends CI_Model
 		return $data;
 	}
 
-	public function getOilandFluid()
+	public function getOilandFluid($perPage, $uri)
 	{
-		// $this->db->where("studentID",'BN001');
-
-		$query=$this->db->get("oilandfluid");
-		$data=$query->result_array();
-
-		return $data;
+		if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->where('ProductType', 'OilandFluid')->limit($perPage, $uri*6-6);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
 
 		public function getOilandFluidDesc($id)
@@ -82,14 +95,14 @@ class Product_Model extends CI_Model
 
 		return $data;
 	}
-		public function getUsedCars()
+		public function getUsedCars($perPage, $uri)
 	{
-		// $this->db->where("studentID",'BN001');
-
-		$query=$this->db->get("usedcars");
-		$data=$query->result_array();
-
-		return $data;
+	if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->where('ProductType', 'UsedCars')->limit($perPage, $uri*6-6);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
 
 		public function getUsedCarsDesc($id)
@@ -102,106 +115,31 @@ class Product_Model extends CI_Model
 		return $data;
 	}
 
-	public function update_usedcars($id, $arData)
-	{
-		$this->db->where('UsedCarsID', $id);
-		$this->db->update("usedcars", $arData);
-	}
-
-
-		public function update_insurance($id, $arData)
-	{
-		$this->db->where('InsuranceID', $id);
-		$this->db->update("insurance", $arData);
-	}
-
 	
-		public function update_carparts($id,$arData)
-	{
-			$this->db->where('CarPartsID', $id);
-		$this->db->update("carparts", $arData);
-	}
 
-	
-		public function update_oil_fluid($id,$arData)
+		public function getalldata($id)
 	{
-		$this->db->where('OilandFluidID', $id);
-		$this->db->update("oilandfluid", $arData);
-	}
-
-		public function update_acc($id,$arData)
-	{
-		$this->db->where('AccessoryID', $id);
-		$this->db->update("accessory", $arData);
-	}
-
-	public function insert_insurance($data)
-	{
-
-		$result = $this->db->insert("insurance",$data);
-		return $result;
-	}
-	public function insert_carparts($data)
-	{
-
-		$result = $this->db->insert("carparts",$data);
-		return $result;
-	}
-	public function insert_acc($data)
-	{
-
-		$result = $this->db->insert("accessory",$data);
-		return $result;
-	}
-	public function insert_oil_fluid($data)
-	{
-
-		$result = $this->db->insert("oilandfluid",$data);
-		return $result;
-	}
-	public function insert_usedcars($data)
-	{
-
-		$result = $this->db->insert("usedcars",$data);
-		return $result;
-	}
-	public function delete_insurance($id)
-	{
-		$this->db->where("InsuranceID",$id);
-		$result=$this->db->delete("insurance");
 		
-		
-		return $result;
+		$this->db->where('ProductID',$id);
+		$query=$this->db->get("product");
+		$data=$query->row_array();
+
+		return $data;
 	}
-		public function delete_carparts($id)
+		public function getalladmindata($perPage, $uri)
 	{
-		$this->db->where("CarPartsID",$id);
-		$result=$this->db->delete("carparts");
 		
-	
-		return $result;
+			if($uri == null || $uri==''){
+				$uri = 1;
+			}
+			$query = $this->db->select('*')->from('product')->limit($perPage, $uri*5-5);
+			$data = $this->db->get()->result_array();
+    		return (sizeof($data) > 0?$data:null);
 	}
-		public function delete_oil_fluid($id)
-	{
-		$this->db->where("OilandFluidID",$id);
-		$result=$this->db->delete("oilandfluid");
-		
-	
-		return $result;
-	}
-		public function delete_acc($id)
-	{
-		$this->db->where("AccessoryID",$id);
-		$result=$this->db->delete("accessory");
-		
-		return $result;
-	}
-		public function delete_usedcars($id)
-	{
-		$this->db->where("UsedCarsID",$id);
-		$result=$this->db->delete("usedcars");
-	
-		return $result;
-	}
+
+
+
+
+
 
 }

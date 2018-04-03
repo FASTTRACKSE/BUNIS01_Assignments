@@ -1,100 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
 
- <!DOCTYPE html>
-<html lang="en">
+  
 
-  <head>
+  <!-- Page Content -->
+    <div class="container bodyCustom">
 
-    <link href="<?php echo (base_url()); ?>assets/productpart/css/shop-homepage.css" rel="stylesheet">
-    <div style="margin-left:200px">
-<h1 style="margin-top:100px">Insurance</h1>
-</div>
-  </head>
+      <h1 class="my-4">Product
+        <small><?php echo($headerTitle); ?></small>
+      </h1>
 
-  <body >
+      <!-- Page Heading -->
+      
+      <div class="row">
 
-    <div class="container">
-          <div style="margin-top: 100px;" class="row">
-
-
-            <?php foreach ($InsuranceID as $row)
-  {
-    ?>
-          
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100" >
-             <img class="card-img-top customImg"  src="<?php echo  base_url('assets/image/product/').$row['InsuranceImage'] ;?>">
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <?php echo  $row['InsuranceName']  ;?>
-                  </h4>
-                  <h5><?php echo  $row['InsurancePrice']  ;?></h5>
-                  <!-- <p class="card-text"><?php echo   $row['InsuranceDesc'] ;?></p> -->
-
-              <a href="load_desc/<?php echo $row['InsuranceID'] ?>">Find out more</a>
-     
-                </div>
- 
-              </div>
-
-            </div>
-              <?php  
-  }
-  ?>
-  </div>
-</div>
-
-    <!-- Navigation -->
-
-    <!-- Page Content -->
- 
-        <!-- /.col-lg-3 -->
-
-       <!--  <div class="col-lg-9 marginTop">
-
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="<?php echo  base_url('assets/image/product/imgslider1.jpg') ;?>" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo  base_url('assets/image/product/imgslider2.jpg') ;?>" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="<?php echo  base_url('assets/image/product/imgslider3.jpg') ;?>" alt="Third slide">
+        <?php foreach($item as $product):?>
+          <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+              <a href="<?php echo(base_url()); ?>Product_Controller/load_desc/<?php echo($product['ProductID']); ?>"><img class="card-img-top customNewsImg" src="<?php echo(base_url()); ?>assets/image/product/<?php echo($product['ProductImage']); ?>" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="<?php echo(base_url()); ?>Product_Controller/load_desc/<?php echo($product['ProductID']); ?>"><?php echo($product['ProductName']) ?></a>
+                </h4>
+                <p class="card-text"><?php echo substr($product['ProductDesc'], 0, 150); ?> . . .</p>
+                <a href="<?php echo(base_url()); ?>Product_Controller/load_desc/<?php echo($product['ProductID']); ?>">Read More . . .</a>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
- 
-           
-        </div>
-        <!-- /.col-lg-9 -->
+          </div> 
+        <?php endforeach; ?>
+        
+
 
       </div>
       <!-- /.row -->
 
-    </div> 
+      <!-- Pagination -->
+      <div>
+
+         <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+            </li>
+
+            <?php for($i = 0; $i < $total_rows/6 ; $i++): ?>
+             
+                  
+                  <li class="page-item">
+                    <a class="page-link" href="<?php echo(base_url()); ?>Product_Controller/<?php echo($type);?>/<?php if($i<1){echo('');}else{echo($i+1);} ?>"><?php echo($i+1); ?></a>
+                  </li>
+                  
+              
+            <?php endfor; ?>
+
+            <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+            </li>
+
+        </ul> 
+      </div>
+      
+
+    </div>
     <!-- /.container -->
-
-    <!-- Footer -->
-    
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="<?php echo(base_url()); ?>assets/productpart/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo(base_url()); ?>assets/productpart/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
-
+</body>
 </html>

@@ -1474,26 +1474,21 @@
 	public function getallproduct()
 	{
 
+		$config['base_url'] = 'http://localhost/ProjectPHP/HCAuto/index.php/AdminController/getallproduct/';
+		$config['total_rows'] = $this->db->get('product')->num_rows();
+		$config['per_page'] = 5;
+		$config['num_links'] = 3;
+		$config['use_page_numbers'] = TRUE;
+
+		$this->pagination->initialize($config);
+		
+
 		$dataView = array(
 				'headerTitle' => 'Product',
 			);
 
-		$load_insurance=$this->Product_Model->getProduct();
-		$dataPageInsurance['InsuranceID'] = $load_insurance;
-
-		$load_carparts=$this->Product_Model->getCarParts();
-		$dataPageCarParts['CarPartsID'] = $load_carparts;
-
-		$load_oilandfluid=$this->Product_Model->getOilandFluid();
-		$dataPageOilandFluid['OilandFluidID'] = $load_oilandfluid;
-
-		$load_accessory=$this->Product_Model->getAcc();
-		$dataPageAcc['AccessoryID'] = $load_accessory;
-
-		$load_usedcars=$this->Product_Model->getUsedCars();
-		$dataPageUsedCars['UsedCarsID'] = $load_usedcars;
-
-		$data = array_merge($dataView, $dataPageInsurance,$dataPageCarParts,$dataPageOilandFluid,$dataPageAcc,$dataPageUsedCars);
+		$dataPage['item'] = $this->Product_Model->getalladmindata($config['per_page'], $this->uri->segment(3));
+		$data = array_merge($dataView, $dataPage);
 
 		$this->load->view('admintemplates/head', $data);
 		$this->load->view('admintemplates/navbar');
