@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2018 at 07:22 PM
+-- Generation Time: Apr 03, 2018 at 06:54 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -41,9 +41,10 @@ CREATE TABLE `service` (
 
 INSERT INTO `service` (`ID`, `name`, `description`, `picture`, `tag`, `longDesc`) VALUES
 (1, 'test', 'testing', 'testing.jpg', 'Body', 'long testing'),
-(2, 'test1', 'testing1', '', 'Body', ''),
-(3, 'test2', 'testing2', '', 'Engine', ''),
-(4, 'test3', 'testing3', '', 'Car Rescue', '');
+(2, 'test1', 'testing1', 'testing1.jpg', 'Car Rescue', 'test long1'),
+(3, 'test2', 'testing2', 'testing2.jpg', 'Engine', ''),
+(4, 'test3', 'testing3', 'testing3.jpg', 'Door to Door Delivery', ''),
+(5, 'tes', 'testing5', 'tes.jpg', 'Electrical', '');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
